@@ -2,7 +2,7 @@
 global $connection;
 if (isset($_GET['edit'])){
 	$edit=$_GET['edit'];
-	$query = "SELECT * FROM pengajar WHERE id_pengajar = '$edit'";
+	$query = "SELECT * FROM pengajar WHERE id = $edit";
 	$pengajar= mysqli_query($connection, $query);
 	$count = mysqli_num_rows($pengajar);                        
 

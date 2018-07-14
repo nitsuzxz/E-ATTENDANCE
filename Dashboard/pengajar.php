@@ -86,24 +86,31 @@
         
           <form  action="" method="post" class="col-lg-12">
 
-           <input type="text" placeholder="nama" name="id_pengajar" value="<?php echo $id ?>" required>
-            <input type="text" placeholder="email" name="email" value="<?php echo $email?>"   required>
-              <input type="text" placeholder="kata laluan" name="password" value="<?php echo $pass ?>"  required>
+           <input type="text" placeholder="nama" name="id_pengajar" value="<?php echo (isset($id)) ? $id : ''; ?>" required>
+            <input type="text" placeholder="email" name="email" value="<?php echo (isset($email)) ? $email : ''; ?>"   required>
+              <input type="text" placeholder="kata laluan" name="password" value="<?php echo (isset($pass)) ? $pass : ''; ?>"  required>
             <div class=".col-md-4">
                               <select name="bahagian"  class="form-control-sm form-control">
-                               
-                                <option  value="IE">Industri Elektronik</option>
-                                <option  value="TKS">Teknologi Komputer Sistem</option>
-                                <option  value="KIMPALAN">Teknologi Kimpalan</option>  
+								<option  value="">pilih bahagian...</option>
+                                <option  value="IE"<?php echo (isset($bahagian) && $bahagian == 'IE') ? ' selected=selected' : ''; ?>>Industri Elektronik</option>
+                                <option  value="TKS"<?php echo (isset($bahagian) && $bahagian == 'TKS') ? ' selected=selected' : ''; ?>>Teknologi Komputer Sistem</option>
+                                <option  value="KIMPALAN"<?php echo (isset($bahagian) && $bahagian == 'KIMPALAN') ? ' selected=selected' : ''; ?>>Teknologi Kimpalan</option>  
                               </select>
                             </div>                    
             <div class=".col-md-4">
                             <select name="jawatan"  class="form-control-sm form-control">
-                                <option  value="Pengajar">Pengajar</option>
-                                <option  value="Ketua Bahagian">Ketua Bahagian</option> 
+								<option  value="">pilih jawatan...</option>
+                                <option  value="Pengajar"<?php echo (isset($jawatan) && $jawatan == 'Pengajar') ? ' selected=selected' : ''; ?>>Pengajar</option>
+                                <option  value="Ketua Bahagian"<?php echo (isset($jawatan) && $jawatan == 'Ketua Bahagian') ? ' selected=selected' : ''; ?>>Ketua Bahagian</option> 
                               </select>
                             </div>
-            <button class='btn btn-success' type="submit" name="tpengajar"  >tambah</button>
+			<?php
+			if (isset($_GET['edit'])) {
+				echo '<button class="btn btn-success" type="submit" name="kpengajar"  >kemaskini</button>';
+			} else {
+				echo '<button class="btn btn-success" type="submit" name="tpengajar"  >tambah</button>';
+			}
+			?>
     </form>
 
         <div class="content mt-3">

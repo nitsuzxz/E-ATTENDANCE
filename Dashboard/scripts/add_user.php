@@ -12,20 +12,4 @@
 
         
     }
-
-    if (isset($_SESSION['edit'])){
-        $edit=$_SESSION['id'];
-        $query = "SELECT * FROM pengajar";
-        $pengajar= mysqli_query($connection, $query);
-        $count = mysqli_num_rows($pengajar);                         
-
-    while($row= mysqli_fetch_array($pengajar)){
-         $id= $row['id'];
-         $nama= $row['id_pengajar'];
-         $email= $row['email'];
-         $pass= $row['password'];
-         $bahagian= $row['jabatan'];
-         $jawatan= $row['jawatan'];   
-    }
-   }
 ?>
