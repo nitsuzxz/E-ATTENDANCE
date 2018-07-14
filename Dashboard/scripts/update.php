@@ -1,4 +1,5 @@
 <?php
+global $connection;
 if (isset($_GET['edit'])){
 	$edit=$_GET['edit'];
 	$query = "SELECT * FROM pengajar WHERE id_pengajar = '$edit'";

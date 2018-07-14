@@ -1,5 +1,6 @@
 <?php include("../config/db.php") ?>
 <?php include("./scripts/add_user.php") ?>
+<?php include("./scripts/update.php") ?>
 <?php include("./side-nav.php") ?>
 <!doctype html>
 <html class="no-js" lang="">
