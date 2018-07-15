@@ -8,10 +8,10 @@ if(!isset($_SESSION)){
 
 $host='localhost';
 $user='root';
-$pass='';
+$dbpass='';
 $db_name='eattendance';
 
-$connection= mysqli_connect($host,$user,$pass,$db_name);
+$connection= mysqli_connect($host,$user,$dbpass,$db_name);
 
 if(!$connection){
    die("connection to db failed" . mysqli_error($connection));

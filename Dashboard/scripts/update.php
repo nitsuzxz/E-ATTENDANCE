@@ -18,4 +18,17 @@ if (isset($_GET['edit'])){
 		}
 	}
 }
-?>
+
+    if(isset($_POST['kpengajar'])){
+        
+        $nama       =mysqli_real_escape_string  ($connection,$_POST['id_pengajar']);
+        $email      =mysqli_real_escape_string  ($connection,$_POST['email']);
+        $pass       =mysqli_real_escape_string  ($connection,$_POST['password']);
+        $bahagian   =mysqli_real_escape_string  ($connection,$_POST['jabatan']);
+        $jawatan    =mysqli_real_escape_string  ($connection,$_POST['jawatan']);
+        
+        $mysqli_query  = mysqli_query($connection, "UPDATE pengajar SET id_pengajar='$nama', email='$email',password='$pass',jabatan='$bahagian',jawatan='$jawatan' WHERE id=$id");
+}
+       
+    
+?>    
