@@ -1,40 +1,34 @@
 <?php
 
-global $connection; 
+global $connection;
 
- if(isset($_POST['Import'])){
+ if(isset($_POST['import'])){
 		
-		$filename=$_FILES["file"]["tmp_name"];		
+		$filename=$_FILES['file']['tmp_name'];{
+            $filename= explode(".",$FILES['file']['name']);
+            if ($filename[1]=='csv')
+            {
+                $handle= fopen($FILES['file']['tmp_name'], "r");
+                while($data= fgetcsv($handle))
+                {
+                    $id_pengajar=mysqli_real_escape_string ($connection, $data[0]);
+                    $email=mysqli_real_escape_string ($connection, $data[1]);
+                    $password=mysqli_real_escape_string ($connection, $data[2]);
+                    $jabatan=mysqli_real_escape_string ($connection, $data[3]);
+                    $jawatan=mysqli_real_escape_string ($connection, $data[4]);
+                    
+                    $sql_query = mysqli_query($connection, "INSERT INTO pengajar(id_pengajar`, `email`, `password`, `jabatan`, `jawatan`) values ('$id_pengajar','$email','$password','$jabatan','$jawatan')");
+                    
+                    
+                    
+                }
+                fclose($handle);
+                
+                echo "<script>alert('import done');</script>";
+            }
+        }
+ }
+?>
 
 
-		 if($_FILES["file"]["size"] > 0)
-		 {
-		  	$file = fopen($filename, "r");
-	        while (($getData = fgetcsv($file, 10000, ",")) !== FALSE)
-	         {
-
-
-	           $sql_query = mysqli_query($connection, "INSERT INTO pengajar (id_pengajar,email,password,jabatan,jawatan) VALUES ('".$getData[0]."','".$getData[1]."','".$getData[2]."','".$getData[3]."','".$getData[4]."')";
-                   $result = mysqli_query($con, $sql);
-				if(!isset($result))
-				{
-					echo "<script type=\"text/javascript\">
-							alert(\"Invalid File:Please Upload CSV File.\");
-							window.location = \"../pengajar.php\"
-						  </script>";		
-				}
-				else {
-					  echo "<script type=\"text/javascript\">
-						alert(\"CSV File has been successfully Imported.\");
-						window.location = \"../pengajar.php\"
-					</script>";
-				}
-	         }
-			
-	         fclose($file);	
-		 }
-	}	 
-
-
- ?>
 

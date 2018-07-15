@@ -114,13 +114,13 @@
 			?>
 		</form>	
 			<div class="form-group">
-                           <?php include("./scripts/upload.php") ?> 
+                   <?php include('./scripts/upload.php') ?>
                     
                             <div class="col-md-4">
                                 <input type="file" name="file" id="file" class="input-large">
                             </div>
                             <div class="col-md-4">
-                                <button type="submit" id="Import" name="Import" class="btn btn-primary button-loading" data-loading-text="Loading...">Import</button>
+                                <button class="btn btn-success" type="submit" name="import" value="import" id="import">tambah</button>
                             </div>
                         </div>
  
