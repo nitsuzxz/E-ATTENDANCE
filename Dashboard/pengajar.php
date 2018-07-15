@@ -2,6 +2,7 @@
 <?php include("./scripts/add_user.php") ?>
 <?php include("./scripts/update.php") ?>
 <?php include("./side-nav.php") ?>
+
 <!doctype html>
 <html class="no-js" lang="">
 <head>
@@ -111,7 +112,23 @@
 				echo '<button class="btn btn-success" type="submit" name="tpengajar"  >tambah</button>';
 			}
 			?>
-    </form>
+		</form>	
+			<div class="form-group">
+                           <?php include("./scripts/upload.php") ?> 
+                    
+                            <div class="col-md-4">
+                                <input type="file" name="file" id="file" class="input-large">
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" id="Import" name="Import" class="btn btn-primary button-loading" data-loading-text="Loading...">Import</button>
+                            </div>
+                        </div>
+ 
+                       
+ 
+    
+       
+       
 
         <div class="content mt-3">
             <div class="animated fadeIn">
