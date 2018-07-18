@@ -15,6 +15,6 @@
         VALUES 
         ('$nama_pelajar','$no_ndp','$kursus','$semester','$pass_pelajar','$ic','$alamat')");
 
-        
+         header("Location: ./pelajar.php");
     }
 ?>

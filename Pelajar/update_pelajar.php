@@ -32,6 +32,7 @@ if (isset($_GET['edit'])){
         $alamat            =mysqli_real_escape_string  ($connection,$_POST['alamat']);
         
         $mysqli_query  = mysqli_query($connection, "UPDATE pelajar SET nama_pelajar='$nama_pelajar', no_ndp='$no_ndp',kursus='$kursus',semester='$semester',pass_pelajar='$pass_pelajar',ic='$ic' ,alamat='$alamat' WHERE id=$id");
+                 header("Location: ./pelajar.php");
 }
        
     

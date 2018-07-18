@@ -28,6 +28,8 @@ if (isset($_GET['edit'])){
         $jawatan    =mysqli_real_escape_string  ($connection,$_POST['jawatan']);
         
         $mysqli_query  = mysqli_query($connection, "UPDATE pengajar SET id_pengajar='$nama', email='$email',password='$pass',bahagian='$bahagian',jawatan='$jawatan' WHERE id=$id");
+        
+         header("Location: ./pengajar.php");
 }
        
     
