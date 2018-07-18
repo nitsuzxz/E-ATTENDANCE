@@ -1,5 +1,5 @@
 <?php include("./config/db.php") ?>
-<?php include ("./Dashboard/admin_scripts.php") ?>
+<?php include ("./login/admin_scripts.php") ?>
 
 <!DOCTYPE html>
 <html>
