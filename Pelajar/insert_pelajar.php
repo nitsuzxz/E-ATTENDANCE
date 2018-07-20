@@ -1,5 +1,6 @@
 <html>
 <body>                 
+  
      <form  action="" method="post" class="col-lg-12">
 
      <input type="text" placeholder="Nama Pelajar" name="nama_pelajar" value="<?php echo (isset($nama_pelajar)) ? $nama_pelajar : ''; ?>" required>

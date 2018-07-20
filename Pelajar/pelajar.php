@@ -85,6 +85,7 @@
                 </div>
             </div>
         </div> 
+        <div></div>
        <?php include ("./insert_pelajar.php")?>
        
         <div class="content mt-3">

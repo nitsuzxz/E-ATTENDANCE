@@ -1,6 +1,7 @@
 <?php include("../config/db.php") ?>
 <?php include("./add_user.php") ?>
 <?php include("./update.php") ?>
+<?php include("./uploads.php") ?>
 <?php include("../assets/side-nav.php") ?>
 
 <html class="no-js" lang="">
@@ -8,7 +9,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>EATTENDANCE</title>  
+    <title>EATTENDANCE</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
@@ -23,12 +25,12 @@
 </head>
 
 <body>
-    
-<div id="right-panel" class="right-panel">
-         <header id="header" class="header">
+
+    <div id="right-panel" class="right-panel">
+        <header id="header" class="header">
 
             <div class="header-menu">
-                
+
 
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
@@ -40,12 +42,12 @@
                                 <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                             </form>
                         </div>
-                       
+
                     </div>
                 </div>
 
-               
-               
+
+
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,14 +55,15 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-                                <a class="nav-link" href="../index.php"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                            <a class="nav-link" href="../index.php"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-        </header><!-- /header -->
+        </header>
+        <!-- /header -->
 
         <div class="breadcrumbs">
             <div class="col-sm-4">
@@ -81,15 +84,24 @@
                     </div>
                 </div>
             </div>
-        </div> 
-       <?php include ("./insert_form.php")?>
-       
+        </div>
+        <?php include ("./insert_form.php")?>
+
+  <form method="post" enctype="multipart/form-data">
+   <div align="center">  
+    <label>Select CSV File:</label>
+    <input type="file" name="file" />
+    <br />
+    <input type="submit" name="submit" value="Import" class="btn btn-info" />
+   </div>
+        </form>
+
         <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                  
+                    <div class="col-lg-12">
+                        <div class="card">
+
                         </div>
                     </div>
                 </div>
@@ -102,23 +114,23 @@
                         </div>
                         <div class="card-body">
                             <table class="table">
-                              <thead class="thead-dark">
-                                <tr>
-                                  <th scope="col">No</th>
-                                  <th scope="col">Nama</th>
-                                  <th scope="col">E-mail</th>
-                                  <th scope="col">Kata Laluan</th>
-                                  <th scope="col">Bahagian</th>
-                                  <th scope="col">Jawatan</th>
-                                  <th scope="col"></th>
-                                  <th scope="col"></th>       
-                                </tr>
-                              </thead>
-                            
-                              <tbody>
-                                <?php include("./view_pengajar.php") ?>
-                              </tbody>
-                        
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">E-mail</th>
+                                        <th scope="col">Kata Laluan</th>
+                                        <th scope="col">Bahagian</th>
+                                        <th scope="col">Jawatan</th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <?php include("./view_pengajar.php") ?>
+                                </tbody>
+
                             </table>
 
                         </div>
@@ -126,13 +138,12 @@
                 </div>
 
 
-               
-                       
-                    </div>
-                </div>
 
-                </div>
-           
+
+            </div>
+        </div>
+
+
 
     <!-- Right Panel -->
 
@@ -144,4 +155,5 @@
 
 
 </body>
+
 </html>
