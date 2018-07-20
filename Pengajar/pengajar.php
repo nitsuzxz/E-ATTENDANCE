@@ -4,6 +4,8 @@
 <?php include("./uploads.php") ?>
 <?php include("../assets/side-nav.php") ?>
 
+
+
 <html class="no-js" lang="">
 
 <head>
@@ -62,7 +64,7 @@
             </div>
 
         </header>
-    </div>
+    
         <!-- /header -->
 
         <div class="breadcrumbs">
@@ -85,14 +87,13 @@
                 </div>
             </div>
         </div>
-        <?php include ("./insert_form.php")?>
-
+     <?php include ("./insert_form.php")?>
   <form method="post" enctype="multipart/form-data">
    <div align="center">  
-    <label>Select CSV File:</label>
+    <label>Pilih fail CSV:</label>
     <input type="file" name="file" />
     <br />
-    <input type="submit" name="submit" value="Import" class="btn btn-info" />
+    <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />
    </div>
         </form>
 
@@ -142,6 +143,7 @@
 
             </div>
         </div>
+    </div>
 
 
 
