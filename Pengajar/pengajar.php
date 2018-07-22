@@ -87,28 +87,31 @@
                 </div>
             </div>
         </div>
-     <?php include ("./insert_form.php")?>
-  <form method="post" enctype="multipart/form-data">
-   <div align="center">  
-    <label>Pilih fail CSV:</label>
-    <input type="file" name="file" />
-    <br />
-    <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />
-   </div>
-        </form>
-
-        <div class="content mt-3">
-            <div class="animated fadeIn">
-                <div class="row">
-                    <div class="col-lg-12">
+        <div class="col-lg-12">
+        </div>
+        <div class="col-lg-12">
                         <div class="card">
-
+                            <div class="card-header">
+                                <h4>Inline List</h4>
+                            </div>
+                            <div class="card-body">
+                                <?php include ("./insert_form.php")?>
+                                 <form method="post" enctype="multipart/form-data">
+                                 
+                                <label>Pilih fail CSV:</label>
+                                <input type="file" name="file" /><br />
+                                <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />
+                   
+            </form>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    
+    
+     
+           
 
-
-                <div class="col-lg-12">
+   <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">PENGAJAR</strong>
@@ -139,14 +142,6 @@
                 </div>
 
 
-
-
-            </div>
-        </div>
-    </div>
-
-
-
     <!-- Right Panel -->
 
 
@@ -154,8 +149,7 @@
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
-
-
+</div>
 </body>
 
 </html>

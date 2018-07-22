@@ -9,10 +9,10 @@ if (isset($_GET['edit'])){
 	if ($count = 1) {
 		while($row= mysqli_fetch_array($pengajar)){
 		
-			$id= $row['id_pengajar'];
-			$nama= $row['nama_pengajar'];
-			$email= $row['email'];
-			$pass= $row['password'];
+			$id_pengajar= $row['id_pengajar'];
+			$nama_pengajar= $row['nama_pengajar'];
+			$email_pengajar= $row['email_pengajar'];
+			$pass_pengajar= $row['pass_pengajar'];
 			$bahagian= $row['bahagian'];
 			$jawatan= $row['jawatan'];
 		}
@@ -22,8 +22,8 @@ if (isset($_GET['edit'])){
     if(isset($_POST['kpengajar'])){
         
         $nama       =mysqli_real_escape_string  ($connection,$_POST['nama_pengajar']);
-        $email      =mysqli_real_escape_string  ($connection,$_POST['email']);
-        $pass       =mysqli_real_escape_string  ($connection,$_POST['password']);
+        $email      =mysqli_real_escape_string  ($connection,$_POST['email_pengajar']);
+        $pass       =mysqli_real_escape_string  ($connection,$_POST['pass_pengajar']);
         $bahagian   =mysqli_real_escape_string  ($connection,$_POST['bahagian']);
         $jawatan    =mysqli_real_escape_string  ($connection,$_POST['jawatan']);
         
