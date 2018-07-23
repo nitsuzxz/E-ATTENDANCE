@@ -87,8 +87,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-12">
-        </div>
+    
         <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
@@ -102,7 +101,7 @@
                                 <input type="file" name="file" /><br />
                                 <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />
                    
-            </form>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -145,10 +144,10 @@
     <!-- Right Panel -->
 
 
-    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
 </div>
 </body>
 
