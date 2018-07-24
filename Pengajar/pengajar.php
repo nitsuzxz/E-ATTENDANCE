@@ -91,7 +91,7 @@
         <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Inline List</h4>
+                                <h4>Tambah Pengajar</h4>
                             </div>
                             <div class="card-body">
                                 <?php include ("./insert_form.php")?>

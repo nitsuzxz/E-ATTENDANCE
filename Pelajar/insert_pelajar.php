@@ -34,14 +34,5 @@
 			}
 			?>
 		</form>	
-			<form action="./scripts/uploads.php" class="form-group">
-                  
-                      <div class="col-md-4">
-                                <input type="file" name="file" id="file" class="input-large">
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn btn-success" type="submit" name="import" value="import">tambah</button>
-                            </div>
-                       </form>
     </body>                   
  </html>
