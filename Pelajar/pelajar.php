@@ -1,6 +1,7 @@
 <?php include("../config/db.php") ?>
 <?php include("./add_pelajar.php") ?>
 <?php include("./update_pelajar.php") ?>
+
 <?php include("../assets/side-nav.php") ?>
 
 <html class="no-js" lang="">
@@ -86,7 +87,7 @@
                             <li><a href="#">Dashboard</a></li>
                             <li><a href="#">Pengguna</a></li>
                             <li class="active">Pelajar</li>
-                        </ol>>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -99,8 +100,9 @@
                             </div>
                             <div class="card-body">
                                 <?php include ("./insert_pelajar.php")?>
+                                <h3></h3>
                                <form method="post" enctype="multipart/form-data">
-                                 
+                                 <?php include("./uploads_pelajar.php") ?>
                                 <label>Pilih fail CSV:</label>
                                 <input type="file" name="file" /><br />
                                 <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />                 

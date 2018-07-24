@@ -104,15 +104,9 @@
                                 <option value="3">Option #3</option>
                                       </select>
                                 </div>
-                               <div class="form-group">
-                                    <label class=" form-control-label">Pengajar</label>
-                                     <select name="select" id="select" class="form-control">
-                                <option value="0">Sila Pilih</option>
-                                <option value="1">Option #1</option>
-                                <option value="2">Option #2</option>
-                                <option value="3">Option #3</option>
-                                      </select>
-                                </div>
+                                
+                                <?php include("./in_subjek.php") ?>
+                              
                                 <div class="form-group">
                                     <label class=" form-control-label">Subjek</label>
                                     <div class="input-group">
