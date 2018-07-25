@@ -7,7 +7,17 @@
 
 
 <html class="no-js" lang="">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#psearch").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#ptable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,8 +48,8 @@
                     <div class="header-left">
                         <button class="search-trigger"><i class="fa fa-search"></i></button>
                         <div class="form-inline">
-                            <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                            <form class="search-form"  >
+                                <input class="form-control mr-sm-2" id="psearch" type="text" placeholder="Search ..." aria-label="Search">
                                 <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                             </form>
                         </div>
@@ -130,7 +140,7 @@
                                     </tr>
                                 </thead>
 
-                                <tbody>
+                                <tbody id="ptable">
                                     <?php include("./view_pengajar.php") ?>
                                 </tbody>
 
