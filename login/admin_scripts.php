@@ -16,11 +16,19 @@
         $row = mysqli_fetch_array($query);
         $admin_uname=$row['email'];
         $admin_psw= $row['password'];
+        $us_role= $row['role'];
         
         if(!empty ($uname) && !empty($psw)){
             
         if($email === $admin_uname && $pass === $admin_psw){
-            header("Location: ./Dashboard/index.php");
+            if($us_role == 1) {
+             header("Location: ./Dashboard/index.php");   
+            
+            }
+            else if ($us_role == 2){
+                header("Location: ./Pengajar/pengajar.php");
+            }
+         
             
             $_SESSION['email']= $admin_uname;
         }else{
