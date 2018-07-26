@@ -5,7 +5,16 @@
         <input type="text" placeholder="nama" name="nama_pengajar" value="<?php echo (isset($nama_pengajar)) ? $nama_pengajar : ''; ?>" required>
         <input type="text" placeholder="email" name="email_pengajar" value="<?php echo (isset($email_pengajar)) ? $email_pengajar : ''; ?>" required>
         <input type="text" placeholder="kata laluan" name="pass_pengajar" value="<?php echo (isset($pass_pengajar)) ? $pass_pengajar : ''; ?>" required>
-       <input type="text" placeholder="bahagian" name="bahagian" value="<?php echo($_SESSION['bahagian']);?>" required>
+        
+          <div class=".col-md-4">
+            <select name="bahagian" class="form-control-sm form-control" required>
+								<option  value="">pilih bahagian...</option>
+                                <option  value="IE"<?php echo (isset($bahagian) && $bahagian == 'IE') ? ' selected=selected' : ''; ?>>Industri Elektronik</option>
+                                <option  value="TKS"<?php echo (isset($bahagian) && $bahagian == 'TKS') ? ' selected=selected' : ''; ?>>Teknologi Komputer Sistem</option>
+                                <option  value="KIMPALAN"<?php echo (isset($bahagian) && $bahagian == 'KIMPALAN') ? ' selected=selected' : ''; ?>>Teknologi Kimpalan</option>  
+                              </select>
+        </div> 
+       
         <div class=".col-md-4">
         <select name="jawatan" class="form-control-sm form-control" required>
 								<option  value="">Pilih Jawatan...</option>

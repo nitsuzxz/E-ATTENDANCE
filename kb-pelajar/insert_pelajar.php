@@ -8,16 +8,8 @@
      <input type="text" placeholder="Kata Laluan" name="pass_pelajar" value="<?php echo (isset($pass_pelajar)) ? $pass_pelajar : ''; ?>"  required>
      <input type="text" placeholder="Kad Pengenalan" name="ic" value="<?php echo (isset($ic)) ? $ic : ''; ?>"  required>
      <input type="text" placeholder="Alamat" name="alamat" value="<?php echo (isset($alamat)) ? $alamat : ''; ?>"  >
-
-
-     <div class=".col-md-4">
-            <select name="kursus"  class="form-control-sm form-control" required>
-                 <option  value="">Pilih Kursus...</option>
-                 <option  value="IE"<?php echo (isset($kursus) && $kursus == 'IE') ? ' selected=selected' : ''; ?>>Industri Elektronik</option>
-                 <option  value="TKS"<?php echo (isset($kursus) && $kursus == 'TKS') ? ' selected=selected' : ''; ?>>Teknologi Komputer Sistem</option>
-                 <option  value="KIMPALAN"<?php echo (isset($kursus) && $kursus == 'KIMPALAN') ? ' selected=selected' : ''; ?>>Teknologi Kimpalan</option>  
-              </select>
-                            </div>                    
+    <input readonly name="bahagian"  value="<?php echo($_SESSION['bahagian']);?>" required>       
+         
             <div class=".col-md-4">
                             <select name="semester"  class="form-control-sm form-control" required>
 								<option  value="">Pilih Semester...</option>

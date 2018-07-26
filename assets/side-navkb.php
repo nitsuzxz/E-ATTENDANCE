@@ -22,8 +22,8 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>USER</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-user"></i><a href="../Pengajar/pengajar.php">Pengajar</a></li>
-                            <li><i class="fa fa-user"></i><a href="../Pelajar/pelajar.php">Pelajar</a></li>
+                            <li><i class="fa fa-user"></i><a href="../kb-pengajar/pengajar.php">Pengajar</a></li>
+                            <li><i class="fa fa-user"></i><a href="../kb-pelajar/pelajar.php">Pelajar</a></li>
                           
                         </ul>
                     </li>
