@@ -1,23 +1,11 @@
 <?php include("../config/db.php") ?>
-<?php include("./add_user.php") ?>
-<?php include("./update.php") ?>
-<?php include("./uploads.php") ?>
+<?php include("./add_pelajar.php") ?>
+<?php include("./update_pelajar.php") ?>
+
 <?php include("../assets/side-nav.php") ?>
 
-
-
 <html class="no-js" lang="">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("#psearch").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#ptable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,13 +20,19 @@ $(document).ready(function(){
     <link rel="stylesheet" href="../assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="../assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="../assets/scss/style.css">
+    <link href="../assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>
-
 <body>
 
+    <!-- Right Panel -->
+
     <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
         <header id="header" class="header">
+
+              <header id="header" class="header">
 
             <div class="header-menu">
 
@@ -48,8 +42,8 @@ $(document).ready(function(){
                     <div class="header-left">
                         <button class="search-trigger"><i class="fa fa-search"></i></button>
                         <div class="form-inline">
-                            <form class="search-form"  >
-                                <input class="form-control mr-sm-2" id="psearch" type="text" placeholder="Search ..." aria-label="Search">
+                            <form class="search-form">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
                                 <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                             </form>
                         </div>
@@ -74,11 +68,11 @@ $(document).ready(function(){
             </div>
 
         </header>
-    
-        <!-- /header -->
 
-    
-        <div class="breadcrumbs">
+        </header><!-- /header -->
+
+       
+         <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
@@ -89,10 +83,10 @@ $(document).ready(function(){
             <div class="col-sm-8">
                 <div class="page-header float-right">
                     <div class="page-title">
-                        <ol class="breadcrumb text-right">
+                         <ol class="breadcrumb text-right">
                             <li><a href="#">Dashboard</a></li>
                             <li><a href="#">Pengguna</a></li>
-                            <li class="active">Pengajar</li>
+                            <li class="active">Pelajar</li>
                         </ol>
                     </div>
                 </div>
@@ -102,57 +96,60 @@ $(document).ready(function(){
         <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Tambah Pengajar</h4>
+                                <h4>Tambah Pelajar</h4>
                             </div>
                             <div class="card-body">
-                                <?php include ("./insert_form.php")?>
-                                 <form method="post" enctype="multipart/form-data">
-                                 
+                                <?php include ("./insert_pelajar.php")?>
+                                <h3></h3>
+                               <form method="post" enctype="multipart/form-data">
+                                 <?php include("./uploads_pelajar.php") ?>
                                 <label>Pilih fail CSV:</label>
                                 <input type="file" name="file" /><br />
-                                <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />
-                   
+                                <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />                 
                                 </form>
                             </div>
                         </div>
                     </div>
                     
+    
+     
            
 
    <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">PENGAJAR</strong>
+                            <strong class="card-title">PELAJAR</strong>
                         </div>
                         <div class="card-body">
                             <table class="table">
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Nama</th>
-                                        <th scope="col">E-mail</th>
-                                        <th scope="col">Kata Laluan</th>
-                                        <th scope="col">Bahagian</th>
-                                        <th scope="col">Jawatan</th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-
-                                <tbody id="ptable">
-                                    <?php include("./view_pengajar.php") ?>
-                                </tbody>
+                                  <th scope="col">No</th>
+                                  <th scope="col">Nama</th>
+                                  <th scope="col">No.NDP</th>
+                                  <th scope="col">Kursus</th>
+                                  <th scope="col">Semester</th>
+                                  <th scope="col">Kata Laluan</th>
+                                  <th scope="col">Kad Pengenalan</th>
+                                  <th scope="col">Alamat</th>
+                                  <th scope="col"></th>
+                                  <th scope="col"></th> 
+                                  <th scope="col"></th>
+                                  <th scope="col"></th>        
+                                </tr>
+                              </thead>
+                            
+                              <tbody>
+                                <?php include("./view_pelajar.php") ?>
+                              </tbody>
 
                             </table>
 
                         </div>
                     </div>
                 </div>
-
   
         
-    }
-
     <!-- Right Panel -->
 
 
@@ -160,7 +157,7 @@ $(document).ready(function(){
     <script src="../assets/js/popper.min.js"></script>
     <script src="../assets/js/plugins.js"></script>
     <script src="../assets/js/main.js"></script>
+
 </div>
 </body>
-
 </html>

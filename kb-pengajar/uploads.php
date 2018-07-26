@@ -21,7 +21,6 @@ if(isset($_POST["submit"]))
    fclose($handle);
    
        header("Location: ./pengajar.php");
- 
   }
  }
 }

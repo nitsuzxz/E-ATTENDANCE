@@ -2,7 +2,7 @@
 <?php include("./add_user.php") ?>
 <?php include("./update.php") ?>
 <?php include("./uploads.php") ?>
-<?php include("../assets/side-nav.php") ?>
+<?php include("../assets/side-navkb.php") ?>
 
 
 
@@ -77,7 +77,7 @@ $(document).ready(function(){
     
         <!-- /header -->
 
-    
+
         <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
@@ -117,6 +117,8 @@ $(document).ready(function(){
                         </div>
                     </div>
                     
+    
+     
            
 
    <div class="col-lg-12">
@@ -149,7 +151,6 @@ $(document).ready(function(){
                     </div>
                 </div>
 
-  
         
     }
 

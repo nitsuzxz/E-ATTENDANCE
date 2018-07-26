@@ -10,13 +10,14 @@
         $email= mysqli_real_escape_string($connection, $uname);
         $pass= mysqli_real_escape_string($connection, $psw);
         
-        $select_query = "SELECT * FROM user_acc WHERE email = '{$email}'";
+        $select_query = "SELECT * FROM pengajar WHERE email_pengajar = '{$email}'";
         $query = mysqli_query($connection, $select_query);
         
         $row = mysqli_fetch_array($query);
-        $admin_uname=$row['email'];
-        $admin_psw= $row['password'];
+        $admin_uname=$row['email_pengajar'];
+        $admin_psw= $row['pass_pengajar'];
         $us_role= $row['role'];
+        $bahagian=$row['bahagian'];
         
         if(!empty ($uname) && !empty($psw)){
             
@@ -26,11 +27,12 @@
             
             }
             else if ($us_role == 2){
-                header("Location: ./Pengajar/pengajar.php");
+            header("Location: ./kb-pengajar/pengajar.php");
             }
          
-            
-            $_SESSION['email']= $admin_uname;
+            $_SESSION['bahagian']= $bahagian;
+            $_SESSION['email_pengajar']= $admin_uname;
+           
         }else{
             $error1 ="<div class='alert alert-danger'>
     <strong>ALERT!</strong> Admin Login Credential are invalid.

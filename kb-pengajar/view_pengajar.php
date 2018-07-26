@@ -1,7 +1,6 @@
  <?php
                                   global $connection;
-                                  
-                                  $query = "SELECT * FROM pengajar";
+                                  $query = "SELECT * FROM pengajar WHERE bahagian='{$_SESSION['bahagian']}'";
                                   $pengajar= mysqli_query($connection, $query);
                                   
                                   while($row= mysqli_fetch_array($pengajar)){
@@ -20,10 +19,10 @@
 	                                   <td>$bahagian</td>
 	                                   <td>$jawatan</td>
 	                                   <td><a href='./pengajar.php?delete={$id_pengajar}' button type='button' class='btn btn-danger'>DELETE</button></a></td>
-                                       <td><a href='./pengajar.php?edit={$id_pengajar}' button  type='button' class='btn btn-warning'>EDIT</button></a></td>
+                                       <td><a href='./pengajar.php?edit={$id_pengajar}' button type='button' class='btn btn-warning'>EDIT</button></a></td>
+                                       
                                        </tr>";
                                       }
-
                             
                             if(isset($_GET['delete'])){
                             $query = "DELETE FROM pengajar WHERE id_pengajar = {$_GET['delete']}";
