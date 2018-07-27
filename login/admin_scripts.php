@@ -33,7 +33,13 @@
             $_SESSION['bahagian']= $bahagian;
             $_SESSION['email_pengajar']= $admin_uname;
            
-        }else{
+        }
+        if(isset($_SESSION['email_pengajar']) &&
+    empty ($_SESSION['email_pengajar'])) {
+    header ('Location: ../index.php');
+            
+        }    
+        else{
             $error1 ="<div class='alert alert-danger'>
     <strong>ALERT!</strong> Admin Login Credential are invalid.
   </div>";

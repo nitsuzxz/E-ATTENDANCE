@@ -6,14 +6,8 @@
         <input type="text" placeholder="email" name="email_pengajar" value="<?php echo (isset($email_pengajar)) ? $email_pengajar : ''; ?>" required>
         <input type="text" placeholder="kata laluan" name="pass_pengajar" value="<?php echo (isset($pass_pengajar)) ? $pass_pengajar : ''; ?>" required>
         
-          <div class=".col-md-4">
-            <select name="bahagian" class="form-control-sm form-control" required>
-								<option  value="">pilih bahagian...</option>
-                                <option  value="IE"<?php echo (isset($bahagian) && $bahagian == 'IE') ? ' selected=selected' : ''; ?>>Industri Elektronik</option>
-                                <option  value="TKS"<?php echo (isset($bahagian) && $bahagian == 'TKS') ? ' selected=selected' : ''; ?>>Teknologi Komputer Sistem</option>
-                                <option  value="KIMPALAN"<?php echo (isset($bahagian) && $bahagian == 'KIMPALAN') ? ' selected=selected' : ''; ?>>Teknologi Kimpalan</option>  
-                              </select>
-        </div> 
+        <input readonly type="text" placeholder="<?php echo $_SESSION['bahagian'] ?>"  name="bahagian" value="<?php echo (isset($bahagian)) ? $bahagian : ''; ?>" required>
+        
        
         <div class=".col-md-4">
         <select name="jawatan" class="form-control-sm form-control" required>
@@ -25,7 +19,7 @@
         
         <?php
 			if (isset($_GET['edit'])) {
-				echo '<button class="btn btn-success" type="submit" name="kpengajar"  >kemaskini</button> <a href="./pengajar.php" button type="button" class="btn btn-danger">Batal</button></a>';
+				echo '<button class="btn btn-success" type="submit" name="kpengajar" >kemaskini</button><button> <a href="./pengajar.php" button type="button" class="btn btn-danger">Batal</button>';
 			} else {
 				echo '<button class="btn btn-success" type="submit" name="tpengajar"  >tambah</button>';
 			}

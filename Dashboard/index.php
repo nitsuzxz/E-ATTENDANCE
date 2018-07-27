@@ -1,6 +1,7 @@
 <?php include("../config/db.php") ?>
 <?php include("../assets/side-nav.php") ?>
 <!doctype html>
+
 <html class="no-js" lang=""> 
 <head>
     <meta charset="utf-8">

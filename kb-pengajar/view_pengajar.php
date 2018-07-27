@@ -1,4 +1,5 @@
- <?php
+
+                                 <?php
                                   global $connection;
                                   $query = "SELECT * FROM pengajar WHERE bahagian='{$_SESSION['bahagian']}'";
                                   $pengajar= mysqli_query($connection, $query);
@@ -18,8 +19,8 @@
 	                                   <td>$pass_pengajar</td>
 	                                   <td>$bahagian</td>
 	                                   <td>$jawatan</td>
-	                                   <td><a href='./pengajar.php?delete={$id_pengajar}' button type='button' class='btn btn-danger'>DELETE</button></a></td>
-                                       <td><a href='./pengajar.php?edit={$id_pengajar}' button type='button' class='btn btn-warning'>EDIT</button></a></td>
+	                                   <td><a href='./pengajar.php?delete={$id_pengajar}' onClick=\"return confirm('Adakah anda hendak memadam pengguna ini?');\" button type='button' class='btn btn-danger'>delete</a></td>
+                                       <td><a href='./pengajar.php?edit={$id_pengajar}' onClick=\"return confirm('Adakah anda pasti hendak menyunting pengguna ini?');\" button type='button' class='btn btn-warning'>EDIT</a></td>
                                        
                                        </tr>";
                                       }

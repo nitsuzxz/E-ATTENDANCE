@@ -129,26 +129,21 @@
         
 
             
-                    <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">Subjek</strong>
-                        </div>
-                        <div class="card-body">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
+                    <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
                                         <th scope="col">No</th>
                                         <th scope="col">Subjek</th>
-                                        <th scope="col">Kod Subjek</th>
+                                        <th scope="col">Kod</th>
                                         <th scope="col">Pengajar</th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
+                                        <th scope="col">Bahagian</th>
+                                        <th scope="col">swew</th>
+                                        <th scope="col">ewewewewe</th>
                                     </tr>
                                 </thead>
 
-                                <tbody>
-
+                                <tbody id="ptable">
+                                  
                                 </tbody>
 
                             </table>
@@ -157,14 +152,10 @@
                     </div>
                 </div>
                 </div>
-             </div>
-        </div>
-                
+       
                 
                         
-                
-        </div>
-
+  
    
   
     <!-- Right Panel -->
