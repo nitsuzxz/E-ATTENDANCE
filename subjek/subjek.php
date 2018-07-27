@@ -105,7 +105,7 @@
                                       </select>
                                 </div>
                                 
-                                <?php include("./in_subjek.php") ?>
+                                
                               
                                 <div class="form-group">
                                     <label class=" form-control-label">Subjek</label>
@@ -137,8 +137,8 @@
                                         <th scope="col">Kod</th>
                                         <th scope="col">Pengajar</th>
                                         <th scope="col">Bahagian</th>
-                                        <th scope="col">swew</th>
-                                        <th scope="col">ewewewewe</th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
 
