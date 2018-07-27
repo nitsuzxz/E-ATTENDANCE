@@ -1,13 +1,13 @@
  <?php
                                   global $connection;
-                                  $query = "SELECT * FROM pelajar WHERE kursus='{$_SESSION['bahagian']}'";
+                                  $query = "SELECT * FROM pelajar WHERE bahagian='{$_SESSION['bahagian']}'";
                                   $pelajar= mysqli_query($connection, $query);
                                   
                                   while($row= mysqli_fetch_array($pelajar)){
                                       $id               = $row['id'];
                                       $nama_pelajar     = $row['nama_pelajar'];
                                       $no_ndp           = $row['no_ndp'];
-                                      $kursus           = $row['kursus'];
+                                      $bahagian          = $row['bahagian'];
                                       $semester         = $row['semester'];
                                       $ic               = $row['ic'];
                                       $alamat           = $row['alamat'];
@@ -16,7 +16,7 @@
 	                                   <td>$id</td>
 	                                   <td>$nama_pelajar</td>
 	                                   <td>$no_ndp</td>
-                                       <td>$kursus</td>
+                                       <td>$bahagian</td>
                                        <td>$semester</td>
 	                                   <td>$ic</td>
 	                                   <td>$alamat</td>
