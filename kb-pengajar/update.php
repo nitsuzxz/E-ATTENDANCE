@@ -29,7 +29,7 @@ if (isset($_GET['edit'])){
         
         $mysqli_query  = mysqli_query($connection, "UPDATE pengajar SET nama_pengajar='$nama', email_pengajar='$email',pass_pengajar='$pass',bahagian='$bahagian',jawatan='$jawatan' WHERE id_pengajar=$id_pengajar");
         
-         header("Location: ./pengajar.php");
+         header("Location: ./pengajar.php#successEdit");
 }
        
     

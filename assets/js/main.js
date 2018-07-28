@@ -1,6 +1,6 @@
-$.noConflict();
 
-jQuery(document).ready(function($) {
+
+// A $( document ).ready() block.
 
 	"use strict";
 
@@ -11,23 +11,71 @@ jQuery(document).ready(function($) {
 	jQuery('.selectpicker').selectpicker;
 
 
-	$('#menuToggle').on('click', function(event) {
+	$('#menuToggle').click( function() {
 		$('body').toggleClass('open');
 	});
 
-	$('.search-trigger').on('click', function(event) {
+	$('.search-trigger').click( function(event) {
 		event.preventDefault();
 		event.stopPropagation();
 		$('.search-trigger').parent('.header-left').addClass('open');
 	});
 
-	$('.search-close').on('click', function(event) {
+	$('.search-close').click( function(event) {
 		event.preventDefault();
 		event.stopPropagation();
 		$('.search-trigger').parent('.header-left').removeClass('open');
 	});
 
-	// $('.user-area> a').on('click', function(event) {
+        $( "#alrt" ).click(function() {
+            
+        });
+
+    function modalDelete(id)
+    {
+    	$("#exampleModal").modal('toggle');
+    	console.log('id', id);
+	    $("#btnYes").click(function(){
+	    	window.location	="./pengajar.php?delete='" + id + "'";
+	    });
+    }
+    function modalDeletekbp(id)
+    {
+    	$("#exampleModalp").modal('toggle');
+    	console.log('id', id);
+	    $("#btnYes").click(function(){
+	    	window.location	="./pelajar.php?delete='" + id + "'";
+	    });
+    }
+  function modalEdit(id)
+    {
+    	$("#editModal").modal('toggle');
+    }
+	function submitForm()
+    {
+    	  $("#submitEdit").click();
+    }	    
+	$( document ).ready(function() {
+			var hashValue = location.hash;  
+  			hashValue = hashValue.replace(/^#/, '');  
+  			console.log(hashValue);
+  			if(hashValue==="success"){
+  				$("#success").modal('toggle');
+  			}
+  			else if(hashValue==="successEdit"){
+  				$("#successEdit").modal('toggle');
+  			}
+  			
+		});
+    $(document).ready(function(){
+        $("#psearch").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#ptable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+	// $('.user-area> a').click( function(event) {
 	// 	event.preventDefault();
 	// 	event.stopPropagation();
 	// 	$('.user-menu').parent().removeClass('open');
@@ -35,4 +83,3 @@ jQuery(document).ready(function($) {
 	// });
 
 
-});

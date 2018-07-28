@@ -8,7 +8,7 @@
                                       $id               = $row['id'];
                                       $nama_pelajar     = $row['nama_pelajar'];
                                       $no_ndp           = $row['no_ndp'];
-                                      $kursus           = $row['kursus'];
+                                      $bahagian        = $row['bahagian'];
                                       $semester         = $row['semester'];
                                       $pass_pelajar     = $row['pass_pelajar'];
                                       $ic               = $row['ic'];
@@ -18,13 +18,13 @@
 	                                   <td>$id</td>
 	                                   <td>$nama_pelajar</td>
 	                                   <td>$no_ndp</td>
-                                       <td>$kursus</td>
+                                       <td>$bahagian</td>
                                        <td>$semester</td>
 	                                   <td>$pass_pelajar</td>
 	                                   <td>$ic</td>
 	                                   <td>$alamat</td>
-	                                   <td><a href='./pengajar.php?delete={$id}' onClick=\"return confirm('Adakah anda hendak memadam pengguna ini?');\" button type='button' class='btn btn-danger'>delete</a></td>
-                                       <td><a href='./pengajar.php?edit={$id}' onClick=\"return confirm('Adakah anda pasti hendak menyunting pengguna ini?');\" button type='button' class='btn btn-warning'>EDIT</a></td>
+	                                   <td><a onclick='modalDelete({$id})' button type='button' class='btn btn-danger'>DELETE</button></a></td>
+                                       <td><a href='./pelajar.php?edit={$id}' button  type='button' class='btn btn-warning'>EDIT</button></a></td>
                                        
                                        </tr>";
                                       }

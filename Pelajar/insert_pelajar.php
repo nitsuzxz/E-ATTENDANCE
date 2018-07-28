@@ -13,9 +13,9 @@
      <div class=".col-md-4">
             <select name="kursus"  class="form-control-sm form-control" required>
                  <option  value="">Pilih Kursus...</option>
-                 <option  value="IE"<?php echo (isset($kursus) && $kursus == 'IE') ? ' selected=selected' : ''; ?>>Industri Elektronik</option>
-                 <option  value="TKS"<?php echo (isset($kursus) && $kursus == 'TKS') ? ' selected=selected' : ''; ?>>Teknologi Komputer Sistem</option>
-                 <option  value="KIMPALAN"<?php echo (isset($kursus) && $kursus == 'KIMPALAN') ? ' selected=selected' : ''; ?>>Teknologi Kimpalan</option>  
+                 <option  value="IE"<?php echo (isset($bahagian) && $bahagian == 'IE') ? ' selected=selected' : ''; ?>>Industri Elektronik</option>
+                 <option  value="TKS"<?php echo (isset($bahagian) && $bahagian == 'TKS') ? ' selected=selected' : ''; ?>>Teknologi Komputer Sistem</option>
+                 <option  value="KIMPALAN"<?php echo (isset($bahagian) && $bahagian == 'KIMPALAN') ? ' selected=selected' : ''; ?>>Teknologi Kimpalan</option>  
               </select>
                             </div>                    
             <div class=".col-md-4">
@@ -28,7 +28,11 @@
                             </div>
 			<?php
 			if (isset($_GET['edit'])) {
-				echo '<button class="btn btn-success" type="submit" name="kpelajar"  >kemaskini</button> <a href="./pelajar.php" button type="button" class="btn btn-danger">Batal</button></a>';
+                
+                echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >kemaskini</button> <a href="./pelajar.php" button type="button" class="btn btn-danger">Batal</button></a>
+                    <button style="display:none;" type="submit" id="submitEdit" name="kpelajar"  >kemaskini</button>
+                ';
+             
 			} else {
 				echo '<button class="btn btn-success" type="submit" name="tpelajar"  >tambah</button>';
 			}

@@ -9,9 +9,7 @@
         $jawatan = $_POST['jawatan'];
         
         $sql_query = mysqli_query($connection, "INSERT INTO pengajar (nama_pengajar,email_pengajar,pass_pengajar,bahagian,jawatan) VALUES ('$nama_pengajar','$email_pengajar','$pass_pengajar','$bahagian','$jawatan')");
- 
-        
+
         header("Location: ./pengajar.php");
-        
     }
 ?>

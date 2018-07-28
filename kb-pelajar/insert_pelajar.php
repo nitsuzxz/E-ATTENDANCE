@@ -20,7 +20,10 @@
                             </div>
 			<?php
 			if (isset($_GET['edit'])) {
-				echo '<button class="btn btn-success" type="submit" name="kpelajar"  >kemaskini</button> <a href="./pelajar.php" button type="button" class="btn btn-danger">Batal</button></a>';
+			
+                echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >kemaskini</button> <a href="./pelajar.php" button type="button" class="btn btn-danger">Batal</button></a>
+                    <button style="display:none;" type="submit" id="submitEdit" name="kpelajar"  >kemaskini</button>
+                ';
 			} else {
 				echo '<button class="btn btn-success" type="submit" name="tpelajar"  >tambah</button>';
 			}

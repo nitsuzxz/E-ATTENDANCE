@@ -8,16 +8,7 @@
 
 <html class="no-js" lang="">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("#psearch").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#ptable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -151,8 +142,8 @@ $(document).ready(function(){
                     </div>
                 </div>
 
-        
-    }
+        <?php include("../assets/modal.php") ?>
+    
 
     <!-- Right Panel -->
 

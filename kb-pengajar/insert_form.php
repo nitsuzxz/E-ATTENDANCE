@@ -19,7 +19,9 @@
         
         <?php
 			if (isset($_GET['edit'])) {
-				echo '<button class="btn btn-success" type="submit" name="kpengajar" >kemaskini</button><button> <a href="./pengajar.php" button type="button" class="btn btn-danger">Batal</button>';
+				echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >kemaskini</button> <a href="./pengajar.php" button type="button" class="btn btn-danger">Batal</button></a>
+                    <button style="display:none;" type="submit" id="submitEdit" name="kpengajar"  >kemaskini</button>
+                ';
 			} else {
 				echo '<button class="btn btn-success" type="submit" name="tpengajar"  >tambah</button>';
 			}

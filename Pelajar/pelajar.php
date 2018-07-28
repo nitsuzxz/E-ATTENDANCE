@@ -149,7 +149,7 @@
                     </div>
                 </div>
   
-        
+        <?php include("../assets/modal.php") ?>
     <!-- Right Panel -->
 
 

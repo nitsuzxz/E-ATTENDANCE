@@ -8,6 +8,7 @@
 
 <html class="no-js" lang="">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function(){
   $("#psearch").on("keyup", function() {
@@ -17,6 +18,7 @@ $(document).ready(function(){
     });
   });
 });
+
 </script>
 <head>
     <meta charset="utf-8">
@@ -149,14 +151,13 @@ $(document).ready(function(){
                     </div>
                 </div>
 
-  
+  <?php include("../assets/modal.php") ?>
         
-    }
-
-    <!-- Right Panel -->
+    
 
 
-    <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
+<!--  -->
+
     <script src="../assets/js/popper.min.js"></script>
     <script src="../assets/js/plugins.js"></script>
     <script src="../assets/js/main.js"></script>

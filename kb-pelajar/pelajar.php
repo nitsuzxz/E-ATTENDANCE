@@ -2,7 +2,7 @@
 <?php include("./add_pelajar.php") ?>
 <?php include("./update_pelajar.php") ?>
 
-<?php include("../assets/side-nav.php") ?>
+<?php include("../assets/side-navkb.php") ?>
 
 <html class="no-js" lang="">
 
@@ -148,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-  
+     <?php include("../assets/modal.php") ?>
         
     <!-- Right Panel -->
 
