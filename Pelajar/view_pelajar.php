@@ -1,36 +1,41 @@
  <?php
                                   global $connection;
                                   
-                                  $query    = "SELECT * FROM pelajar";
+                                  $query    = "SELECT 
+                                  p.id_pelajar,p.nama_pelajar, p.no_ndp, p.ic, p.alamat, b.bahagian, k.kelas 
+                                  from pelajar as p 
+                                  join bahagian as b
+                                  on p.bahagian=b.id
+                                  join kelas as k
+                                  on p.kelas=k.id";
+
                                   $pelajar  = mysqli_query($connection, $query);
                                   
                                   while($row= mysqli_fetch_array($pelajar)){
-                                      $id               = $row['id'];
+                                      $id_pelajar               = $row['id_pelajar'];
                                       $nama_pelajar     = $row['nama_pelajar'];
                                       $no_ndp           = $row['no_ndp'];
-                                      $bahagian        = $row['bahagian'];
-                                      $semester         = $row['semester'];
-                                      $pass_pelajar     = $row['pass_pelajar'];
+                                      $bahagian         = $row['bahagian'];
+                                      $kelas            = $row['kelas'];
                                       $ic               = $row['ic'];
                                       $alamat           = $row['alamat'];
                                       
                                       echo "<tr>
-	                                   <td>$id</td>
+	                                   <td>$id_pelajar</td>
 	                                   <td>$nama_pelajar</td>
 	                                   <td>$no_ndp</td>
                                        <td>$bahagian</td>
-                                       <td>$semester</td>
-	                                   <td>$pass_pelajar</td>
+                                       <td>$kelas</td>
 	                                   <td>$ic</td>
 	                                   <td>$alamat</td>
-	                                   <td><a onclick='modalDelete({$id})' button type='button' class='btn btn-danger'>DELETE</button></a></td>
-                                       <td><a href='./pelajar.php?edit={$id}' button  type='button' class='btn btn-warning'>EDIT</button></a></td>
+	                                   <td><a onclick='modalDelete({$id_pelajar})' button type='button' class='btn btn-danger'>DELETE</button></a></td>
+                                       <td><a href='./pelajar.php?edit={$id_pelajar}' button  type='button' class='btn btn-warning'>EDIT</button></a></td>
                                        
                                        </tr>";
                                       }
                             
                             if(isset($_GET['delete'])){
-                            $query = "DELETE FROM pelajar WHERE id = {$_GET['delete']}";
+                            $query = "DELETE FROM pelajar WHERE id_pelajar = {$_GET['delete']}";
                             $delete_query = mysqli_query($connection, $query);
                             
                             header("Location: ./pelajar.php");

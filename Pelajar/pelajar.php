@@ -1,8 +1,7 @@
 <?php include("../config/db.php") ?>
-<?php include("./add_pelajar.php") ?>
 <?php include("./update_pelajar.php") ?>
-
 <?php include("../assets/side-nav.php") ?>
+<?php include("./add_pelajar.php") ?>
 
 <html class="no-js" lang="">
 
@@ -128,8 +127,7 @@
                                   <th scope="col">Nama</th>
                                   <th scope="col">No.NDP</th>
                                   <th scope="col">Kursus</th>
-                                  <th scope="col">Semester</th>
-                                  <th scope="col">Kata Laluan</th>
+                                  <th scope="col">Kelas</th>
                                   <th scope="col">Kad Pengenalan</th>
                                   <th scope="col">Alamat</th>
                                   <th scope="col"></th>

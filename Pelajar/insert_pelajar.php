@@ -11,30 +11,30 @@
 
 
      <div class=".col-md-4">
-            <select name="kursus"  class="form-control-sm form-control" required>
+            <select name="bahagian"  class="form-control-sm form-control" required>
                  <option  value="">Pilih Kursus...</option>
-                 <option  value="IE"<?php echo (isset($bahagian) && $bahagian == 'IE') ? ' selected=selected' : ''; ?>>Industri Elektronik</option>
-                 <option  value="TKS"<?php echo (isset($bahagian) && $bahagian == 'TKS') ? ' selected=selected' : ''; ?>>Teknologi Komputer Sistem</option>
-                 <option  value="KIMPALAN"<?php echo (isset($bahagian) && $bahagian == 'KIMPALAN') ? ' selected=selected' : ''; ?>>Teknologi Kimpalan</option>  
+                 <option  value="1"<?php echo (isset($bahagian) && $bahagian == '1') ? ' selected=selected' : ''; ?>>CNC</option>
+                 <option  value="2"<?php echo (isset($bahagian) && $bahagian == '2') ? ' selected=selected' : ''; ?>>IE</option>
+                 <option  value="7"<?php echo (isset($bahagian) && $bahagian == '7') ? ' selected=selected' : ''; ?>>TKS</option>  
               </select>
                             </div>                    
             <div class=".col-md-4">
-                            <select name="semester"  class="form-control-sm form-control" required>
-								<option  value="">Pilih Semester...</option>
-                                <option  value="1-SVM"<?php echo (isset($semester) && $semester == '1-SVM') ? ' selected=selected' : ''; ?>>1-SVM</option>
-                                <option  value="1-SKM"<?php echo (isset($semester) && $semester == '1-SKM') ? ' selected=selected' : ''; ?>>1-SKM</option> 
-                                <option  value="1-DVM"<?php echo (isset($semester) && $semester == '1-DVM') ? ' selected=selected' : ''; ?>>1-DVM</option> 
+                            <select name="kelas"  class="form-control-sm form-control" required>
+								<option  value="">Kelas..</option>
+                                <option  value="1"<?php echo (isset($kelas) && $kelas == '1') ? ' selected=selected' : ''; ?>>Kelas 1 Sem 1</option>
+                                <option  value="2"<?php echo (isset($kelas) && $kelas == '2') ? ' selected=selected' : ''; ?>>Kelas 2 Sem 1</option> 
+                                <option  value="3"<?php echo (isset($kelas) && $kelas == '3') ? ' selected=selected' : ''; ?>>Kelas 3 Sem 1</option> 
                               </select>
                             </div>
 			<?php
 			if (isset($_GET['edit'])) {
                 
-                echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >kemaskini</button> <a href="./pelajar.php" button type="button" class="btn btn-danger">Batal</button></a>
-                    <button style="display:none;" type="submit" id="submitEdit" name="kpelajar"  >kemaskini</button>
+                echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >Kemaskini</button> <a href="./pelajar.php" button type="button" class="btn btn-danger">Batal</button></a>
+                    <button style="display:none;" type="submit" id="submitEdit" name="kpelajar"  >Kemaskini</button>
                 ';
              
 			} else {
-				echo '<button class="btn btn-success" type="submit" name="tpelajar"  >tambah</button>';
+				echo '<button class="btn btn-success" type="submit" name="tpelajar"  >Tambah</button>';
 			}
 			?>
 		</form>	

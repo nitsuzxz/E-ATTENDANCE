@@ -18,7 +18,7 @@ if(isset($_POST["submit"]))
        $item6 = mysqli_real_escape_string($connection, $data[5]);
        $item7 = mysqli_real_escape_string($connection, $data[6]);
               
-       $query = "INSERT into pelajar(nama_pelajar, no_ndp,bahagian, semester, pass_pelajar, ic, alamat) values('$item1','$item2','$item3','$item4','$item5','$item6','$item7')";
+       $query = "INSERT into pelajar(nama_pelajar, no_ndp,bahagian, kelas, pass_pelajar, ic, alamat) values('$item1','$item2','$item3','$item4','$item5','$item6','$item7')";
        
        mysqli_query($connection, $query);
    }
