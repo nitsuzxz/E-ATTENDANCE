@@ -16,7 +16,7 @@
         $row = mysqli_fetch_array($query);
         $admin_uname=$row['email_pengajar'];
         $admin_psw= $row['pass_pengajar'];
-        $us_role= $row['role'];
+        $us_role= $row['jawatan'];
         $bahagian=$row['bahagian'];
         
         if(!empty ($uname) && !empty($psw)){

@@ -8,16 +8,18 @@
         <div class=".col-md-4">
             <select name="bahagian" class="form-control-sm form-control" required>
 								<option  value="">pilih bahagian...</option>
-                                <option  value="IE"<?php echo (isset($bahagian) && $bahagian == 'IE') ? ' selected=selected' : ''; ?>>Industri Elektronik</option>
-                                <option  value="TKS"<?php echo (isset($bahagian) && $bahagian == 'TKS') ? ' selected=selected' : ''; ?>>Teknologi Komputer Sistem</option>
-                                <option  value="KIMPALAN"<?php echo (isset($bahagian) && $bahagian == 'KIMPALAN') ? ' selected=selected' : ''; ?>>Teknologi Kimpalan</option>  
+                                <option  value="1"<?php echo (isset($bahagian) && $bahagian == '1') ? ' selected=selected' : ''; ?>>CNC</option>
+                                <option  value="2"<?php echo (isset($bahagian) && $bahagian == '2') ? ' selected=selected' : ''; ?>>IE</option>
+                                <option  value="3"<?php echo (isset($bahagian) && $bahagian == '3') ? ' selected=selected' : ''; ?>>MI</option>  
                               </select>
         </div>
         <div class=".col-md-4">
             <select name="jawatan" class="form-control-sm form-control" required>
 								<option  value="">Pilih Jawatan...</option>
-                                <option  value="Pengajar"<?php echo (isset($jawatan) && $jawatan == 'Pengajar') ? ' selected=selected' : ''; ?>>Pengajar</option>
-                                <option  value="Ketua Bahagian"<?php echo (isset($jawatan) && $jawatan == 'Ketua Bahagian') ? ' selected=selected' : ''; ?>>Ketua Bahagian</option> 
+                              <option  value="1"<?php echo (isset($jawatan) && $jawatan == '1') ? ' selected=selected' : ''; ?>>Admin</option> 
+                               <option  value="2"<?php echo (isset($jawatan) && $jawatan == '2') ? ' selected=selected' : ''; ?>>Ketua Bahagian</option> 
+                                <option  value="3"<?php echo (isset($jawatan) && $jawatan == '3') ? ' selected=selected' : ''; ?>>Pengajar</option>
+                                
                               </select>
         </div>
         <?php

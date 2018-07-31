@@ -133,9 +133,8 @@ $(document).ready(function(){
                                         <th scope="col">No</th>
                                         <th scope="col">Nama</th>
                                         <th scope="col">E-mail</th>
-                                        <th scope="col">Kata Laluan</th>
-                                        <th scope="col">Bahagian</th>
                                         <th scope="col">Jawatan</th>
+                                        <th scope="col">Bahagian</th>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
                                     </tr>
