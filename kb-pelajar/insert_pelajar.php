@@ -10,12 +10,13 @@
      <input type="text" placeholder="Alamat" name="alamat" value="<?php echo (isset($alamat)) ? $alamat : ''; ?>"  >
     <input readonly name="bahagian"  value="<?php echo($_SESSION['bahagian']);?>" required>       
          
+                      
             <div class=".col-md-4">
-                            <select name="semester"  class="form-control-sm form-control" required>
-								<option  value="">Pilih Semester...</option>
-                                <option  value="1-SVM"<?php echo (isset($semester) && $semester == '1-SVM') ? ' selected=selected' : ''; ?>>1-SVM</option>
-                                <option  value="1-SKM"<?php echo (isset($semester) && $semester == '1-SKM') ? ' selected=selected' : ''; ?>>1-SKM</option> 
-                                <option  value="1-DVM"<?php echo (isset($semester) && $semester == '1-DVM') ? ' selected=selected' : ''; ?>>1-DVM</option> 
+                            <select name="kelas"  class="form-control-sm form-control" required>
+								<option  value="">Kelas..</option>
+                                <option  value="1"<?php echo (isset($kelas) && $kelas == '1') ? ' selected=selected' : ''; ?>>Kelas 1 Sem 1</option>
+                                <option  value="2"<?php echo (isset($kelas) && $kelas == '2') ? ' selected=selected' : ''; ?>>Kelas 2 Sem 1</option> 
+                                <option  value="3"<?php echo (isset($kelas) && $kelas == '3') ? ' selected=selected' : ''; ?>>Kelas 3 Sem 1</option> 
                               </select>
                             </div>
 			<?php

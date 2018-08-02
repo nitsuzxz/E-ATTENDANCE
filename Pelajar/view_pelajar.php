@@ -12,7 +12,7 @@
                                   $pelajar  = mysqli_query($connection, $query);
                                   
                                   while($row= mysqli_fetch_array($pelajar)){
-                                      $id_pelajar               = $row['id_pelajar'];
+                                      $id_pelajar       = $row['id_pelajar'];
                                       $nama_pelajar     = $row['nama_pelajar'];
                                       $no_ndp           = $row['no_ndp'];
                                       $bahagian         = $row['bahagian'];
@@ -28,7 +28,7 @@
                                        <td>$kelas</td>
 	                                   <td>$ic</td>
 	                                   <td>$alamat</td>
-	                                   <td><a onclick='modalDelete({$id_pelajar})' button type='button' class='btn btn-danger'>DELETE</button></a></td>
+	                                   <td><a onclick='modalDeletePelajar({$id_pelajar})' button type='button' class='btn btn-danger'>DELETE</button></a></td>
                                        <td><a href='./pelajar.php?edit={$id_pelajar}' button  type='button' class='btn btn-warning'>EDIT</button></a></td>
                                        
                                        </tr>";

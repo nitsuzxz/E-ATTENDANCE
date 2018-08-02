@@ -39,13 +39,13 @@
 	    	window.location	="./pengajar.php?delete='" + id + "'";
 	    });
     }
-    function modalDeletekbp(id)
+ function modalDeletePelajar(id)
     {
-    	$("#exampleModalp").modal('toggle');
-    	console.log('id', id);
-	    $("#btnYes").click(function(){
-	    	window.location	="./pelajar.php?delete='" + id + "'";
-	    });
+      $("#exampleModal").modal('toggle');
+      console.log('id', id);
+      $("#btnYes").click(function(){
+        window.location ="./pelajar.php?delete='" + id + "'";
+      });
     }
   function modalEdit(id)
     {

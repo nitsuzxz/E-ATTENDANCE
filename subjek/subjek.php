@@ -88,44 +88,56 @@
          <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
-                <div class="col-lg-6">
+                   <form action="./in_sub.php" method="post" class="col-lg-6">
                     <div class="card">
                         <div class="card-header">
                             <strong>Tambah Subjek</strong>
                             </div>
-                            <div class="card-body card-block">
-                               
+                            <div  class="card-body card-block">
+                            
+                            <div class="form-group">
+                                <label class=" form-control-label">Bahagian</label>
+                                <select name="bahagian" class="form-control" required>
+                                <option value="">Sila Pilih</option>
+                                <option value="1">CNC</option>
+                                <option value="2">IE</option>
+                                <option value="3">MI</option>
+                                <option value="4">PJE</option>
+                                <option value="5">RAC</option>
+                                <option value="6">SU</option>
+                                <option value="7">TKS</option>
+                                </select>
+                            </div>
+                                
+                                
                                <div class="form-group">
-                                    <label class=" form-control-label">Bahagian</label>
-                                     <select name="select" id="select" class="form-control">
-                                <option value="0">Sila Pilih</option>
-                                <option value="1">Option #1</option>
-                                <option value="2">Option #2</option>
-                                <option value="3">Option #3</option>
-                                      </select>
-                                </div>
-                                
-                                
-                              
-                                <div class="form-group">
-                                    <label class=" form-control-label">Subjek</label>
-                                    <div class="input-group">
-                                        
-                                        <input class="form-control">
+                                    <label  class="form-control-label">Subjek</label>
+                                    <div  class="input-group">                                        
+                                        <input name="subjek"  class="form-control" required>
                                     </div>
                                     <small class="form-text text-muted">Cth. Server Essential </small>
                                 </div>
                                 <div class="form-group">
                                     <label class=" form-control-label">Kod Subjek</label>
-                                    <div class="input-group">                                      
-                                        <input class="form-control">
+                                    <div  class="input-group">                                      
+                                        <input name="kod" class="form-control" required>
                                     </div>
                                     <small class="form-text text-muted">Cth. xxxxxxx</small>
                                 </div>   
                                    
                                 </div>
+                                
+                         <div class="card-footer">
+                        <button type="submit" name="tsubjek" class="btn btn-primary btn-sm">
+                          <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                        <button type="reset" class="btn btn-danger btn-sm">
+                          <i class="fa fa-ban"></i> Reset
+                        </button>
+                      </div>
                             </div>
-                        </div>
+                     </form>
+                      
         
 
             

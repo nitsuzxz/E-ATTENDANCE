@@ -11,7 +11,7 @@
         $alamat          = $_POST['alamat'];
         
         $sql_query = mysqli_query($connection, "INSERT INTO pelajar (nama_pelajar, no_ndp, pass_pelajar, bahagian, ic, alamat, kelas) VALUES 
-        ('$nama_pelajar','$no_ndp','$pass_pelajar','$bahagian','$ic','$alamat',$kelas')");
+        ('$nama_pelajar','$no_ndp','$pass_pelajar','$bahagian','$ic','$alamat','$kelas')");
 
          header("Location: ./pelajar.php");
     }

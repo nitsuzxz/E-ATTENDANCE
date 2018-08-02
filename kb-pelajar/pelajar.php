@@ -1,7 +1,6 @@
 <?php include("../config/db.php") ?>
 <?php include("./add_pelajar.php") ?>
 <?php include("./update_pelajar.php") ?>
-
 <?php include("../assets/side-navkb.php") ?>
 
 <html class="no-js" lang="">
@@ -43,7 +42,7 @@
                         <button class="search-trigger"><i class="fa fa-search"></i></button>
                         <div class="form-inline">
                             <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                                <input class="form-control mr-sm-2" type="text" id="psearch" placeholder="Search ..." aria-label="Search">
                                 <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                             </form>
                         </div>
@@ -128,8 +127,7 @@
                                   <th scope="col">Nama</th>
                                   <th scope="col">No.NDP</th>
                                   <th scope="col">Kursus</th>
-                                  <th scope="col">Semester</th>
-                                  <th scope="col">Kata Laluan</th>
+                                  <th scope="col">Kelas</th>
                                   <th scope="col">Kad Pengenalan</th>
                                   <th scope="col">Alamat</th>
                                   <th scope="col"></th>
@@ -139,7 +137,7 @@
                                 </tr>
                               </thead>
                             
-                              <tbody>
+                              <tbody id="ptable">
                                 <?php include("./view_pelajar.php") ?>
                               </tbody>
 
