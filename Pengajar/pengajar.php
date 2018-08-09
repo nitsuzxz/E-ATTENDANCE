@@ -1,8 +1,14 @@
-<?php include("../config/db.php") ?>
-<?php include("./add_user.php") ?>
-<?php include("./update.php") ?>
-<?php include("./uploads.php") ?>
-<?php include("../assets/side-nav.php") ?>
+<?php
+include("../config/db.php");
+include("../config/function.php");
+include("./add_user.php");
+include("./update.php");
+include("./uploads.php");
+include("../assets/side-nav.php");
+if (loggin ($_SESSION['email_pengajar']) ===false){
+     header ('Location: ../index.php');
+}   
+?>
 
 
 
