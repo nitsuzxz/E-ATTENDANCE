@@ -138,7 +138,58 @@
                             </div>
                      </form>
                       
-        
+        <form action="./in_sub.php" method="post" class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>Subjek Pengajar</strong>
+                            </div>
+                            <div  class="card-body card-block">
+                            
+                            <div class="form-group">
+                                <label class=" form-control-label">Bahagian</label>
+                                <select class="form-control" required>
+                                <option value="">Sila Pilih</option>
+                                <?php
+                                global $connection;
+                                
+                                $query1 = "SELECT * from bahagian";
+                                $bahagian= mysqli_query($connection, $query1);
+                                  
+                                  while($row= mysqli_fetch_array($bahagian))
+                                      
+                                    
+                                 ?>     
+                                    <option value="<?php echo $row ["id"];?>"><?php echo $row ["bahagian"];?></option>
+                             
+                           
+                                </select>
+                            </div>
+                               <div class="form-group">
+                                <label class=" form-control-label">Pengajar</label>
+                                <select id="nmpen" class="form-control" required>
+                                <option value="">Sila Pilih</option>
+                                </select>
+                            </div> 
+                                
+                            <div class="form-group">
+                                <label class=" form-control-label">Subjek</label>
+                                <select name="subpen" class="form-control" required>
+                                <option value="">Sila Pilih</option>
+                                </select>
+                            </div> 
+                                   
+                                </div>
+                                
+                         <div class="card-footer">
+                        <button type="submit" name="tsp" class="btn btn-primary btn-sm">
+                          <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                        <button type="reset" class="btn btn-danger btn-sm">
+                          <i class="fa fa-ban"></i> Reset
+                        </button>
+                      </div>
+                            </div>
+                     </form>
 
             
                     <table class="table table-hover">
@@ -178,7 +229,7 @@
     <script src="../assets/js/plugins.js"></script>
     <script src="../assets/js/main.js"></script>
     
-    
+  
 </body>
 
 </html>
