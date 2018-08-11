@@ -46,12 +46,16 @@ include ("./ajax.php")
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12 center-align">
-                            <input type="submit" name="submit" class="btn pink" value="submit">
-                        </div>
-                    </div>
+                     <div class="card-footer">
+                        <button type="submit" name="tsp" class="btn btn-primary btn-sm">
+                          <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                        <button type="reset" class="btn btn-danger btn-sm">
+                          <i class="fa fa-ban"></i> Reset
+                        </button>
+                      </div>
                 </form>
+                
             </div>
 
         
@@ -61,6 +65,7 @@ include ("./ajax.php")
                 xmlhttp.open("GET","ajax.php?bahagian="+document.getElementById('bhgndropdown').value,false);
                 xmlhttp.send(null);
                 //alert(xmlhttp.responseText);
+                console.log('ajax ',xmlhttp);
                 document.getElementById('pengajar').innerHTML=xmlhttp.responseText;
                 $('select').material_select();
             }
@@ -74,6 +79,9 @@ include ("./ajax.php")
                 document.getElementById('subjek').innerHTML=xmlhttp.responseText;
                 $('select').material_select();
             }
+
+            
+            
                     
         </script>
     </body>
