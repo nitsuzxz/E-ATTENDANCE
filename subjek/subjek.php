@@ -1,5 +1,6 @@
 <?php include("../config/db.php") ?>
 <?php include("../assets/side-nav.php") ?>
+<?php include("./in_sub.php") ?>
 
 
 
@@ -88,7 +89,7 @@
          <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
-                   <form action="./in_sub.php" method="post" class="col-lg-6">
+                   <form action="" method="post" class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
                             <strong>Tambah Subjek</strong>
@@ -97,15 +98,18 @@
                             
                             <div class="form-group">
                                 <label class=" form-control-label">Bahagian</label>
-                                <select name="bahagian" class="form-control" required>
+                                <select name="ibg" class="form-control" required>
                                 <option value="">Sila Pilih</option>
-                                <option value="1">CNC</option>
-                                <option value="2">IE</option>
-                                <option value="3">MI</option>
-                                <option value="4">PJE</option>
-                                <option value="5">RAC</option>
-                                <option value="6">SU</option>
-                                <option value="7">TKS</option>
+                              <?php
+                                $res = mysqli_query($connection, 'select * from bahagian');
+
+                                while($row=mysqli_fetch_array($res)) {
+                                ?>
+                                    <option value="<?php echo $row['id']?>"><?php echo $row['bahagian']?></option>
+                                <?php
+                                }
+
+                              ?>
                                 </select>
                             </div>
                                 
@@ -113,14 +117,21 @@
                                <div class="form-group">
                                     <label  class="form-control-label">Subjek</label>
                                     <div  class="input-group">                                        
-                                        <input name="subjek"  class="form-control" required>
+                                        <input name="isb"  class="form-control" required>
                                     </div>
                                     <small class="form-text text-muted">Cth. Server Essential </small>
                                 </div>
                                 <div class="form-group">
                                     <label class=" form-control-label">Kod Subjek</label>
                                     <div  class="input-group">                                      
-                                        <input name="kod" class="form-control" required>
+                                        <input name="ikd" class="form-control" required>
+                                    </div>
+                                    <small class="form-text text-muted">Cth. xxxxxxx</small>
+                                </div>
+                                   <div class="form-group">
+                                    <label class=" form-control-label">Sesi</label>
+                                    <div  class="input-group">                                      
+                                        <input name="iss" class="form-control" required>
                                     </div>
                                     <small class="form-text text-muted">Cth. xxxxxxx</small>
                                 </div>   
@@ -128,7 +139,7 @@
                                 </div>
                                 
                          <div class="card-footer">
-                        <button type="submit" name="tsubjek" class="btn btn-primary btn-sm">
+                        <button type="submit" name="tsjk" class="btn btn-primary btn-sm">
                           <i class="fa fa-dot-circle-o"></i> Submit
                         </button>
                         <button type="reset" class="btn btn-danger btn-sm">
@@ -138,75 +149,33 @@
                             </div>
                      </form>
                       
-        <form action="./in_sub.php" method="post" class="col-lg-6">
+    
+
+             <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong>Subjek Pengajar</strong>
-                            </div>
-                            <div  class="card-body card-block">
-                            
-                            <div class="form-group">
-                                <label class=" form-control-label">Bahagian</label>
-                                <select class="form-control" required>
-                                <option value="">Sila Pilih</option>
-                                <?php
-                                global $connection;
-                                
-                                $query1 = "SELECT * from bahagian";
-                                $bahagian= mysqli_query($connection, $query1);
-                                  
-                                  while($row= mysqli_fetch_array($bahagian))
-                                      
-                                    
-                                 ?>     
-                                    <option value="<?php echo $row ["id"];?>"><?php echo $row ["bahagian"];?></option>
-                             
-                           
-                                </select>
-                            </div>
-                               <div class="form-group">
-                                <label class=" form-control-label">Pengajar</label>
-                                <select id="nmpen" class="form-control" required>
-                                <option value="">Sila Pilih</option>
-                                </select>
-                            </div> 
-                                
-                            <div class="form-group">
-                                <label class=" form-control-label">Subjek</label>
-                                <select name="subpen" class="form-control" required>
-                                <option value="">Sila Pilih</option>
-                                </select>
-                            </div> 
-                                   
-                                </div>
-                                
-                         <div class="card-footer">
-                        <button type="submit" name="tsp" class="btn btn-primary btn-sm">
-                          <i class="fa fa-dot-circle-o"></i> Submit
-                        </button>
-                        <button type="reset" class="btn btn-danger btn-sm">
-                          <i class="fa fa-ban"></i> Reset
-                        </button>
-                      </div>
-                            </div>
-                     </form>
+                            <strong class="card-title">Subjek</strong>
+                        </div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
 
-            
-                    <table class="table table-hover">
-                    <thead class="thead-dark">
                         <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Subjek</th>
-                                        <th scope="col">Kod</th>
-                                        <th scope="col">Pengajar</th>
-                                        <th scope="col">Bahagian</th>
+                                        <th class="ti-arrows-vertical"  scope="col">Subjek</th>
+                                        <th class="ti-arrows-vertical"  scope="col">Kod</th>
+                                        <th class="ti-arrows-vertical"  scope="col">Bahagian</th>
+                                        <th class="ti-arrows-vertical"  scope="col">Sesi</th>
                                         <th scope="col"></th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
 
-                                <tbody id="ptable">
-                                  
+                                <tbody >
+                                  <?php include("./viewsub.php") ?>
                                 </tbody>
 
                             </table>
@@ -215,7 +184,13 @@
                     </div>
                 </div>
                 </div>
-       
+                 </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+            
                 
                         
   
@@ -228,6 +203,17 @@
     <script src="../assets/js/popper.min.js"></script>
     <script src="../assets/js/plugins.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/lib/data-table/datatables.min.js"></script>
+    <script src="../assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+    <script src="../assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+    <script src="../assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+    <script src="../assets/js/lib/data-table/jszip.min.js"></script>
+    <script src="../assets/js/lib/data-table/pdfmake.min.js"></script>
+    <script src="../assets/js/lib/data-table/vfs_fonts.js"></script>
+    <script src="../assets/js/lib/data-table/buttons.html5.min.js"></script>
+    <script src="../assets/js/lib/data-table/buttons.print.min.js"></script>
+    <script src="../assets/js/lib/data-table/buttons.colVis.min.js"></script>
+    <script src="../assets/js/lib/data-table/datatables-init.js"></script>
     
   
 </body>
