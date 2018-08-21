@@ -7,7 +7,7 @@
         $kd              = $_POST['ikd'];
         $iss              = $_POST['iss'];
         
-        $sql_query = mysqli_query($connection, "INSERT INTO subjek ( subjek, kod, bahagian,sesi) VALUES ('$isb', '$kd', '$ibg', '$iss')");
+        $sql_query = mysqli_query($connection, "INSERT INTO subjek ( subjek, kod, bahagian,sesi) VALUES ('$isb', '$kd', '$ibgn', '$iss')");
 
          header("Location: ./subjek.php");
     }
