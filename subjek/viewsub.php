@@ -18,9 +18,15 @@
 	                                   <td>$kd</td>
                                        <td>$bhgn</td>
 	                                   <td>$ss</td>
-	                                   <td><a href='./subjek.php?delete={$idsb}' onClick=\"return confirm('Adakah anda hendak memadam pengguna ini?');\" button type='button' class='btn btn-danger'>delete</a></td>
-                                       <td><a href='./subjek.php?edit={$idsb}' onClick=\"return confirm('Adakah anda pasti hendak menyunting pengguna ini?');\" button type='button' class='btn btn-warning'>EDIT</a></td>
+	                                   <td><a href='./subjek.php?delete={$idsb}' button type='button' class='btn btn-danger'>Delete</a></td>
+                                       <td><a href='./subjek.php?edit={$idsb}' onClick=\"return confirm('Adakah anda pasti hendak menyunting pengguna ini?');\" button type='button' class='btn btn-warning'>Edit</a></td>
                                        </tr>";
                                       }
+                            if(isset($_GET['delete'])){
+                            $query = "DELETE FROM subjek WHERE idsub = {$_GET['delete']}";
+                            $delete_query = mysqli_query($connection, $query);
+                            
+                            header("Location: ./subjek.php");
+                        }       
 
 ?>

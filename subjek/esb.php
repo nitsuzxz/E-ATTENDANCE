@@ -1,33 +1,35 @@
 <?php
 global $connection;
 if (isset($_GET['edit'])){
+    
 	$edit=$_GET['edit'];
-	$query = "SELECT * FROM subjek WHERE id = $edit";
+	$query = "SELECT * FROM subjek WHERE idsub = $edit";
 	$sb= mysqli_query($connection, $query);
 	$count = mysqli_num_rows($sb);                        
 
 	if ($count = 1) {
-		while($row= mysqli_fetch_array($sb){
+		while($row= mysqli_fetch_array($sb)){
+        $idsb         = $row['idsub'];    
+		$ibgn         = $row['bahagian'];
+        $isb            = $row['subjek'];
+        $kd              =$row['kod'];
+        $iss              = $row['sesi'];
 		
-        $ibgn         = $_POST['ibg'];
-        $isb            = $_POST['isb'];
-        $kd              = $_POST['ikd'];
-        $iss              = $_POST['iss'];
 		}
 	}
 }
 
-    if(isset($_POST['kpengajar'])){
+    if(isset($_POST['ksb'])){
         
-        $nama       =mysqli_real_escape_string  ($connection,$_POST['nama_pengajar']);
-        $email      =mysqli_real_escape_string  ($connection,$_POST['email_pengajar']);
-        $pass       =mysqli_real_escape_string  ($connection,$_POST['pass_pengajar']);
-        $bahagian   =mysqli_real_escape_string  ($connection,$_POST['bahagian']);
-        $jawatan    =mysqli_real_escape_string  ($connection,$_POST['jawatan']);
+        $ibgn      =mysqli_real_escape_string  ($connection,$_POST['bahagian']);
+        $isb      =mysqli_real_escape_string  ($connection,$_POST['subjek']);
+        $kd       =mysqli_real_escape_string  ($connection,$_POST['kod']);
+        $iss   =mysqli_real_escape_string  ($connection,$_POST['sesi']);
+      
         
-        $mysqli_query  = mysqli_query($connection, "UPDATE pengajar SET nama_pengajar='$nama', email_pengajar='$email',pass_pengajar='$pass',bahagian='$bahagian',jawatan='$jawatan' WHERE id_pengajar=$id_pengajar");
+        $mysqli_query  = mysqli_query($connection, "UPDATE subjek SET bahagian='$ibgn', subjek='$isb',kod='$kd',sesi='$iss' WHERE idsub=$idsb");
         
-         header("Location: ./pengajar.php#successEdit");
+         header("Location: ./subjek.php#successEdit");
 }
        
     

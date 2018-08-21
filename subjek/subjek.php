@@ -1,7 +1,8 @@
 <?php include("../config/db.php") ?>
 <?php include("../assets/side-nav.php") ?>
 <?php include("./in_sub.php") ?>
-
+<?php include("./esb.php") ?>
+  
 
 
 <html class="no-js" lang="">
@@ -99,13 +100,17 @@
                             <div class="form-group">
                                 <label class=" form-control-label">Bahagian</label>
                                 <select name="ibg" class="form-control" required>
+                                
                                 <option value="">Sila Pilih</option>
                               <?php
-                                $res = mysqli_query($connection, 'select * from bahagian');
+                                $res = mysqli_query($connection, "select * from bahagian");
 
                                 while($row=mysqli_fetch_array($res)) {
+                                     $ids= $row['id'];
+                                      $ns= $row['bahagian'];
                                 ?>
-                                    <option value="<?php echo $row['id']?>"><?php echo $row['bahagian']?></option>
+                                    
+                                     <option value="<?php echo $ids?>"><?php echo $ns?></option>
                                 <?php
                                 }
 
@@ -117,21 +122,21 @@
                                <div class="form-group">
                                     <label  class="form-control-label">Subjek</label>
                                     <div  class="input-group">                                        
-                                        <input name="isb"  class="form-control" required>
+                                        <input name="isb"  class="form-control" value="<?php echo (isset($isb)) ? $isb: ''; ?>" required>
                                     </div>
                                     <small class="form-text text-muted">Cth. Server Essential </small>
                                 </div>
                                 <div class="form-group">
                                     <label class=" form-control-label">Kod Subjek</label>
                                     <div  class="input-group">                                      
-                                        <input name="ikd" class="form-control" required>
+                                        <input name="ikd" class="form-control" value="<?php echo (isset($kd)) ? $kd: ''; ?>" required>
                                     </div>
                                     <small class="form-text text-muted">Cth. xxxxxxx</small>
                                 </div>
                                    <div class="form-group">
                                     <label class=" form-control-label">Sesi</label>
                                     <div  class="input-group">                                      
-                                        <input name="iss" class="form-control" required>
+                                        <input name="iss" class="form-control" value="<?php echo (isset($iss)) ? $iss: ''; ?>" required>
                                     </div>
                                     <small class="form-text text-muted">Cth. xxxxxxx</small>
                                 </div>   
@@ -139,12 +144,24 @@
                                 </div>
                                 
                          <div class="card-footer">
-                        <button type="submit" name="tsjk" class="btn btn-primary btn-sm">
+                        
+                        
+                        
+                            <?php
+			if (isset($_GET['edit'])) {
+				echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >Kemaskini</button> 
+                <a href="./subjek.php" button type="button" class="btn btn-danger">Batal</button></a>
+                    <button style="display:none;" type="submit" id="submitEdit" name="ksb"  >Kemaskini</button>
+                ';
+			} else {
+				echo '<button type="submit" name="tsjk" class="btn btn-primary btn-sm">
                           <i class="fa fa-dot-circle-o"></i> Submit
-                        </button>
-                        <button type="reset" class="btn btn-danger btn-sm">
+                        </button>';
+                echo '<button type="reset" class="btn btn-danger btn-sm">
                           <i class="fa fa-ban"></i> Reset
-                        </button>
+                        </button>';
+			}
+			?>
                       </div>
                             </div>
                      </form>
@@ -189,9 +206,10 @@
                 </div>
              </div>
         </div>
+ 
     </div>
             
-                
+        
                         
   
    
