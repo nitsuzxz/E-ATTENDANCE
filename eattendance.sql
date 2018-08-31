@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2018 at 10:27 PM
+-- Generation Time: Aug 31, 2018 at 11:48 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -59,15 +59,16 @@ CREATE TABLE `jadual` (
   `kelas` int(11) NOT NULL,
   `hari` varchar(255) NOT NULL,
   `slot` int(11) NOT NULL,
-  `sub_pen` int(11) NOT NULL
+  `id_pen` int(11) NOT NULL,
+  `id_sub` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jadual`
 --
 
-INSERT INTO `jadual` (`idj`, `bahagian`, `sesi`, `kelas`, `hari`, `slot`, `sub_pen`) VALUES
-(2, 7, 1, 1, 'ISNIN', 2, 6);
+INSERT INTO `jadual` (`idj`, `bahagian`, `sesi`, `kelas`, `hari`, `slot`, `id_pen`, `id_sub`) VALUES
+(2, 7, 1, 1, 'ISNIN', 2, 6, 0);
 
 -- --------------------------------------------------------
 
@@ -155,19 +156,18 @@ INSERT INTO `pengajar` (`id_pengajar`, `nama_pengajar`, `email_pengajar`, `pass_
 
 CREATE TABLE `sesi` (
   `ids` int(11) NOT NULL,
-  `sesi` varchar(255) NOT NULL,
-  `semester` int(11) NOT NULL
+  `sesi` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sesi`
 --
 
-INSERT INTO `sesi` (`ids`, `sesi`, `semester`) VALUES
-(1, '1/2017', 4),
-(2, '2/2017', 3),
-(3, '1/2018', 2),
-(4, '2/2018', 1);
+INSERT INTO `sesi` (`ids`, `sesi`) VALUES
+(1, '1/2017'),
+(2, '2/2017'),
+(3, '1/2018'),
+(4, '2/2018');
 
 -- --------------------------------------------------------
 
@@ -191,27 +191,7 @@ INSERT INTO `subjek` (`idsub`, `subjek`, `kod`, `bahagian`, `sesi`) VALUES
 (1, 'Final Year Project II', 'KKS8034', 7, 1),
 (2, 'Computer System Security', 'KKS8013', 7, 1),
 (3, 'Database', 'KKS8023', 7, 1),
-(4, 'Troubleshooting', 'KKS8099', 0, 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `subpen`
---
-
-CREATE TABLE `subpen` (
-  `id_sp` int(11) NOT NULL,
-  `id_s` int(11) NOT NULL,
-  `id_p` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `subpen`
---
-
-INSERT INTO `subpen` (`id_sp`, `id_s`, `id_p`) VALUES
-(5, 1, 13),
-(6, 1, 17);
+(4, 'Troubleshooting', 'KKS8099', 7, 2);
 
 --
 -- Indexes for dumped tables
@@ -231,7 +211,7 @@ ALTER TABLE `jadual`
   ADD KEY `bahagian` (`bahagian`),
   ADD KEY `sesi` (`sesi`),
   ADD KEY `kelas` (`kelas`),
-  ADD KEY `sub_pen` (`sub_pen`);
+  ADD KEY `sub_pen` (`id_pen`);
 
 --
 -- Indexes for table `jawatan`
@@ -272,14 +252,6 @@ ALTER TABLE `subjek`
   ADD UNIQUE KEY `subjek` (`subjek`),
   ADD KEY `sesi` (`sesi`),
   ADD KEY `bahagian` (`bahagian`);
-
---
--- Indexes for table `subpen`
---
-ALTER TABLE `subpen`
-  ADD PRIMARY KEY (`id_sp`),
-  ADD KEY `id_s` (`id_s`),
-  ADD KEY `id_p` (`id_p`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -328,12 +300,6 @@ ALTER TABLE `subjek`
   MODIFY `idsub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `subpen`
---
-ALTER TABLE `subpen`
-  MODIFY `id_sp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- Constraints for dumped tables
 --
 
@@ -342,8 +308,7 @@ ALTER TABLE `subpen`
 --
 ALTER TABLE `jadual`
   ADD CONSTRAINT `jadual_ibfk_2` FOREIGN KEY (`sesi`) REFERENCES `sesi` (`ids`),
-  ADD CONSTRAINT `jadual_ibfk_3` FOREIGN KEY (`bahagian`) REFERENCES `bahagian` (`id`),
-  ADD CONSTRAINT `jadual_ibfk_4` FOREIGN KEY (`sub_pen`) REFERENCES `subpen` (`id_sp`) ON DELETE CASCADE;
+  ADD CONSTRAINT `jadual_ibfk_3` FOREIGN KEY (`bahagian`) REFERENCES `bahagian` (`id`);
 
 --
 -- Constraints for table `pelajar`
@@ -364,13 +329,6 @@ ALTER TABLE `pengajar`
 --
 ALTER TABLE `subjek`
   ADD CONSTRAINT `subjek_ibfk_1` FOREIGN KEY (`sesi`) REFERENCES `sesi` (`ids`);
-
---
--- Constraints for table `subpen`
---
-ALTER TABLE `subpen`
-  ADD CONSTRAINT `subpen_ibfk_1` FOREIGN KEY (`id_p`) REFERENCES `pengajar` (`id_pengajar`),
-  ADD CONSTRAINT `subpen_ibfk_2` FOREIGN KEY (`id_s`) REFERENCES `subjek` (`idsub`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
