@@ -33,8 +33,22 @@
             
             echo "</div>";
      
-
-            $res=mysqli_query($connection,"select * from subjek where bahagian='$bhgn_id'");
+        }
+            
+        if (isset($_GET['pengajar'])) {
+        $pgjr = $_GET['pengajar'];
+        $pgjrid_res = mysqli_query($connection,"select id from pengajar where bahagian='$bhgn'");
+        $row2 = mysqli_fetch_array($pgjrid_res);
+        $pgjr_id = $row2[0];
+            
+            $res=mysqli_query($connection,"SELECT n.id_sp,s.id_s,p.id_p
+                                  from subpen as n
+                                  join pengajar as p
+                                  on n.id_p=p.nama_pengajar
+                                  join subjek as s
+                                  on n.id_s=p.idsub
+                                 
+                                  WHERE n.id_s='{$pgjr'");
             echo "<div class='input-field col s12'>";
             echo "<select id='subjekdd' >";
             echo "<option value=''>"; 

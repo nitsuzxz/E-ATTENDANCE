@@ -1,7 +1,6 @@
 <?php include("../config/db.php") ?>
 <?php include("../assets/side-nav.php") ?>
-<?php include("./in_sub.php") ?>
-<?php include("./esb.php") ?>
+<?php include("./ddrop.php")?>
   
 
 
@@ -22,6 +21,7 @@
     <link rel="stylesheet" href="../assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="../assets/scss/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    
 </head>
 
 <body>
@@ -93,13 +93,13 @@
                    <form action="" method="post" class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong>Tambah Subjek</strong>
+                            <strong>Jadual</strong>
                             </div>
                             <div  class="card-body card-block">
                             
                             <div class="form-group">
                                 <label class=" form-control-label">Bahagian</label>
-                                <select name="ibg" class="form-control" required>
+                                <select id="jb" name="jb" onchange="jbhgn()" class="form-control" required>
                                 
                                 <option value="">Sila Pilih</option>
                               <?php
@@ -117,31 +117,47 @@
                               ?>
                                 </select>
                             </div>
-                                
-                                
-                               <div class="form-group">
-                                    <label  class="form-control-label">Subjek</label>
-                                    <div  class="input-group">                                        
-                                        <input name="isb"  class="form-control" value="<?php echo (isset($isb)) ? $isb: ''; ?>" required>
-                                    </div>
-                                    <small class="form-text text-muted">Cth. Server Essential </small>
+                                  <div class="form-group">
+                                    <label  class="form-control-label">Pengajar</label>
+                                      <div id="jp">
+                                      <select class="form-control" name="jp" disabled>
+                                        <option value="" disabled selected>Pilih Pengajar</option>
+                                      </select>
                                 </div>
-                                <div class="form-group">
-                                    <label class=" form-control-label">Kod Subjek</label>
-                                    <div  class="input-group">                                      
-                                        <input name="ikd" class="form-control" value="<?php echo (isset($kd)) ? $kd: ''; ?>" required>
-                                    </div>
-                                    <small class="form-text text-muted">Cth. xxxxxxx</small>
                                 </div>
+                                
                                    <div class="form-group">
                                     <label class=" form-control-label">Sesi</label>
-                                    <div  class="input-group">                                      
-                                        <input name="iss" class="form-control" value="<?php echo (isset($iss)) ? $iss: ''; ?>" required>
-                                    </div>
-                                    <small class="form-text text-muted">Cth. xxxxxxx</small>
-                                </div>   
-                                   
+                                     <div id="jsi">
+                                      <select class="form-control" name="jsi" disabled>
+                                        <option value="" disabled selected>Pilih Sesi</option>
+                                      </select>
                                 </div>
+                                    <small class="form-text text-muted">Cth.1/2015</small>
+                                </div> 
+                               <div class="form-group">
+                                    <label  class="form-control-label">Subjek</label>
+                                     <div id="jsi">
+                                      <select class="form-control" name="jsi" disabled>
+                                        <option value="" disabled selected>Pilih Sesi</option>
+                                      </select>
+                                </div>
+                                    <small class="form-text text-muted">Cth. Server Essential </small>                                  
+                                </div>
+                                 <div class="form-group">
+                                    <label  class="form-control-label">Hari</label>
+                                    <div  class="input-group">                                        
+                                        <input name="jh"  class="form-control" value="" disabled selected>
+                                    </div>
+                   
+                                </div>
+                                 <div class="form-group">
+                                    <label  class="form-control-label">Slot</label>
+                                    <div  class="input-group">                                        
+                                        <input name="jst"  class="form-control" value="" disabled selected>
+                                    </div>                              
+                                </div>
+                        </div>
                                 
                          <div class="card-footer">
                         
@@ -186,8 +202,7 @@
                                         <th class="ti-arrows-vertical"  scope="col">Kod</th>
                                         <th class="ti-arrows-vertical"  scope="col">Bahagian</th>
                                         <th class="ti-arrows-vertical"  scope="col">Sesi</th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
+                               
                                     </tr>
                                 </thead>
 
@@ -208,7 +223,41 @@
         </div>
  
     </div>
+                    
+        <script type="text/javascript">
+            function jbhgn(){
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET","ddrop.php?bahagian="+document.getElementById('jb').value,false);
+                xmlhttp.send(null);
+                //alert(xmlhttp.responseText);
+                console.log('ajax ',xmlhttp);
+                document.getElementById('jp').innerHTML=xmlhttp.responseText;
+                $('select').material_select();
+            }
+
+            function cjp() {
             
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET","ddrop.php?pengajar="+document.getElementById('jdp').value,false);
+                xmlhttp.send(null);
+                //alert(xmlhttp.responseText);
+                document.getElementById('jsi').innerHTML=xmlhttp.responseText;
+                $('select').material_select();
+            }
+            
+            function cjp() {
+            
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET","ddrop.php?pengajar="+document.getElementById('jdp').value,false);
+                xmlhttp.send(null);
+                //alert(xmlhttp.responseText);
+                document.getElementById('jsi').innerHTML=xmlhttp.responseText;
+                $('select').material_select();
+            }
+            
+            
+                    
+        </script>
         
                         
   

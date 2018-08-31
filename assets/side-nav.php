@@ -20,7 +20,7 @@
                     </li>
                     <h3 class="menu-title">EATTENDANCE</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>USER</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Pengguna</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-user"></i><a href="../Pengajar/pengajar.php">Pengajar</a></li>
                             <li><i class="fa fa-user"></i><a href="../Pelajar/pelajar.php">Pelajar</a></li>
@@ -28,10 +28,10 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tambah</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Something</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="../subjek/subjek.php">Subjek</a></li>
-                            <li><i class="fa fa-table"></i><a href="">Kelas</a></li>
+                            <li><i class="fa fa-table"></i><a href="../jadual/jadual.php">Jadual</a></li>
                         </ul>
                     </li>
 
