@@ -58,16 +58,10 @@ global $connection;
 
         if($pgjr!=""){
 
-            $res=mysqli_query($connection,"select j.idj, b.bahagian,s.sesi,j.kelas,j.hari,j.slot,p.id_pen,sb.id_sub 
-                                            from jadual as j
-                                            join bahagian as b
-                                            on j.bahagian=j.id
-                                            join sesi as s
-                                            on j.sesi=s.ids
-                                            join pengajar as p
-                                            on j.id_pen=p.id
-                                            join subjek as sb
-                                            on j.id_sub=sb.idsub;
+            $res=mysqli_query($connection,"select * from subjek
+                                            where bahagian=$bhgn
+                                            sesi= ");
+                                         
             
             
              echo "<select id='jds name='jds class='form-control' required>";
