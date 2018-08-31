@@ -138,7 +138,7 @@
                                <div class="form-group">
                                     <label  class="form-control-label">Subjek</label>
                                      <div id="jsi">
-                                      <select class="form-control" name="jsi" disabled>
+                                      <select class="form-control" name="jss"disabled>
                                         <option value="" disabled selected>Pilih Sesi</option>
                                       </select>
                                 </div>
@@ -245,15 +245,7 @@
                 $('select').material_select();
             }
             
-            function cjp() {
             
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET","ddrop.php?pengajar="+document.getElementById('jdp').value,false);
-                xmlhttp.send(null);
-                //alert(xmlhttp.responseText);
-                document.getElementById('jsi').innerHTML=xmlhttp.responseText;
-                $('select').material_select();
-            }
             
             
                     
