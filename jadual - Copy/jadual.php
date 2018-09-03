@@ -145,55 +145,20 @@
                                     <small class="form-text text-muted">Cth. Server Essential </small>                                  
                                 </div>
                                  <div class="form-group">
-                                    <label  class="form-control-label">Kelas</label>
-                                     <div id="jks">
-                                      <select class="form-control" name="jks"disabled>
-                                        <option value="" disabled selected>Pilih Kelas</option>
-                                      </select>
-                                </div>
-                                   
-                                </div>
-                                 <div class="form-group">
                                     <label  class="form-control-label">Hari</label>
-                                    <div id="jh">
-                                      <select class="form-control" name="jh" disabled>
+                                      <div id="jh">
+                                      <select class="form-control" name="jh"disabled>
                                         <option value="" disabled selected>Pilih Hari</option>
                                       </select>
                                 </div>
                    
                                 </div>
-                          
-                
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">Slot Kelas</label></div>
-                        <div id="jst">
-                              <div ="jst" class="form-check-inline form-check">
-                                <label  class="form-check-label ">
-                                  <input type="checkbox"  value="option1" class="form-check-input" disabled>Slot 1
-                                </label>
-                                <label  class="form-check-label ">
-                                  <input type="checkbox"  value="option2" class="form-check-input" disabled>Slot 2
-                                </label>
-                                <label class="form-check-label ">
-                                  <input type="checkbox"  value="option3" class="form-check-input" disabled>Slot 3
-                                </label>
-                                  <label  class="form-check-label ">
-                                  <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 4
-                                </label>
-                                  <label  class="form-check-label ">
-                                  <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 5
-                                </label>
-                                  <label  class="form-check-label ">
-                                  <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 6
-                                </label>
-                                  <label  class="form-check-label ">
-                                  <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 7
-                                </label>
-                              </div>
-                            </div> 
-                          </div>
-                 
-                        
+                                 <div class="form-group">
+                                    <label  class="form-control-label">Slot</label>
+                                    <div  class="input-group">                                        
+                                        <input name="jst"  class="form-control" value="" disabled selected>
+                                    </div>                              
+                                </div>
                         </div>
                                 
                          <div class="card-footer">
@@ -285,43 +250,16 @@
                 $('select').material_select();
             }
           
-            function pilihSesi(){
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET","ddrop.php?bahagian2=" + document.getElementById('jb').value + "&sesi=" + document.getElementById('sesi').value, false);
-                console.log(xmlhttp);
-                xmlhttp.send(null);
-                //subjekBody
-                document.getElementById('jss').innerHTML=xmlhttp.responseText;
-                $('select').material_select();
-                
-            }
-            function pilihkelas() {
+         function pilihari() {
             
                 var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET","ddrop.php?kelas="+document.getElementById('jssd').value,false);
-                xmlhttp.send(null);
-                //alert(xmlhttp.responseText);
-                document.getElementById('jks').innerHTML=xmlhttp.responseText;
-                $('select').material_select();
-            }
-             function pilihari() {
-            
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET","ddrop.php?hari="+document.getElementById('jks').value,false);
+                xmlhttp.open("GET","ddrop.php?hari="+document.getElementById('sesi').value,false);
                 xmlhttp.send(null);
                 //alert(xmlhttp.responseText);
                 document.getElementById('jh').innerHTML=xmlhttp.responseText;
                 $('select').material_select();
             }
-            function pilihslot() {
-            
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET","ddrop.php?slot="+document.getElementById('jhd').value,false);
-                xmlhttp.send(null);
-                //alert(xmlhttp.responseText);
-                document.getElementById('jst').innerHTML=xmlhttp.responseText;
-
-            }
+          
                     
         </script>
         
