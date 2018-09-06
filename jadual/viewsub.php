@@ -1,37 +1,42 @@
 <?php
-include("../config/db.php");
-                global $connection;
+
+global $connection;
                                   
-                                  $query = "SELECT * FROM subjek ";
-                                  if(isset($_GET['bahagian'])){
-                                    $bahagian = $_GET['bahagian'];
-                                    $query = $query . " WHERE bahagian=$bahagian";
-                                  }
-                                  if(isset($_GET['sesi'])){
-                                    $sesi = $_GET['sesi'];
-                                    $query = $query . " AND sesi=$sesi";
-                                  }
-                                  $sbr= mysqli_query($connection, $query);
-                                  while($row= mysqli_fetch_array($sbr)){
-                                      $idsb= $row['idsub'];
-                                      $sbk= $row['subjek'];
-                                      $kd= $row['kod'];
-                                      $bhgn= $row['bahagian'];
-                                      $ss= $row['sesi'];
-    
+ $query = "SELECT j.idj, b.bahagian, p.nama_pengajar, ss.sesi, s.subjek, j.kelas, j.hari, j.slot
+            FROM jadual AS j
+            JOIN bahagian AS b     
+            ON j.bahagian= b.id
+            JOIN pengajar AS p       
+            ON j.id_pen= p.id_pengajar
+            JOIN subjek AS s           
+            ON j.id_sub= s.idsub
+            JOIN sesi AS ss
+            on j.sesi=ss.ids";      
+
+        
+                $jadual= mysqli_query($connection, $query);
+
+                 while($row= mysqli_fetch_array($jadual)){
+                                      $jid=$row['idj'];
+                                      $jbahagian =$row['bahagian'];
+                                      $jpengajar  = $row['nama_pengajar'];
+                                      $jsesi=$row['sesi'];
+                                      $jsubjek = $row['subjek'];
+                                      $jkelas = $row['kelas'];
+                                      $jhari=$row['hari'];
+                                      $jslot=$row['slot'];
+                                    
                                       
                                       echo "<tr>
-	                                   <td>$sbk</td>
-	                                   <td>$kd</td>
-                                       <td>$bhgn</td>
-	                                   <td>$ss</td>
+	                                   <td>$jbahagian</td>
+                                       <td>$jpengajar</td>
+	                                   <td>$jsesi</td>
+                                       <td>$jsubjek</td>
+	                                   <td>$jkelas</td>
+                                       <td>$jhari</td>
+	                                   <td>$jslot</td>
                                        </tr>";
                                       }
-                            if(isset($_GET['delete'])){
-                            $query = "DELETE FROM subjek WHERE idsub = {$_GET['delete']}";
-                            $delete_query = mysqli_query($connection, $query);
-                            
-                            header("Location: ./subjek.php");
-                        }       
+                   
 
 ?>

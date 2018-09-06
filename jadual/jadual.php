@@ -1,6 +1,7 @@
 <?php include("../config/db.php") ?>
 <?php include("../assets/side-nav.php") ?>
 <?php include("./ddrop.php")?>
+<?php include("./insertj.php")?>
   
 
 
@@ -167,7 +168,7 @@
                         <div class="row form-group">
                             <div class="col col-md-3"><label class=" form-control-label">Slot Kelas</label></div>
                         <div id="jst">
-                              <div ="jst" class="form-check-inline form-check">
+                              <div  class="form-check-inline form-check">
                                 <label  class="form-check-label ">
                                   <input type="checkbox"  value="option1" class="form-check-input" disabled>Slot 1
                                 </label>
@@ -192,34 +193,15 @@
                               </div>
                             </div> 
                           </div>
-                 
-                        
                         </div>
                                 
-                         <div class="card-footer">
-                        
-                        
-                        
-                            <?php
-			if (isset($_GET['edit'])) {
-				echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >Kemaskini</button> 
-                <a href="./subjek.php" button type="button" class="btn btn-danger">Batal</button></a>
-                    <button style="display:none;" type="submit" id="submitEdit" name="ksb"  >Kemaskini</button>
-                ';
-			} else {
-				echo '<button type="button" name="tsjk" class="btn btn-primary btn-sm" onclick="submitJadual()">
-                          <i class="fa fa-dot-circle-o"></i> Submit
-                        </button>';
-                echo '<button type="reset" class="btn btn-danger btn-sm">
-                          <i class="fa fa-ban"></i> Reset
-                        </button>';
-			}
-			?>
-                      </div>
-                            </div>
-                     </form>
-                      
+                        <div class="card-footer">
     
+                <button type="buttton" name="submit" class="btn btn-primary btn-sm"> <i class="fa fa-dot-circle-o"></i> Submit</button>
+                <button type="reset" class="btn btn-danger btn-sm"> <i class="fa fa-ban"></i> Reset</button>
+           
+                        </div> 
+                       
 
              <div class="content mt-3">
             <div class="animated fadeIn">
@@ -228,30 +210,32 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Subjek</strong>
+                            <strong class="card-title">Jadual</strong>
                         </div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>
 
-                        <tr>
-                                        <th class="ti-arrows-vertical"  scope="col">Subjek</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Kod</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Bahagian</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Sesi</th>
-                               
-                                    </tr>
-                                </thead>
+                                        <tr>
+                                        <th class="ti-arrows-vertical"  scope="col">bahagian</th>
+                                        <th class="ti-arrows-vertical"  scope="col">pengajar</th>
+                                        <th class="ti-arrows-vertical"  scope="col">jsesi</th>
+                                        <th class="ti-arrows-vertical"  scope="col">jsubjek</th>
+                                        <th class="ti-arrows-vertical"  scope="col">jkelas</th>
+                                        <th class="ti-arrows-vertical"  scope="col">jhari</th>
+                                        <th class="ti-arrows-vertical"  scope="col">jslot</th>
+                
+                                            
+                                        </tr>
+                    </thead>
                                  
-                                  <tbody id="subjekBody">
+                                  <tbody >
                                   <?php include("./viewsub.php") ?>
                                   </tbody>
                          
 
                             </table>
-                                <div id="testing">
-                                
-                                </div>
+                               
                         </div>
                     </div>
                 </div>
@@ -259,10 +243,14 @@
                  </div>
                     </div>
                 </div>
+                    </form>
+                </div>
              </div>
         </div>
- 
     </div>
+
+            
+     
                     
         <script type="text/javascript">
             function jbhgn(){ 
