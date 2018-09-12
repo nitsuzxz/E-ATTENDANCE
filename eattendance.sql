@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 31, 2018 at 11:48 AM
+-- Generation Time: Sep 12, 2018 at 06:20 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -68,7 +68,12 @@ CREATE TABLE `jadual` (
 --
 
 INSERT INTO `jadual` (`idj`, `bahagian`, `sesi`, `kelas`, `hari`, `slot`, `id_pen`, `id_sub`) VALUES
-(2, 7, 1, 1, 'ISNIN', 2, 6, 0);
+(2, 7, 1, 1, 'ISNIN', 2, 6, 2),
+(3, 7, 1, 1, 'ISNIN', 1, 13, 2),
+(4, 7, 1, 1, 'ISNIN', 2, 13, 2),
+(5, 7, 2, 2, 'JUMAAT', 3, 17, 4),
+(6, 7, 2, 2, 'JUMAAT', 4, 17, 4),
+(7, 7, 2, 2, 'JUMAAT', 5, 17, 4);
 
 -- --------------------------------------------------------
 
@@ -90,6 +95,35 @@ INSERT INTO `jawatan` (`id`, `jawatan`) VALUES
 (2, 'Ketua Bahagian'),
 (4, 'Pelajar'),
 (3, 'Pengajar');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ke`
+--
+
+CREATE TABLE `ke` (
+  `id_k` int(11) NOT NULL,
+  `idj` int(11) NOT NULL,
+  `id_p` int(11) NOT NULL,
+  `kehadiran` varchar(11) NOT NULL,
+  `tarikh` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ke`
+--
+
+INSERT INTO `ke` (`id_k`, `idj`, `id_p`, `kehadiran`, `tarikh`) VALUES
+(1, 2, 8, '/', '2018-09-12'),
+(2, 2, 8, 'o', '2018-09-12'),
+(3, 2, 8, 'o', '2018-09-12'),
+(4, 2, 8, 'o', '2018-09-12'),
+(5, 2, 9, '/', '2018-09-12'),
+(6, 2, 9, '/', '2018-09-12'),
+(7, 2, 9, '/', '2018-09-12'),
+(8, 2, 9, '/', '2018-09-12'),
+(9, 2, 9, '/', '2018-09-12');
 
 -- --------------------------------------------------------
 
@@ -142,7 +176,7 @@ CREATE TABLE `pengajar` (
 
 INSERT INTO `pengajar` (`id_pengajar`, `nama_pengajar`, `email_pengajar`, `pass_pengajar`, `jawatan`, `bahagian`) VALUES
 (13, 'Rafidah', 'rafidah@ilpkl.com', 'user123', 2, 7),
-(17, 'Azwadi', 'azwadi@ilpkl.com', 'user123', 3, 7),
+(17, 'Azwadi', 'azwadi@ilpkl.com', 'user123', 1, 7),
 (18, 'Shahir', 'shahir@ilpkl.com', 'user123', 3, 7),
 (19, 'Siti zubaidah', 'siti@ilpkl.com', 'user123', 3, 7),
 (20, 'Junaidi', 'ju@ilpkl.com', 'user123', 3, 7),
@@ -211,7 +245,8 @@ ALTER TABLE `jadual`
   ADD KEY `bahagian` (`bahagian`),
   ADD KEY `sesi` (`sesi`),
   ADD KEY `kelas` (`kelas`),
-  ADD KEY `sub_pen` (`id_pen`);
+  ADD KEY `sub_pen` (`id_pen`),
+  ADD KEY `id_sub` (`id_sub`);
 
 --
 -- Indexes for table `jawatan`
@@ -219,6 +254,12 @@ ALTER TABLE `jadual`
 ALTER TABLE `jawatan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `jawatan` (`jawatan`);
+
+--
+-- Indexes for table `ke`
+--
+ALTER TABLE `ke`
+  ADD PRIMARY KEY (`id_k`);
 
 --
 -- Indexes for table `pelajar`
@@ -267,13 +308,19 @@ ALTER TABLE `bahagian`
 -- AUTO_INCREMENT for table `jadual`
 --
 ALTER TABLE `jadual`
-  MODIFY `idj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `jawatan`
 --
 ALTER TABLE `jawatan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `ke`
+--
+ALTER TABLE `ke`
+  MODIFY `id_k` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pelajar`

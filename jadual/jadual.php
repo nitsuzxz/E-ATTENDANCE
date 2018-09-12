@@ -217,13 +217,13 @@
                     <thead>
 
                                         <tr>
-                                        <th class="ti-arrows-vertical"  scope="col">bahagian</th>
-                                        <th class="ti-arrows-vertical"  scope="col">pengajar</th>
-                                        <th class="ti-arrows-vertical"  scope="col">jsesi</th>
-                                        <th class="ti-arrows-vertical"  scope="col">jsubjek</th>
-                                        <th class="ti-arrows-vertical"  scope="col">jkelas</th>
-                                        <th class="ti-arrows-vertical"  scope="col">jhari</th>
-                                        <th class="ti-arrows-vertical"  scope="col">jslot</th>
+                                        <th class="ti-arrows-vertical"  scope="col">Bahagian</th>
+                                        <th class="ti-arrows-vertical"  scope="col">Pengajar</th>
+                                        <th class="ti-arrows-vertical"  scope="col">Sesi</th>
+                                        <th class="ti-arrows-vertical"  scope="col">Subjek</th>
+                                        <th class="ti-arrows-vertical"  scope="col">Kelas</th>
+                                        <th class="ti-arrows-vertical"  scope="col">Hari</th>
+                                        <th class="ti-arrows-vertical"  scope="col">Slot</th>
                 
                                             
                                         </tr>

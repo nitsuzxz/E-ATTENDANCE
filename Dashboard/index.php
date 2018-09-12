@@ -1,5 +1,6 @@
 <?php include("../config/db.php") ?>
 <?php include("../assets/side-nav.php") ?>
+<?php include("./cpelajar.php") ?>
 <!doctype html>
 
 <html class="no-js" lang=""> 
@@ -75,7 +76,19 @@
             </div>   
         </div>
         
-
+    <div class="col-xl-3 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
+                            <div class="stat-content dib">
+                                <div class="stat-text">New Customer</div>
+                                <div  class="count"><?php echo $cp ?></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     <!-- Right Panel -->
 
     <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
