@@ -1,3 +1,4 @@
+<?php include("../config/db.php") ?>
 <html>
 <style>
 table {
@@ -17,6 +18,39 @@ td, th {
 </style>
 <body>
         
+    <?php
+    
+    if(isset($_GET['sth'])&&isset($_GET['idp'])){
+    
+      $slot=$_GET['sth'];
+      $pelajar=$_GET['idp'];
+        
+    $query=mysqli_query($connection,"select * from pelajar
+            where id_pelajar=$pelajar");
+        
+        $sss  = mysqli_query($connection, $query);
+                                  
+                                  while($row= mysqli_fetch_array($pelajar)){
+                                      $id_pelajar       = $row['id_pelajar'];
+                                      $nama_pelajar     = $row['nama_pelajar'];
+                                      $no_ndp           = $row['no_ndp'];
+                                      $bahagian         = $row['bahagian'];
+                                      $ic               = $row['ic'];
+                                      $alamat           = $row['alamat'];
+        
+    }
+        
+    }
+    
+    ?>
+    
+    
+    
+    
+    
+    
+    
+    
     <center><strong><h1 style="font-size:16">INSTITUT LATIHAN PERINDUSTRIAN
         KUALA LUMPUR</h1></strong></center>
     
@@ -35,9 +69,9 @@ td, th {
     <p style="font-size:12">Merujuk kepada perkara diatas:</p>
     
     <p style="font-size:12"> 2.  Adalah dilaporkan bahawa pelajar berikut:</p>
-    <p style="font-size:12">Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:MUHAMMAD FAIZAL BIN AZIZUL </p>
-    <p style="font-size:12">No.K/P &nbsp;&nbsp;&nbsp;&nbsp;:9903525-14-6153 </p>
-    <p style="font-size:12">Kursus &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:TEKNOLOGI KOMPUTER SISTEM </p>
+    <p style="font-size:12">Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<?php echo $nama_pelajar ?> </p>
+    <p style="font-size:12">No.K/P &nbsp;&nbsp;&nbsp;&nbsp;:<?php echo $ic ?> </p>
+    <p style="font-size:12">Kursus &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<?php echo $bahagian ?></p>
     <p style="font-size:12">Semester &nbsp;&nbsp;:2(SESI 1/10) </p>
     
     <p style="font-size:12">Telah didapati melakukan kesalahan tatatertib seperti berikut: </p>
@@ -51,83 +85,9 @@ td, th {
     <th>Slot</th>
     <th>Tempat</th>  
   </tr>
-      <tr>
-          <td>Tidak Hadir Ke Kuliah</td>
-          <td>1/1/2018</td>
-          <td>8.00am-9.00am</td>
-          <td>1</td>
-          <td>Bilik Kuliah Teknologi Komputer Sistem</td>
-      </tr>
-        <tr>
-          <td>Tidak Hadir Ke Kuliah</td>
-          <td>1/1/2018</td>
-          <td>8.00am-9.00am</td>
-          <td>1</td>
-          <td>Bilik Kuliah Teknologi Komputer Sistem</td>
-      </tr>  
-        <tr>
-          <td>Tidak Hadir Ke Kuliah</td>
-          <td>1/1/2018</td>
-          <td>8.00am-9.00am</td>
-          <td>1</td>
-          <td>Bilik Kuliah Teknologi Komputer Sistem</td>
-      </tr>  
-        <tr>
-          <td>Tidak Hadir Ke Kuliah</td>
-          <td>1/1/2018</td>
-          <td>8.00am-9.00am</td>
-          <td>1</td>
-          <td>Bilik Kuliah Teknologi Komputer Sistem</td>
-      </tr>  
-        <tr>
-          <td>Tidak Hadir Ke Kuliah</td>
-          <td>1/1/2018</td>
-          <td>8.00am-9.00am</td>
-          <td>1</td>
-          <td>Bilik Kuliah Teknologi Komputer Sistem</td>
-      </tr>  
-        <tr>
-          <td>Tidak Hadir Ke Kuliah</td>
-          <td>1/1/2018</td>
-          <td>8.00am-9.00am</td>
-          <td>1</td>
-          <td>Bilik Kuliah Teknologi Komputer Sistem</td>
-      </tr>  
-        <tr>
-          <td>Tidak Hadir Ke Kuliah</td>
-          <td>1/1/2018</td>
-          <td>8.00am-9.00am</td>
-          <td>7</td>
-          <td>Bilik Kuliah Teknologi Komputer Sistem</td>
-      </tr>  
-             <tr>
-          <td>Tidak Hadir Ke Kuliah</td>
-          <td>1/1/2018</td>
-          <td>8.00am-9.00am</td>
-          <td>1</td>
-          <td>Bilik Kuliah Teknologi Komputer Sistem</td>
-      </tr>  
-        <tr>
-          <td>Tidak Hadir Ke Kuliah</td>
-          <td>1/1/2018</td>
-          <td>8.00am-9.00am</td>
-          <td>1</td>
-          <td>Bilik Kuliah Teknologi Komputer Sistem</td>
-      </tr>  
-        <tr>
-          <td>Tidak Hadir Ke Kuliah</td>
-          <td>1/1/2018</td>
-          <td>8.00am-9.00am</td>
-          <td>1</td>
-          <td>Bilik Kuliah Teknologi Komputer Sistem</td>
-      </tr>  
-        <tr>
-          <td>Tidak Hadir Ke Kuliah</td>
-          <td>1/1/2018</td>
-          <td>8.00am-9.00am</td>
-          <td>7</td>
-          <td>Bilik Kuliah Teknologi Komputer Sistem</td>
-      </tr>
+        <td>
+        <?php include("./cpelajar.php") ?>
+       </td>
     </table>
     
     

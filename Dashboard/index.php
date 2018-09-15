@@ -1,6 +1,6 @@
 <?php include("../config/db.php") ?>
 <?php include("../assets/side-nav.php") ?>
-<?php include("./cpelajar.php") ?>
+
 <!doctype html>
 
 <html class="no-js" lang=""> 
@@ -82,13 +82,42 @@
                         <div class="stat-widget-one">
                             <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
                             <div class="stat-content dib">
-                                <div class="stat-text">New Customer</div>
-                                <div  class="count"><?php echo $cp ?></div>
+                                <div class="stat-text">Pengajar</div>
+                                <div  class="count">100</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        
+        
+        
+           <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">PELAJAR</strong>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                 
+                                  <th scope="col">Nama</th>
+                                  <th scope="col">Slot tidak hadir</th>
+                                 <th scope="col">Laporan Kehadiran</th>
+                                  <th scope="col"></th>        
+                                </tr>
+                              </thead>
+                            
+                              <tbody id="ptable">
+                                <?php include("./cpelajar.php") ?>
+                              </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
     <!-- Right Panel -->
 
     <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>

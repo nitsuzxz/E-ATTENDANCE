@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2018 at 06:20 PM
+-- Generation Time: Sep 15, 2018 at 02:36 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -73,7 +73,21 @@ INSERT INTO `jadual` (`idj`, `bahagian`, `sesi`, `kelas`, `hari`, `slot`, `id_pe
 (4, 7, 1, 1, 'ISNIN', 2, 13, 2),
 (5, 7, 2, 2, 'JUMAAT', 3, 17, 4),
 (6, 7, 2, 2, 'JUMAAT', 4, 17, 4),
-(7, 7, 2, 2, 'JUMAAT', 5, 17, 4);
+(7, 7, 2, 2, 'JUMAAT', 5, 17, 4),
+(8, 7, 1, 4, 'RABU', 1, 20, 1),
+(9, 7, 1, 4, 'RABU', 2, 20, 1),
+(10, 7, 1, 4, 'RABU', 3, 20, 1),
+(11, 7, 1, 4, 'RABU', 4, 20, 1),
+(12, 7, 1, 4, 'RABU', 5, 20, 1),
+(13, 7, 1, 4, 'RABU', 6, 20, 1),
+(14, 7, 1, 4, 'RABU', 7, 20, 1),
+(15, 7, 2, 3, 'SELASA', 1, 18, 4),
+(16, 7, 2, 3, 'SELASA', 2, 18, 4),
+(17, 7, 2, 3, 'SELASA', 3, 18, 4),
+(18, 7, 2, 3, 'SELASA', 4, 18, 4),
+(19, 7, 2, 3, 'SELASA', 5, 18, 4),
+(20, 7, 2, 3, 'SELASA', 6, 18, 4),
+(21, 7, 2, 3, 'SELASA', 7, 18, 4);
 
 -- --------------------------------------------------------
 
@@ -308,7 +322,7 @@ ALTER TABLE `bahagian`
 -- AUTO_INCREMENT for table `jadual`
 --
 ALTER TABLE `jadual`
-  MODIFY `idj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `jawatan`
