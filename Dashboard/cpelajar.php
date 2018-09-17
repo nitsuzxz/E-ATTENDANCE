@@ -3,7 +3,7 @@
 global $connection;
                                   
 
-$query = "SELECT id_p,count(kehadiran) AS cnt FROM ke WHERE `kehadiran` = '/' GROUP BY `id_p`";      
+$query = "SELECT id_p,count(kehadiran) AS cnt FROM ke WHERE `kehadiran` = 'o' GROUP BY `id_p`";      
 
         
                 $count= mysqli_query($connection, $query);
@@ -13,17 +13,18 @@ $query = "SELECT id_p,count(kehadiran) AS cnt FROM ke WHERE `kehadiran` = '/' GR
                      $cp=$row['cnt'];
                       $dp=$row['id_p'];
                      
-                     
+                      if($cp>15){
                           echo "<tr>
 	                                   
-	                                   <td>$dp</td>
-	                                   <td>$cp</td>
+                                    <td>$dp</td>
+	                                <td>$cp</td>
                                     <td><a href='../surat/surat.php?sth={$cp}&idp={$dp}' button  type='button' class='btn btn-warning'>Muat Turun</button></a></td>    
                                        
-                                       </tr>";
+                                </tr>";
                      
                 
                  }
+                }
 
 ?>
 

@@ -31,7 +31,7 @@
             }
          
             $_SESSION['bahagian']= $bahagian;
-            $_SESSION['email_pengajar']= $admin_uname;
+            $_SESSION['nama_pengajar']= $admin_uname;
            
         }
         if(isset($_SESSION['email_pengajar']) &&

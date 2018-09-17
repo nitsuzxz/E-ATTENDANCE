@@ -1,4 +1,6 @@
 <?php include("../config/db.php") ?>
+<?php include("./get.php") ?>
+
 <html>
 <style>
 table {
@@ -17,39 +19,7 @@ td, th {
 
 </style>
 <body>
-        
-    <?php
-    
-    if(isset($_GET['sth'])&&isset($_GET['idp'])){
-    
-      $slot=$_GET['sth'];
-      $pelajar=$_GET['idp'];
-        
-    $query=mysqli_query($connection,"select * from pelajar
-            where id_pelajar=$pelajar");
-        
-        $sss  = mysqli_query($connection, $query);
-                                  
-                                  while($row= mysqli_fetch_array($pelajar)){
-                                      $id_pelajar       = $row['id_pelajar'];
-                                      $nama_pelajar     = $row['nama_pelajar'];
-                                      $no_ndp           = $row['no_ndp'];
-                                      $bahagian         = $row['bahagian'];
-                                      $ic               = $row['ic'];
-                                      $alamat           = $row['alamat'];
-        
-    }
-        
-    }
-    
-    ?>
-    
-    
-    
-    
-    
-    
-    
+
     
     <center><strong><h1 style="font-size:16">INSTITUT LATIHAN PERINDUSTRIAN
         KUALA LUMPUR</h1></strong></center>
@@ -80,14 +50,13 @@ td, th {
     <table >
   <tr>
     <th>Jenis Kesalahan</th>
+    <th>Hari</th>  
     <th>Tarikh</th>
-    <th>Masa</th>
     <th>Slot</th>
-    <th>Tempat</th>  
   </tr>
-        <td>
-        <?php include("./cpelajar.php") ?>
-       </td>
+   
+        <?php include("./kehadiran.php") ?>
+      
     </table>
     
     
@@ -97,7 +66,7 @@ td, th {
     <h4 style="font-size:12"><strong>"BERKHIDMAT UNTUK NEGARA"</strong></h4>
     <p style="font-size:12">Yang Benar,</p>
     <p style="font-size:12">...................................</p>
-      <p style="font-size:12">Nama : Noredzuan bin Haji Mat Noh</p>
+      <p style="font-size:12">Nama : </p>
     <p style="font-size:12">Jawatan :Ketua Bahagian Tek.Komputer(Sistem) </p>
     
         
