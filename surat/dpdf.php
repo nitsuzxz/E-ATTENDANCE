@@ -11,7 +11,7 @@ $dompdf = new Dompdf();
 
 // Load content from html file
 $html = file_get_contents("surat.php");
-$dompdf->loadHtml($html);
+$dompdf->loadHtmlfile($html);
 // (Optional) Setup the paper size and orientation
 $dompdf->setPaper('A4', 'potrait');
 

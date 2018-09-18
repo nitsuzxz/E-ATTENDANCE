@@ -1,6 +1,6 @@
 <?php include("../config/db.php") ?>
 <?php include("./get.php") ?>
-
+<?php include("./dpdf.php") ?>
 <html>
 <style>
 table {

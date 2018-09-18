@@ -3,22 +3,26 @@
 global $connection;
                                   
 
-$query = "SELECT id_p,count(kehadiran) AS cnt FROM ke WHERE `kehadiran` = 'o' GROUP BY `id_p`";      
+$query = "SELECT K.id_p,P.nama_pelajar, COUNT(kehadiran) as KH
+FROM ke as K
+JOIN pelajar AS P
+on P.id_pelajar=K.id_p
+WHERE `kehadiran` = 'o' GROUP BY `id_p`";      
 
         
                 $count= mysqli_query($connection, $query);
 
                  while($row= mysqli_fetch_array($count)){
                      
-                     $cp=$row['cnt'];
+                     $cp=$row['KH'];
+                      $np=$row['nama_pelajar'];
                       $dp=$row['id_p'];
-                     
                       if($cp>15){
                           echo "<tr>
 	                                   
-                                    <td>$dp</td>
+                                    <td>$np</td>
 	                                <td>$cp</td>
-                                    <td><a href='../surat/surat.php?sth={$cp}&idp={$dp}' button  type='button' class='btn btn-warning'>Muat Turun</button></a></td>    
+                                    <td><a href='../dompdf/surat.php?sth={$cp}&idp={$dp}' button  type='button' class='btn btn-warning'>Muat Turun</button></a></td>    
                                        
                                 </tr>";
                      
