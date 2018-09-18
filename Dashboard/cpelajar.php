@@ -22,7 +22,7 @@ WHERE `kehadiran` = 'o' GROUP BY `id_p`";
 	                                   
                                     <td>$np</td>
 	                                <td>$cp</td>
-                                    <td><a href='../dompdf/surat.php?sth={$cp}&idp={$dp}' button  type='button' class='btn btn-warning'>Muat Turun</button></a></td>    
+                                    <td><a href='../surat/surat.php?sth={$cp}&idp={$dp}' button  type='button' class='btn btn-warning'>Muat Turun</button></a></td>    
                                        
                                 </tr>";
                      
