@@ -2,12 +2,13 @@
                                   global $connection;
                                   
                                   $query    = "SELECT 
-                                  p.id_pelajar,p.nama_pelajar, p.no_ndp, p.ic, p.alamat, b.bahagian, k.kelas 
+                                  p.id_pelajar,p.nama_pelajar, p.no_ndp, p.ic, p.alamat, b.bahagian, p.kelas,s.sesi, s.semester 
                                   from pelajar as p 
                                   join bahagian as b
                                   on p.bahagian=b.id
-                                  join kelas as k
-                                  on p.kelas=k.id";
+                                  join sesi as s
+                                  on p.sesi=s.ids
+                                  ";
 
                                   $pelajar  = mysqli_query($connection, $query);
                                   
@@ -19,15 +20,19 @@
                                       $kelas            = $row['kelas'];
                                       $ic               = $row['ic'];
                                       $alamat           = $row['alamat'];
+                                      $sesi          = $row['sesi'];
+                                      $semester               = $row['semester'];
+
                                       
                                       echo "<tr>
-	                                   <td>$id_pelajar</td>
 	                                   <td>$nama_pelajar</td>
 	                                   <td>$no_ndp</td>
                                        <td>$bahagian</td>
                                        <td>$kelas</td>
 	                                   <td>$ic</td>
 	                                   <td>$alamat</td>
+                                       <td>$sesi</td>
+	                                   <td>$semester</td>
 	                                   <td><a onclick='modalDeletePelajar({$id_pelajar})' button type='button' class='btn btn-danger'>DELETE</button></a></td>
                                        <td><a href='./pelajar.php?edit={$id_pelajar}' button  type='button' class='btn btn-warning'>EDIT</button></a></td>
                                        

@@ -123,15 +123,15 @@
                             <table class="table">
                                 <thead class="thead-dark">
                                     <tr>
-                                  <th scope="col">No</th>
+
                                   <th scope="col">Nama</th>
                                   <th scope="col">No.NDP</th>
                                   <th scope="col">Kursus</th>
                                   <th scope="col">Kelas</th>
                                   <th scope="col">Kad Pengenalan</th>
                                   <th scope="col">Alamat</th>
-                                  <th scope="col"></th>
-                                  <th scope="col"></th> 
+                                  <th scope="col">Sesi</th>
+                                  <th scope="col">Semester</th> 
                                   <th scope="col"></th>
                                   <th scope="col"></th>        
                                 </tr>

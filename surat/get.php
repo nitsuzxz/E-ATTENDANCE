@@ -24,7 +24,23 @@ global $connection;
         
     }
         
-    }
+        
+     $qp =    "SELECT P.id_pengajar,P.nama_pengajar,J.jawatan,B.bahagian
+         FROM pengajar as P
+         JOIN jawatan as J
+         on P.jawatan=J.id
+         JOIN bahagian as B
+         on P.bahagian=B.id
+         where id_pengajar={$_SESSION['id_pengajar']}";
+
+$sp=mysqli_query($connection, $qp);
     
+    while($row=mysqli_fetch_array($sp)){
+        $nama       = $row['nama_pengajar'];
+        $jawatan    = $row['jawatan'];
+        $bahagian   = $row['bahagian']; 
+    }   
+    }
+
     ?>
     
