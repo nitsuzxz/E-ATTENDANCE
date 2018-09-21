@@ -1,10 +1,8 @@
  <?php
                            global $connection;
                            $query    = "SELECT 
-                                  p.id_pelajar,p.nama_pelajar, p.no_ndp, p.ic, p.alamat, b.bahagian, k.kelas 
+                                  p.id_pelajar,p.nama_pelajar, p.no_ndp, p.ic, p.alamat, b.bahagian, p.kelas 
                                   from pelajar as p 
-                                  join kelas as k
-                                  on p.kelas=k.id
                                   join bahagian as b
                                   on p.bahagian=b.id
                                   WHERE p.bahagian='{$_SESSION['bahagian']}'";

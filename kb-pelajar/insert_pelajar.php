@@ -8,7 +8,7 @@
      <input type="text" placeholder="Kata Laluan" name="pass_pelajar" value="<?php echo (isset($pass_pelajar)) ? $pass_pelajar : ''; ?>"  required>
      <input type="text" placeholder="Kad Pengenalan" name="ic" value="<?php echo (isset($ic)) ? $ic : ''; ?>"  required>
      <input type="text" placeholder="Alamat" name="alamat" value="<?php echo (isset($alamat)) ? $alamat : ''; ?>"  >
-    <input readonly name="bahagian"  value="<?php echo($_SESSION['bahagian']);?>" required>       
+    <input readonly name="bahagian"  value="<?php echo $sbg ?>" required>       
          
                       
             <div class=".col-md-4">

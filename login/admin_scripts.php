@@ -32,7 +32,7 @@
             }
          
             $_SESSION['bahagian']= $bahagian;
-            $_SESSION['nama_pengajar']= $admin_uname;
+            $_SESSION['email_pengajar']= $admin_uname;
             $_SESSION['id_pengajar']=$idp;
         }
         if(isset($_SESSION['email_pengajar']) &&

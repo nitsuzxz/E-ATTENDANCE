@@ -17,4 +17,11 @@
 
          header("Location: ./pelajar.php");
     }
+$qb="SELECT * FROM bahagian where id='{$_SESSION['bahagian']}'";
+
+$bhg= mysqli_query($connection, $qb);
+                                  
+                                  while($row= mysqli_fetch_array($bhg)){
+                                      $sbg=$row['bahagian'];
+                                  }
 ?>

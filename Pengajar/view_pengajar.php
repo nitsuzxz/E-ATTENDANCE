@@ -1,9 +1,18 @@
  <?php
                                   global $connection;
+
+
+                            $query1="SELECT P.id_pengajar, P.nama_pengajar,P.email_pengajar,J.jawatan, B.bahagian
+                            FROM pengajar as P
+                            JOIN jawatan as J
+                            on P.jawatan=J.id
+                            Join bahagian as B
+                            ON P.bahagian=B.id";
                                   
                                   $pengajar= mysqli_query($connection, $query1);
                                   
                                   while($row= mysqli_fetch_array($pengajar)){
+                                      
                                       $id_pengajar= $row['id_pengajar'];
                                       $nama_pengajar= $row['nama_pengajar'];
                                       $email_pengajar= $row['email_pengajar'];
