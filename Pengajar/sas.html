@@ -1,0 +1,81 @@
+<html>
+    <body>
+    
+        
+                <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="smallmodalLabel">Tambah Pengajar </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                 <input class="form-control" type="text" placeholder="nama" name="nama_pengajar" value="<?php echo (isset($nama_pengajar)) ? $nama_pengajar : ''; ?>" required>
+                                 <input class="form-control" type="text" placeholder="kata laluan" name="pass_pengajar" value="<?php echo (isset($pass_pengajar)) ? $pass_pengajar : ''; ?>" required>
+  
+           <div class="form-group">
+                                <label class=" form-control-label">Bahagian</label>
+                                <select id="jb" name="jb"  class="form-control" required>
+                                
+                                <option value="">Sila Pilih</option>
+                              <?php
+                                $res = mysqli_query($connection, "select * from bahagian");
+
+                                while($row=mysqli_fetch_array($res)) {
+                                     $ids= $row['id'];
+                                      $ns= $row['bahagian'];
+                                ?>
+                                    
+                                     <option value="<?php echo $ids?>"><?php echo  $ns?></option>
+                                <?php
+                                }
+
+                              ?>
+                                </select>
+            </div>
+    
+     <div class="form-group">
+                                <label class=" form-control-label">Jawatan</label>
+                                <select id="jb" name="jb"  class="form-control" required>
+                                
+                                <option value="">Sila Pilih</option>
+                              <?php
+                                $res1 = mysqli_query($connection, "select * from jawatan");
+
+                                while($row=mysqli_fetch_array($res1)) {
+                                     $idj= $row['id'];
+                                      $pj= $row['jawatan'];
+                                ?>
+                                    
+                                     <option value="<?php echo $idj?>"><?php echo  $pj?></option>
+                                <?php
+                                }
+
+                              ?>
+                                </select>
+            </div>
+        <?php
+			if (isset($_GET['edit'])) {
+				echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >kemaskini</button> <a href="./pengajar.php" button type="button" class="btn btn-danger">Batal</button></a>
+                    <button style="display:none;" type="submit" id="submitEdit" name="kpengajar"  >kemaskini</button>
+                ';
+			} else {
+				echo '<button class="btn btn-success" type="submit" name="tpengajar"  >tambah</button>';
+			}
+			?>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    </body>
+
+    
+</html>
