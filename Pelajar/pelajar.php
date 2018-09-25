@@ -1,7 +1,10 @@
-<?php include("../config/db.php") ?>
-<?php include("./update_pelajar.php") ?>
-<?php include("../assets/side-nav.php") ?>
-<?php include("./add_pelajar.php") ?>
+<?php include("../config/db.php") ;
+ include("../assets/side-nav.php") ;
+ include("./add_pelajar.php") ;
+ include("./update_pelajar.php") ;
+
+
+?>
 
 <html class="no-js" lang="">
 
@@ -92,25 +95,109 @@
             </div>
         </div>
     
-        <div class="col-lg-12">
+       
+               <form method="post" enctype="multipart/form-data">
                         <div class="card">
+                         
                             <div class="card-header">
                                 <h4>Tambah Pelajar</h4>
                             </div>
                             <div class="card-body">
-                                <?php include ("./insert_pelajar.php")?>
-                                <h3></h3>
-                               <form method="post" enctype="multipart/form-data">
-                                 <?php include("./uploads_pelajar.php") ?>
-                                <label>Pilih fail CSV:</label>
-                                <input type="file" name="file" /><br />
-                                <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />                 
-                                </form>
+                                
+                                    <label class=" form-control-label">Nama Pelajar</label>
+     <input type="text" class=" form-control" placeholder="Pelajar" name="nama_pelajar" value="<?php echo (isset($nama_pelajar)) ? $nama_pelajar : ''; ?>" required>
+         <label class=" form-control-label">No Daftar Pelajar</label>
+     <input type="text" class=" form-control" placeholder="No.NDP" name="no_ndp" value="<?php echo (isset($no_ndp)) ? $no_ndp : ''; ?>"   required>
+         <label class=" form-control-label">Kad Pengenalan</label>
+     <input type="text" class=" form-control" placeholder="Kad Pengenalan" name="ic" value="<?php echo (isset($ic)) ? $ic : ''; ?>"  required>
+   
+
+
+     
+         <label class=" form-control-label">Bahagian</label>
+            <select name="bahagian"  class=" form-control" required>
+                    <option value="">Sila Pilih</option>
+                              <?php
+                                $res = mysqli_query($connection, "select * from bahagian");
+
+                                while($row=mysqli_fetch_array($res)) {
+                                     $ids= $row['id'];
+                                      $ns= $row['bahagian'];
+                                ?>
+                                    
+                                     <option value="<?php echo $ids?>"><?php echo  $ns?></option>
+                                <?php
+                                }
+
+                              ?>
+              </select>
+                                   
+                    <label class=" form-control-label">Kelas</label>
+                            <select name="kelas"  class=" form-control" required>
+								<option  value="">Kelas..</option>
+                                <option  value="1"<?php echo (isset($kelas) && $kelas == '1') ? ' selected=selected' : ''; ?>>Kelas 1 </option>
+                                <option  value="2"<?php echo (isset($kelas) && $kelas == '2') ? ' selected=selected' : ''; ?>>Kelas 2</option> 
+                                <option  value="3"<?php echo (isset($kelas) && $kelas == '3') ? ' selected=selected' : ''; ?>>Kelas 3 </option> 
+                                <option  value="4"<?php echo (isset($kelas) && $kelas == '4') ? ' selected=selected' : ''; ?>>Kelas 4 </option> 
+                              </select>
+                                
+                    <label class=" form-control-label">Sesi</label>
+                            <select name="bahagian"  class=" form-control" required>
+                                <option value="">Sila Pilih</option>
+                              <?php
+                                $res = mysqli_query($connection, "select * from sesi");
+
+                                while($row=mysqli_fetch_array($res)) {
+                                     $sesi= $row['ids'];
+                                      $ss= $row['sesi'];
+                                ?>
+                                    
+                                     <option value="<?php echo $sesi?>"><?php echo  $ss?></option>
+                                <?php
+                                }
+
+                              ?>
+              </select>
+                          
+                             
+                            </div>
+                            
+                            <div class="card-footer">
+                            	<?php
+			if (isset($_GET['edit'])) {
+                
+                echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >Kemaskini</button> <a href="./pelajar.php" button type="button" class="btn btn-danger">Batal</button></a>
+                    <button style="display:none;" type="submit" id="submitEdit" name="kpelajar"  >Kemaskini</button>
+                ';
+             
+			} else {
+				echo '<button class="btn btn-success" type="submit" name="tpelajar"  >Tambah</button>';
+			}
+			?>
+		
+                            
                             </div>
                         </div>
-                    </div>
+                   </form>
                     
-    
+                    
+         <form method="post" enctype="multipart/form-data">
+                        <div class="card">
+                       
+                            <div class="card-body">
+                              
+                                  <?php include("./uploads_pelajar.php") ?>
+                                <label>Senarai Pengajar</label>
+                                <input type="file" name="file" /><br />
+                       
+                              
+                                 
+                            </div>
+                             <div class="card-footer">
+                                 <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />
+                             </div>
+                        </div>
+             </form>      
      
            
 
@@ -127,13 +214,11 @@
                                   <th scope="col">Nama</th>
                                   <th scope="col">No.NDP</th>
                                   <th scope="col">Kursus</th>
-                                  <th scope="col">Kelas</th>
-                                  <th scope="col">Kad Pengenalan</th>
-                                  <th scope="col">Alamat</th>
                                   <th scope="col">Sesi</th>
-                                  <th scope="col">Semester</th> 
-                                  <th scope="col"></th>
-                                  <th scope="col"></th>        
+                                   <th scope="col">Kelas</th>        
+                                  <th scope="col">Kad Pengenalan</th>
+                                  <th scope="col"></th>    
+                                  <th scope="col"></th>                
                                 </tr>
                               </thead>
                             

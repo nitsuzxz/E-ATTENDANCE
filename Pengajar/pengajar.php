@@ -1,15 +1,15 @@
 <?php
 include("../config/db.php");
 include("../config/function.php");
+include("../assets/side-nav.php");
 include("./add_user.php");
 include("./update.php");
 include("./uploads.php");
-include("../assets/side-nav.php");
+
 if (loggin ($_SESSION['email_pengajar']) ===false){
      header ('Location: ../index.php');
 }   
 ?>
-
 
 
 <html class="no-js" lang="">
@@ -96,25 +96,82 @@ if (loggin ($_SESSION['email_pengajar']) ===false){
                 </div>
             </div>
         </div>
-    
-        <div class="col-lg-12">
+   
+        
+              <form action="" method="post"  class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4>Tambah Pengajar</h4>
                             </div>
                             <div class="card-body">
-                                <?php include ("./insert_form.php")?>
-                                 <form method="post" enctype="multipart/form-data">
-                                  <?php include("./uploads.php") ?>
-                                <label>Pilih fail CSV:</label>
-                                <input type="file" name="file" /><br />
-                                <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />
-                   
-                                </form>
+                                <label class=" form-control-label">Nama Pengajar</label>
+        <input class="form-control" type="text" placeholder="nama" name="nama_pengajar" value="<?php echo (isset($nama_pengajar)) ? $nama_pengajar : ''; ?>" required>
+        <label class=" form-control-label">Email Pengajar</label>
+        <input class="form-control" type="text" placeholder="email" name="email_pengajar" value="<?php echo (isset($email_pengajar)) ? $email_pengajar : ''; ?>" required>
+ 
+             <label class=" form-control-label">Bahagian</label>
+                                <select name="bahagian"  class="form-control" required>
+                                
+                                <option value="">Sila Pilih</option>
+                              <?php
+                                $res = mysqli_query($connection, "select * from bahagian");
+
+                                while($row=mysqli_fetch_array($res)) {
+                                     $ids= $row['id'];
+                                      $ns= $row['bahagian'];
+                                ?>
+                                    
+                                     <option value="<?php echo $ids?>"><?php echo  $ns?></option>
+                                <?php
+                                }
+
+                              ?>
+                                </select>
+        
+        
+        <label class=" form-control-label">Jawatan</label>
+            <select name="jawatan" class="form-control" required>
+							<option  value="">Pilih Jawatan...</option>
+                              <option  value="1"<?php echo (isset($jawatan) && $jawatan == '1') ? ' selected=selected' : ''; ?>>Admin</option> 
+                               <option  value="2"<?php echo (isset($jawatan) && $jawatan == '2') ? ' selected=selected' : ''; ?>>Ketua Bahagian</option> 
+                                <option  value="3"<?php echo (isset($jawatan) && $jawatan == '3') ? ' selected=selected' : ''; ?>>Pengajar</option>                
+            </select>
+        
+
+   
+                                 
                             </div>
+         <div class="card-footer">
+                <?php
+                    if (isset($_GET['edit'])) {
+				        echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >kemaskini</button> <a href="./pengajar.php" button type="button" class="btn btn-danger">Batal</button></a>
+                        <button style="display:none;" type="submit" id="submitEdit" name="kpengajar"  >kemaskini</button>
+                        ';
+			     } else {
+                        echo '<button class="btn btn-success" type="submit" name="tpengajar"  >tambah</button>';
+			             }
+			     ?>
+        </div>
+                        </div>
+            </form>
+                    <div class="col-lg-12">
+                        <div class="card">
+                       
+                            <div class="card-body">
+                              <form method="post" enctype="multipart/form-data">
+                                  <?php include("./uploads.php") ?>
+                                <label>Senarai Pengajar</label>
+                                <input type="file" name="file" /><br />
+                       
+                                </form>
+                                 
+                            </div>
+                             <div class="card-footer">
+              <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />
+                   
+        </div>
                         </div>
                     </div>
-                    
            
 
    <div class="col-lg-12">

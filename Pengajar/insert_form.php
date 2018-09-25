@@ -1,37 +1,40 @@
 <html>
 <body>
-    <form action="" method="post" class="col-lg-12">
+   
+        <label class=" form-control-label">Nama Pengajar</label>
+        <input class="form-control" type="text" placeholder="nama" name="nama_pengajar" value="<?php echo (isset($nama_pengajar)) ? $nama_pengajar : ''; ?>" required>
+        <label class=" form-control-label">Email Pengajar</label>
+        <input class="form-control" type="text" placeholder="email" name="email_pengajar" value="<?php echo (isset($email_pengajar)) ? $email_pengajar : ''; ?>" required>
+ 
+             <label class=" form-control-label">Bahagian</label>
+                                <select name="bahagian"  class="form-control" required>
+                                
+                                <option value="">Sila Pilih</option>
+                              <?php
+                                $res = mysqli_query($connection, "select * from bahagian");
 
-        <input type="text" placeholder="nama" name="nama_pengajar" value="<?php echo (isset($nama_pengajar)) ? $nama_pengajar : ''; ?>" required>
-        <input type="text" placeholder="email" name="email_pengajar" value="<?php echo (isset($email_pengajar)) ? $email_pengajar : ''; ?>" required>
-        <input type="text" placeholder="kata laluan" name="pass_pengajar" value="<?php echo (isset($pass_pengajar)) ? $pass_pengajar : ''; ?>" required>
-        <div class=".col-md-4">
-            <select name="bahagian" class="form-control-sm form-control" required>
-								<option  value="">pilih bahagian...</option>
-                                <option  value="1"<?php echo (isset($bahagian) && $bahagian == '1') ? ' selected=selected' : ''; ?>>CNC</option>
-                                <option  value="2"<?php echo (isset($bahagian) && $bahagian == '2') ? ' selected=selected' : ''; ?>>IE</option>
-                                <option  value="3"<?php echo (isset($bahagian) && $bahagian == '3') ? ' selected=selected' : ''; ?>>MI</option>  
-                              </select>
-        </div>
-        <div class=".col-md-4">
-            <select name="jawatan" class="form-control-sm form-control" required>
-								<option  value="">Pilih Jawatan...</option>
+                                while($row=mysqli_fetch_array($res)) {
+                                     $ids= $row['id'];
+                                      $ns= $row['bahagian'];
+                                ?>
+                                    
+                                     <option value="<?php echo $ids?>"><?php echo  $ns?></option>
+                                <?php
+                                }
+
+                              ?>
+                                </select>
+        
+        
+        <label class=" form-control-label">Jawatan</label>
+            <select name="jawatan" class="form-control" required>
+							<option  value="">Pilih Jawatan...</option>
                               <option  value="1"<?php echo (isset($jawatan) && $jawatan == '1') ? ' selected=selected' : ''; ?>>Admin</option> 
                                <option  value="2"<?php echo (isset($jawatan) && $jawatan == '2') ? ' selected=selected' : ''; ?>>Ketua Bahagian</option> 
-                                <option  value="3"<?php echo (isset($jawatan) && $jawatan == '3') ? ' selected=selected' : ''; ?>>Pengajar</option>
-                                
-                              </select>
-        </div>
-        <?php
-			if (isset($_GET['edit'])) {
-				echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >kemaskini</button> <a href="./pengajar.php" button type="button" class="btn btn-danger">Batal</button></a>
-                    <button style="display:none;" type="submit" id="submitEdit" name="kpengajar"  >kemaskini</button>
-                ';
-			} else {
-				echo '<button class="btn btn-success" type="submit" name="tpengajar"  >tambah</button>';
-			}
-			?>
-    </form>
+                                <option  value="3"<?php echo (isset($jawatan) && $jawatan == '3') ? ' selected=selected' : ''; ?>>Pengajar</option>                
+            </select>
+        
+
    
 </body>                  
 </html>
