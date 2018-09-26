@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 15, 2018 at 02:36 PM
+-- Generation Time: Sep 26, 2018 at 08:38 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -44,7 +44,7 @@ INSERT INTO `bahagian` (`id`, `bahagian`) VALUES
 (4, 'PJE'),
 (5, 'RAC'),
 (6, 'SU'),
-(7, 'TKS');
+(7, 'Teknologi Komputer Sistem');
 
 -- --------------------------------------------------------
 
@@ -129,7 +129,7 @@ CREATE TABLE `ke` (
 --
 
 INSERT INTO `ke` (`id_k`, `idj`, `id_p`, `kehadiran`, `tarikh`) VALUES
-(1, 2, 8, '/', '2018-09-12'),
+(1, 2, 8, 'o', '2018-09-12'),
 (2, 2, 8, 'o', '2018-09-12'),
 (3, 2, 8, 'o', '2018-09-12'),
 (4, 2, 8, 'o', '2018-09-12'),
@@ -137,7 +137,38 @@ INSERT INTO `ke` (`id_k`, `idj`, `id_p`, `kehadiran`, `tarikh`) VALUES
 (6, 2, 9, '/', '2018-09-12'),
 (7, 2, 9, '/', '2018-09-12'),
 (8, 2, 9, '/', '2018-09-12'),
-(9, 2, 9, '/', '2018-09-12');
+(9, 2, 9, '/', '2018-09-12'),
+(14, 2, 8, 'o', '2018-09-12'),
+(15, 2, 8, 'o', '2018-09-12'),
+(16, 2, 8, 'o', '2018-09-12'),
+(17, 2, 8, 'o', '2018-09-12'),
+(18, 2, 8, 'o', '2018-09-12'),
+(19, 2, 8, 'o', '2018-09-12'),
+(20, 2, 8, 'o', '2018-09-12'),
+(21, 2, 8, 'o', '2018-09-12'),
+(22, 2, 8, 'o', '2018-09-12'),
+(23, 2, 8, 'o', '2018-09-12'),
+(24, 2, 8, 'o', '2018-09-12'),
+(25, 2, 8, 'o', '2018-09-12'),
+(26, 2, 8, 'o', '2018-09-12'),
+(27, 2, 8, 'o', '2018-09-12'),
+(28, 2, 8, 'o', '2018-09-12'),
+(29, 2, 8, 'o', '2018-09-12'),
+(30, 2, 8, 'o', '2018-09-12'),
+(31, 2, 8, 'o', '2018-09-12'),
+(32, 2, 8, 'o', '2018-09-12'),
+(33, 2, 8, 'o', '2018-09-12'),
+(34, 2, 8, 'o', '2018-09-12'),
+(35, 2, 8, 'o', '2018-09-12'),
+(36, 2, 8, 'o', '2018-09-12'),
+(37, 2, 8, 'o', '2018-09-12'),
+(38, 2, 8, 'o', '2018-09-12'),
+(39, 2, 8, 'o', '2018-09-12'),
+(40, 2, 8, 'o', '2018-09-12'),
+(41, 2, 8, 'o', '2018-09-12'),
+(42, 2, 8, 'o', '2018-09-12'),
+(43, 2, 8, 'o', '2018-09-12'),
+(44, 2, 8, 'o', '2018-09-12');
 
 -- --------------------------------------------------------
 
@@ -150,10 +181,8 @@ CREATE TABLE `pelajar` (
   `nama_pelajar` varchar(255) NOT NULL,
   `no_ndp` varchar(10) NOT NULL,
   `jawatan` int(11) NOT NULL,
-  `pass_pelajar` varchar(15) NOT NULL,
   `bahagian` int(11) NOT NULL,
   `ic` varchar(15) NOT NULL,
-  `alamat` varchar(255) NOT NULL,
   `sesi` int(11) NOT NULL,
   `kelas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -162,12 +191,13 @@ CREATE TABLE `pelajar` (
 -- Dumping data for table `pelajar`
 --
 
-INSERT INTO `pelajar` (`id_pelajar`, `nama_pelajar`, `no_ndp`, `jawatan`, `pass_pelajar`, `bahagian`, `ic`, `alamat`, `sesi`, `kelas`) VALUES
-(8, 'hasan', '0117001', 4, 'user123', 7, '1', '-', 1, 1),
-(9, 'husin', '0117002', 4, 'user123', 7, '2', '-', 1, 1),
-(10, 'aidil', '0117003', 4, 'user123', 7, '3', '-', 1, 1),
-(11, 'piqa', '0117004', 4, 'user123', 7, '4', '-', 1, 1),
-(12, 'justin', '0117005', 4, 'user123', 7, '5', '-', 1, 1);
+INSERT INTO `pelajar` (`id_pelajar`, `nama_pelajar`, `no_ndp`, `jawatan`, `bahagian`, `ic`, `sesi`, `kelas`) VALUES
+(8, 'hasan', '0117001', 4, 7, '1', 1, 1),
+(9, 'husin', '0117002', 4, 7, '2', 1, 1),
+(10, 'aidil', '0117003', 4, 7, '3', 1, 1),
+(11, 'piqa', '0117004', 4, 7, '4', 1, 2),
+(12, 'justin', '0117005', 4, 7, '5', 1, 2),
+(15, 'wewewer', '121212', 4, 7, '155151', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -194,7 +224,8 @@ INSERT INTO `pengajar` (`id_pengajar`, `nama_pengajar`, `email_pengajar`, `pass_
 (18, 'Shahir', 'shahir@ilpkl.com', 'user123', 3, 7),
 (19, 'Siti zubaidah', 'siti@ilpkl.com', 'user123', 3, 7),
 (20, 'Junaidi', 'ju@ilpkl.com', 'user123', 3, 7),
-(21, 'bokhari', 'bok@ilpkl.com', 'user123', 3, 7);
+(24, 'ikhmal', 'rdni', '', 2, 7),
+(25, 'skoa', 'JKOSO', '', 3, 7);
 
 -- --------------------------------------------------------
 
@@ -204,18 +235,19 @@ INSERT INTO `pengajar` (`id_pengajar`, `nama_pengajar`, `email_pengajar`, `pass_
 
 CREATE TABLE `sesi` (
   `ids` int(11) NOT NULL,
-  `sesi` varchar(255) NOT NULL
+  `sesi` varchar(255) NOT NULL,
+  `semester` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sesi`
 --
 
-INSERT INTO `sesi` (`ids`, `sesi`) VALUES
-(1, '1/2017'),
-(2, '2/2017'),
-(3, '1/2018'),
-(4, '2/2018');
+INSERT INTO `sesi` (`ids`, `sesi`, `semester`) VALUES
+(1, '1/2017', 'Semester 4'),
+(2, '2/2017', 'Semester 3'),
+(3, '1/2018', 'Semester 2'),
+(4, '2/2018', 'Semester 1');
 
 -- --------------------------------------------------------
 
@@ -334,19 +366,19 @@ ALTER TABLE `jawatan`
 -- AUTO_INCREMENT for table `ke`
 --
 ALTER TABLE `ke`
-  MODIFY `id_k` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_k` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `pelajar`
 --
 ALTER TABLE `pelajar`
-  MODIFY `id_pelajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_pelajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `pengajar`
 --
 ALTER TABLE `pengajar`
-  MODIFY `id_pengajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_pengajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `sesi`
