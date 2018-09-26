@@ -1,8 +1,6 @@
 <?php include("../config/db.php") ?>
 <?php include("../assets/side-nav.php") ?>
 
-  
-
 
 <html class="no-js" lang="">
 
@@ -113,10 +111,10 @@
                         
                                 
                                    <div class="form-group">
-                                    <label class=" form-control-label">Sesi</label>
+                                    <label class=" form-control-label">Slot</label>
                                      <div id="ks">
                                       <select class="form-control" name="ks" disabled>
-                                        <option value="" disabled selected>Pilih Sesi</option>
+                                        <option value="" disabled selected>Pilih Slot</option>
                                       </select>
                                 </div>
                        
@@ -230,8 +228,12 @@
      
                     
         <script type="text/javascript">
+            
             function khari(){ 
+               
                 var xmlhttp = new XMLHttpRequest();
+                var ssb=<?php echo $_SESSION['bahagian'] ?>;
+                var ssp=<?php echo $_SESSION['id_pengajar'] ?>;
                 xmlhttp.open("GET","ddk.php?hari="+document.getElementById('kh').value,false);
                 xmlhttp.send(null);
                 //alert(xmlhttp.responseText);
@@ -241,31 +243,7 @@
             }
 
 
-          
-            function kkelas(){
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET","ddk.php?sesi=" + document.getElementById('ksesi').value, false);
-                console.log(xmlhttp);
-                xmlhttp.send(null);
-                //subjekBody
-                document.getElementById('kelas').innerHTML=xmlhttp.responseText;
-                $('select').material_select();
-                
-            }
-           
-            
-            function psub(){
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET","ddk.php?sesi=" + document.getElementById('kk').value, false);
-                var bahagian=<?php echo $_SESSION['bahagian'] ?>;
-                var pengajar=<?php echo $_SESSION['id_pengajar'] ?>;
-                console.log(xmlhttp);
-                xmlhttp.send(null);
-                //subjekBody
-                document.getElementById('kss').innerHTML=xmlhttp.responseText;
-                $('select').material_select();
-                
-            }
+        
         </script>
         
                         
