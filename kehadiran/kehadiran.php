@@ -98,7 +98,7 @@
                                  <div class="form-group">
                                     <label  class="form-control-label">Hari</label>
                                      <div id="kh">
-                                     <select  onchange="khari()" class="form-control" name="kh" >
+                                     <select  onchange="khari()" class="form-control" id="khd" >
                                            <option value="" >Pilih Hari</option>
                                            <option value="ISNIN" >ISNIN</option>
                                            <option value="SELASA" >SELASA</option>
@@ -120,102 +120,35 @@
                        
                                 </div> 
                     
-                                 <div class="form-group">
-                                    <label  class="form-control-label">Kelas</label>
-                                     <div id="kelas">
-                                      <select class="form-control" name="kelas"disabled>
-                                        <option value="" disabled selected>Pilih Kelas</option>
-                                      </select>
-                                    </div>                            
-                                </div>
-                                <div class="form-group">
-                                    <label  class="form-control-label">Subjek</label>
-                                     <div id="kss">
-                                      <select class="form-control" name="kss"disabled>
-                                        <option value="" disabled selected>Pilih Subjek</option>
-                                      </select>
-                                    </div>                           
-                                </div>
-                                
-                                
-                          
-                
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">Slot Kelas</label></div>
-                        <div id="jst">
-                              <div  class="form-check-inline form-check">
-                                <label  class="form-check-label ">
-                                  <input type="checkbox"  value="option1" class="form-check-input" disabled>Slot 1
-                                </label>
-                                <label  class="form-check-label ">
-                                  <input type="checkbox"  value="option2" class="form-check-input" disabled>Slot 2
-                                </label>
-                                <label class="form-check-label ">
-                                  <input type="checkbox"  value="option3" class="form-check-input" disabled>Slot 3
-                                </label>
-                                  <label  class="form-check-label ">
-                                  <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 4
-                                </label>
-                                  <label  class="form-check-label ">
-                                  <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 5
-                                </label>
-                                  <label  class="form-check-label ">
-                                  <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 6
-                                </label>
-                                  <label  class="form-check-label ">
-                                  <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 7
-                                </label>
-                              </div>
-                            </div> 
-                          </div>
+                     
                         </div>
                                 
-                        <div class="card-footer">
-    
-                <button type="buttton" name="submit" class="btn btn-primary btn-sm"> <i class="fa fa-dot-circle-o"></i> Submit</button>
-                <button type="reset" class="btn btn-danger btn-sm"> <i class="fa fa-ban"></i> Reset</button>
-           
-                        </div> 
+               
                        
 
-             <div class="content mt-3">
-            <div class="animated fadeIn">
-                <div class="row">
-
-                <div class="col-md-12">
-                    <div class="card">
+          <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Jadual</strong>
+                            <strong class="card-title">PELAJAR</strong>
                         </div>
                         <div class="card-body">
-                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
-                    <thead>
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
 
-                                        <tr>
-                                        <th class="ti-arrows-vertical"  scope="col">Bahagian</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Pengajar</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Sesi</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Subjek</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Kelas</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Hari</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Slot</th>
-                
-                                            
-                                        </tr>
-                    </thead>
-                                 
-                                  <tbody >
-                                  <?php include("./viewsub.php") ?>
-                                  </tbody>
-                         
+                                  <th scope="col">Nama</th>
+                                  
+                                  <th scope="col"></th>    
+                                  <th scope="col"></th>                
+                                </tr>
+                              </thead>
+                            
+                              <tbody id="kpk">
+                              
+                              </tbody>
 
                             </table>
-                               
+
                         </div>
-                    </div>
-                </div>
-                </div>
-                 </div>
                     </div>
                 </div>
                     </form>
@@ -234,19 +167,34 @@
                 var xmlhttp = new XMLHttpRequest();
                 var ssb=<?php echo $_SESSION['bahagian'] ?>;
                 var ssp=<?php echo $_SESSION['id_pengajar'] ?>;
-                xmlhttp.open("GET","ddk.php?hari="+document.getElementById('kh').value,false);
+                var hari=document.getElementById('khd').value;
+                xmlhttp.open("GET","ddk.php?hari="+hari+"&ssb="+ssb+"&ssp="+ssp,false);
                 xmlhttp.send(null);
                 //alert(xmlhttp.responseText);
-                console.log('ajax ',xmlhttp);
+                console.log('ajax ',xmlhttp.response);
                 document.getElementById('ks').innerHTML=xmlhttp.responseText;
                 $('select').material_select();
             }
 
+            function kehadiran_kelas() {
+                
+                var xmlhttp = new XMLHttpRequest();
+                var k_bahagian=<?php echo $_SESSION['bahagian'] ?>;
+                var k_kelas=<?php echo  $kelas1 ?>;
+                var k_sesi=<?php echo  $sesi2 ?>;
+                var dropslot=document.getElementById('k_sesi').value;
+                xmlhttp.open("GET","ddk.php?kelas="+k_kelas+"&sesi="+k_sesi+"&slot="+dropslot+"&bahagian_1="+k_bahagian,false);
+                xmlhttp.send(null);
+                //alert(xmlhttp.responseText);
+                console.log('ajax ',xmlhttp.response);
+                document.getElementById('kpk').innerHTML=xmlhttp.responseText;
+                $('select').material_select();
 
+            }
         
         </script>
         
-                        
+                       
   
    
   
