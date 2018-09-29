@@ -1,5 +1,8 @@
-<?php include("../config/db.php") ?>
-<?php include("../assets/side-nav.php") ?>
+<?php 
+ include("../config/db.php");
+ include("../assets/side-nav.php");
+ include("./submit.php")
+?>
 
 
 <html class="no-js" lang="">
@@ -18,6 +21,9 @@
     <link rel="stylesheet" href="../assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="../assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="../assets/scss/style.css">
+    <link rel="stylesheet" href="../assets/datepicker/css/datepicker.css">
+    
+ 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     
 </head>
@@ -88,7 +94,7 @@
          <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
-                   <form action="" method="post" class="col-lg-12">
+                   <form action="" method="POST" class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
                             <strong>Kehadiran</strong>
@@ -110,33 +116,24 @@
                                 </div>
                         
                                 
-                                   <div class="form-group">
+                             <div class="form-group">
                                     <label class=" form-control-label">Slot</label>
                                      <div id="ks">
                                       <select class="form-control" name="ks" disabled>
                                         <option value="" disabled selected>Pilih Slot</option>
                                       </select>
-                                </div>
-                       
+                                        </div>
                                 </div> 
+       
                     
-                     
-                        </div>
-                                
-               
-                       
-
-          <div class="card">
-                        <div class="card-header">
                             <strong class="card-title">PELAJAR</strong>
-                        </div>
-                        <div class="card-body">
+
                             <table class="table">
                                 <thead class="thead-dark">
                                     <tr>
 
                                   <th scope="col">Nama</th>
-                                  
+       
                                   <th scope="col"></th>    
                                   <th scope="col"></th>                
                                 </tr>
@@ -146,15 +143,23 @@
                               
                               </tbody>
 
-                            </table>
-
-                        </div>
-                    </div>
+                                </table>
+                 
                 </div>
+                          <div class="card-footer">
+                            <button class="btn btn-success" type="submit" name="submitkehadiran"  >Hantar</button>
+                    </div>
+                       </div>
                     </form>
                 </div>
              </div>
         </div>
+        
+        
+        
+        
+        
+       
     </div>
 
             
@@ -180,9 +185,18 @@
                 
                 var xmlhttp = new XMLHttpRequest();
                 var k_bahagian=<?php echo $_SESSION['bahagian'] ?>;
-                var k_kelas=<?php echo  $kelas1 ?>;
-                var k_sesi=<?php echo  $sesi2 ?>;
+               
+                var sel = document.getElementById('k_sesi');
+                var selected = sel.options[sel.selectedIndex];
+                var k_kelas = selected.getAttribute('kelas');
+                console.log('kelas ',k_kelas);
+                
+                var sel = document.getElementById('k_sesi');
+                var selected = sel.options[sel.selectedIndex];
+                var k_sesi = selected.getAttribute('sesi');
+
                 var dropslot=document.getElementById('k_sesi').value;
+                console.log('slot ', dropslot);
                 xmlhttp.open("GET","ddk.php?kelas="+k_kelas+"&sesi="+k_sesi+"&slot="+dropslot+"&bahagian_1="+k_bahagian,false);
                 xmlhttp.send(null);
                 //alert(xmlhttp.responseText);
@@ -191,7 +205,10 @@
                 $('select').material_select();
 
             }
-        
+                    
+		
+	
+			
         </script>
         
                        
@@ -200,7 +217,7 @@
   
     <!-- Right Panel -->
 
-
+    
     <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="../assets/js/popper.min.js"></script>
     <script src="../assets/js/plugins.js"></script>
@@ -216,6 +233,7 @@
     <script src="../assets/js/lib/data-table/buttons.print.min.js"></script>
     <script src="../assets/js/lib/data-table/buttons.colVis.min.js"></script>
     <script src="../assets/js/lib/data-table/datatables-init.js"></script>
+    <script src="../assets/datepicker/js/bootstrap-datepicker.js"></script>
     
   
 </body>
