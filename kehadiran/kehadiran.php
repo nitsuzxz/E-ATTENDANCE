@@ -21,9 +21,11 @@
     <link rel="stylesheet" href="../assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="../assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="../assets/scss/style.css">
-    <link rel="stylesheet" href="../assets/datepicker/css/datepicker.css">
-    
- 
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />  
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" /> 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     
 </head>
@@ -124,8 +126,19 @@
                                       </select>
                                         </div>
                                 </div> 
-       
                     
+                                
+       <div class="input-group">
+        <div class="input-group-addon">
+         <i class="fa fa-calendar-check-o">
+         </i>
+        </div>
+        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+       </div>
+      
+                                
+                                
+                                
                             <strong class="card-title">PELAJAR</strong>
 
                             <table class="table">
@@ -185,7 +198,7 @@
                 
                 var xmlhttp = new XMLHttpRequest();
                 var k_bahagian=<?php echo $_SESSION['bahagian'] ?>;
-               
+                var k_pengajar=<?php echo $_SESSION['id_pengajar'] ?>;
                 var sel = document.getElementById('k_sesi');
                 var selected = sel.options[sel.selectedIndex];
                 var k_kelas = selected.getAttribute('kelas');
@@ -194,10 +207,14 @@
                 var sel = document.getElementById('k_sesi');
                 var selected = sel.options[sel.selectedIndex];
                 var k_sesi = selected.getAttribute('sesi');
+                
+                var sel = document.getElementById('k_sesi');
+                var selected = sel.options[sel.selectedIndex];
+                var k_hari= selected.getAttribute('hari');
 
                 var dropslot=document.getElementById('k_sesi').value;
                 console.log('slot ', dropslot);
-                xmlhttp.open("GET","ddk.php?kelas="+k_kelas+"&sesi="+k_sesi+"&slot="+dropslot+"&bahagian_1="+k_bahagian,false);
+                xmlhttp.open("GET","ddk.php?kelas="+k_kelas+"&sesi="+k_sesi+"&slot="+dropslot+"&bahagian_1="+k_bahagian+"&pgjr="+k_pengajar+"&hari="+k_hari,false);
                 xmlhttp.send(null);
                 //alert(xmlhttp.responseText);
                 console.log('ajax ',xmlhttp.response);
@@ -205,35 +222,20 @@
                 $('select').material_select();
 
             }
-                    
-		
-	
+
+	$(document).ready(function(){
+		var date_input=$('input[name="date"]'); //our date input has the name "date"
+		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+		date_input.datepicker({
+			format: 'mm/dd/yyyy',
+			container: container,
+			todayHighlight: true,
+			autoclose: true,
+		})
+	})
 			
         </script>
-        
-                       
-  
-   
-  
-    <!-- Right Panel -->
-
-    
-    <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/plugins.js"></script>
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/lib/data-table/datatables.min.js"></script>
-    <script src="../assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-    <script src="../assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-    <script src="../assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-    <script src="../assets/js/lib/data-table/jszip.min.js"></script>
-    <script src="../assets/js/lib/data-table/pdfmake.min.js"></script>
-    <script src="../assets/js/lib/data-table/vfs_fonts.js"></script>
-    <script src="../assets/js/lib/data-table/buttons.html5.min.js"></script>
-    <script src="../assets/js/lib/data-table/buttons.print.min.js"></script>
-    <script src="../assets/js/lib/data-table/buttons.colVis.min.js"></script>
-    <script src="../assets/js/lib/data-table/datatables-init.js"></script>
-    <script src="../assets/datepicker/js/bootstrap-datepicker.js"></script>
+ 
     
   
 </body>

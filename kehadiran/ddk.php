@@ -19,7 +19,7 @@ include ("../config/db.php");
                     
                     {   
                     
-                        echo "<option value='$row[slot]' kelas='$row[kelas]' sesi='$row[sesi]'>"; 
+                        echo "<option value='$row[slot]' kelas='$row[kelas]' sesi='$row[sesi]  hari='$row[hari]'>"; 
                         echo $row["slot"]; 
                         echo "</option>";
                     
@@ -27,12 +27,26 @@ include ("../config/db.php");
         
             }
         }
-if (isset($_GET['kelas'])&&isset($_GET['slot'])&&isset($_GET['sesi'])&&isset($_GET['bahagian_1'])) {
+if (isset($_GET['kelas'])&&isset($_GET['slot'])&&isset($_GET['sesi'])&&isset($_GET['bahagian_1'])&&isset($_GET['pgjr'])&&isset($_GET['hari'])) {
         $kelas_pelajar= $_GET['kelas'];
         $sesi_pelajar= $_GET['sesi'];
         $bahagian_pelajar= $_GET['bahagian_1'];
         $slot_pelajar= $_GET['slot'];
-              
+        $pgjr= $_GET['pgjr'];
+        $hari= $_GET['hari'];
+    
+                $queryidj= "select * from jadual where bahagian=$bahagian_pelajar and id_pen=$pgjr and hari='$hari' and slot='$slot_pelajar'";
+    
+                $resj=mysqli_query($connection,$queryidj);
+                 
+                 while($row=mysqli_fetch_array($resj)){
+                      $jid=$row['idj'];  
+                     
+                    echo "<input type='hidden' value='$jid' name='k_idj' ></input> "  
+                 }
+    
+    
+                
                 $query2= "select * from pelajar where bahagian=$bahagian_pelajar and kelas=$kelas_pelajar and sesi='$sesi_pelajar'";
                 $res2=mysqli_query($connection,$query2);
                 
