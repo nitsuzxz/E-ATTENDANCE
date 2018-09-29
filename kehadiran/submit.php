@@ -1,16 +1,20 @@
 <?php
-include ("../config/db.php");
     global $connection;
 
     if(isset($_POST['submitkehadiran'])){
-  
+        
+        $idj =$_POST['k_sesi'];
+         foreach ( $_POST['idpk'] as $idp);
+        foreach  ( $_POST['kehadiranpelajar'] as $kp);
         
     
-        foreach ( $_POST['idpelajar'] as $id_pel );
-        foreach ( $_POST['kehadiran'] as $kehadiran );
-            
-        $sql_query = mysqli_query($connection, "INSERT INTO ke ( id_p, kehadiran) VALUES  ('$id_pel','$kehadiran')");
+             
+        $sql_query = mysqli_query($connection, "INSERT INTO ke 
+        (idj,id_p,kehadiran) VALUES 
+        
+        ('$idj','$idp','$kp')");
 
         header("Location: ./kehadiran.php");
     }
 ?>
+

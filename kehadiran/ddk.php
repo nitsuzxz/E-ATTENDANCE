@@ -8,9 +8,8 @@ include ("../config/db.php");
               
                 $query= "select * from jadual where bahagian=$bahagian and id_pen=$pengajar and hari='$hari'";
                 $res=mysqli_query($connection,$query);
-                    while($row=mysqli_fetch_array($res))
-                    
-                   
+                
+                
                 echo "<select id='k_sesi' name='k_sesi' onclick='kehadiran_kelas()' class='form-control' required>";
                 echo "<option value=''>";
                 echo "Pilih Sesi";
@@ -18,7 +17,8 @@ include ("../config/db.php");
                 if($hari!=""){
                 while($row=mysqli_fetch_array($res))
                     
-                    {       
+                    {   
+                    
                         echo "<option value='$row[slot]' kelas='$row[kelas]' sesi='$row[sesi]'>"; 
                         echo $row["slot"]; 
                         echo "</option>";
@@ -42,15 +42,19 @@ if (isset($_GET['kelas'])&&isset($_GET['slot'])&&isset($_GET['sesi'])&&isset($_G
                 while($row=mysqli_fetch_array($res2))
                     {
                     
-                                      $pid  = $row['id_pelajar'];                         
+                                      $pid=$row['id_pelajar'];                         
                                       $pnm  = $row['nama_pelajar'];
                                      
                                     
                                       
                                       echo "<tr>";
-                                      echo "<td>$pnm</td>";
-	                                  echo "<td>";
-                                      echo "<select id='kehadiran' name='kehadiran'  class='form-control' required>";
+                                       echo "<td>";
+                                      echo "<input  name='idpk[]' value='$pid' >"; 
+                                      echo $pnm; 
+                                       echo "</input>";
+                                     echo "</td>";
+                                      echo "<td>";
+                                      echo "<select  name='kehadiranpelajar[]'  class='form-control' required>";
                                       echo "<option value=''>";
                                       echo "Please select";
                                       echo "</option>";
