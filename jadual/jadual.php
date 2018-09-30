@@ -2,7 +2,7 @@
 <?php include("../assets/side-nav.php") ?>
 <?php include("./ddrop.php")?>
 <?php include("./insertj.php")?>
-  
+
 
 
 <html class="no-js" lang="">
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="../assets/scss/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-    
+
 </head>
 
 <body>
@@ -64,7 +64,7 @@
             </div>
 
         </header>
-    
+
         <!-- /header -->
 
         <div class="breadcrumbs">
@@ -79,244 +79,249 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>                          
+                            <li><a href="#">Dashboard</a></li>
                             <li class="active">Subjek</li>
                         </ol>
                     </div>
                 </div>
             </div>
         </div>
-        
-             
-         <div class="content mt-3">
+
+
+        <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
-                   <form action="" method="post" class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong>Jadual</strong>
+                    <form action="" method="post" class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Jadual</strong>
                             </div>
-                            <div  class="card-body card-block">
-                            
-                            <div class="form-group">
-                                <label class=" form-control-label">Bahagian</label>
-                                <select id="jb" name="jb" onchange="jbhgn()" class="form-control" required>
-                                
-                                <option value="">Sila Pilih</option>
-                              <?php
+                            <div class="card-body card-block">
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Bahagian</label>
+                                    <select id="jb" name="jb" onchange="jbhgn()" class="form-control" required>
+
+                                        <option value="">Sila Pilih</option>
+                                        <?php
                                 $res = mysqli_query($connection, "select * from bahagian");
 
                                 while($row=mysqli_fetch_array($res)) {
                                      $ids= $row['id'];
                                       $ns= $row['bahagian'];
                                 ?>
-                                    
-                                     <option value="<?php echo $ids?>"><?php echo  $ns?></option>
-                                <?php
+
+                                        <option value="<?php echo $ids?>">
+                                            <?php echo  $ns?>
+                                        </option>
+                                        <?php
                                 }
 
                               ?>
-                                </select>
-                            </div>
-                                  <div class="form-group">
-                                    <label  class="form-control-label">Pengajar</label>
-                                      <div id="jp">
-                                      <select class="form-control" name="jp" disabled>
-                                        <option value="" disabled selected>Pilih Pengajar</option>
-                                      </select>
+                                    </select>
                                 </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Pengajar</label>
+                                    <div id="jp">
+                                        <select class="form-control" name="jp" disabled>
+                                            <option value="" disabled selected>Pilih Pengajar</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                
-                                   <div class="form-group">
+
+                                <div class="form-group">
                                     <label class=" form-control-label">Sesi</label>
-                                     <div id="jsi">
-                                      <select class="form-control" name="jsi" disabled>
-                                        <option value="" disabled selected>Pilih Sesi</option>
-                                      </select>
-                                </div>
+                                    <div id="jsi">
+                                        <select class="form-control" name="jsi" disabled>
+                                            <option value="" disabled selected>Pilih Sesi</option>
+                                        </select>
+                                    </div>
                                     <small class="form-text text-muted">Cth.1/2015</small>
-                                </div> 
-                               <div class="form-group">
-                                    <label  class="form-control-label">Subjek</label>
-                                     <div id="jss">
-                                      <select class="form-control" name="jss"disabled>
-                                        <option value="" disabled selected>Pilih Subjek</option>
-                                      </select>
                                 </div>
-                                    <small class="form-text text-muted">Cth. Server Essential </small>                                  
+                                <div class="form-group">
+                                    <label class="form-control-label">Subjek</label>
+                                    <div id="jss">
+                                        <select class="form-control" name="jss" disabled>
+                                            <option value="" disabled selected>Pilih Subjek</option>
+                                        </select>
+                                    </div>
+                                    <small class="form-text text-muted">Cth. Server Essential </small>
                                 </div>
-                                 <div class="form-group">
-                                    <label  class="form-control-label">Kelas</label>
-                                     <div id="jks">
-                                      <select class="form-control" name="jks"disabled>
-                                        <option value="" disabled selected>Pilih Kelas</option>
-                                      </select>
+                                <div class="form-group">
+                                    <label class="form-control-label">Kelas</label>
+                                    <div id="jks">
+                                        <select class="form-control" name="jks" disabled>
+                                            <option value="" disabled selected>Pilih Kelas</option>
+                                        </select>
+                                    </div>
+
                                 </div>
-                                   
-                                </div>
-                                 <div class="form-group">
-                                    <label  class="form-control-label">Hari</label>
+                                <div class="form-group">
+                                    <label class="form-control-label">Hari</label>
                                     <div id="jh">
-                                      <select class="form-control" name="jh" disabled>
-                                        <option value="" disabled selected>Pilih Hari</option>
-                                      </select>
+                                        <select class="form-control" name="jh" disabled>
+                                            <option value="" disabled selected>Pilih Hari</option>
+                                        </select>
+                                    </div>
+
                                 </div>
-                   
+
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">Slot Kelas</label></div>
+                                    <div id="jst">
+                                        <div class="form-check-inline form-check">
+                                            <label class="form-check-label ">
+                                                <input type="checkbox" value="option1" class="form-check-input" disabled>Slot 1
+                                            </label>
+                                            <label class="form-check-label ">
+                                                <input type="checkbox" value="option2" class="form-check-input" disabled>Slot 2
+                                            </label>
+                                            <label class="form-check-label ">
+                                                <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 3
+                                            </label>
+                                            <label class="form-check-label ">
+                                                <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 4
+                                            </label>
+                                            <label class="form-check-label ">
+                                                <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 5
+                                            </label>
+                                            <label class="form-check-label ">
+                                                <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 6
+                                            </label>
+                                            <label class="form-check-label ">
+                                                <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 7
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
-                          
-                
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">Slot Kelas</label></div>
-                        <div id="jst">
-                              <div  class="form-check-inline form-check">
-                                <label  class="form-check-label ">
-                                  <input type="checkbox"  value="option1" class="form-check-input" disabled>Slot 1
-                                </label>
-                                <label  class="form-check-label ">
-                                  <input type="checkbox"  value="option2" class="form-check-input" disabled>Slot 2
-                                </label>
-                                <label class="form-check-label ">
-                                  <input type="checkbox"  value="option3" class="form-check-input" disabled>Slot 3
-                                </label>
-                                  <label  class="form-check-label ">
-                                  <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 4
-                                </label>
-                                  <label  class="form-check-label ">
-                                  <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 5
-                                </label>
-                                  <label  class="form-check-label ">
-                                  <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 6
-                                </label>
-                                  <label  class="form-check-label ">
-                                  <input type="checkbox" value="option3" class="form-check-input" disabled>Slot 7
-                                </label>
-                              </div>
-                            </div> 
-                          </div>
+                            </div>
+
+                            <div class="card-footer">
+
+                                <button type="buttton" name="submit" class="btn btn-primary btn-sm"> <i class="fa fa-dot-circle-o"></i> Submit</button>
+                                <button type="reset" class="btn btn-danger btn-sm"> <i class="fa fa-ban"></i> Reset</button>
+
+                            </div>
+
+
+                            <div class="content mt-3">
+                                <div class="animated fadeIn">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <strong class="card-title">Jadual</strong>
+                                                </div>
+                                                <div class="card-body">
+                                                    <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                                        <thead>
+
+                                                            <tr>
+                                                                <th class="ti-arrows-vertical" scope="col">Bahagian</th>
+                                                                <th class="ti-arrows-vertical" scope="col">Pengajar</th>
+                                                                <th class="ti-arrows-vertical" scope="col">Sesi</th>
+                                                                <th class="ti-arrows-vertical" scope="col">Subjek</th>
+                                                                <th class="ti-arrows-vertical" scope="col">Kelas</th>
+                                                                <th class="ti-arrows-vertical" scope="col">Hari</th>
+                                                                <th class="ti-arrows-vertical" scope="col">Slot</th>
+
+
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+                                                            <?php include("./viewsub.php") ?>
+                                                        </tbody>
+
+
+                                                    </table>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                                
-                        <div class="card-footer">
-    
-                <button type="buttton" name="submit" class="btn btn-primary btn-sm"> <i class="fa fa-dot-circle-o"></i> Submit</button>
-                <button type="reset" class="btn btn-danger btn-sm"> <i class="fa fa-ban"></i> Reset</button>
-           
-                        </div> 
-                       
-
-             <div class="content mt-3">
-            <div class="animated fadeIn">
-                <div class="row">
-
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">Jadual</strong>
-                        </div>
-                        <div class="card-body">
-                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
-                    <thead>
-
-                                        <tr>
-                                        <th class="ti-arrows-vertical"  scope="col">Bahagian</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Pengajar</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Sesi</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Subjek</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Kelas</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Hari</th>
-                                        <th class="ti-arrows-vertical"  scope="col">Slot</th>
-                
-                                            
-                                        </tr>
-                    </thead>
-                                 
-                                  <tbody >
-                                  <?php include("./viewsub.php") ?>
-                                  </tbody>
-                         
-
-                            </table>
-                               
-                        </div>
-                    </div>
-                </div>
-                </div>
-                 </div>
-                    </div>
-                </div>
                     </form>
                 </div>
-             </div>
+            </div>
         </div>
     </div>
 
-            
-     
-                    
-        <script type="text/javascript">
-            function jbhgn(){ 
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET","ddrop.php?bahagian="+document.getElementById('jb').value,false);
-                xmlhttp.send(null);
-                //alert(xmlhttp.responseText);
-                console.log('ajax ',xmlhttp);
-                document.getElementById('jp').innerHTML=xmlhttp.responseText;
-                $('select').material_select();
-            }
 
-            function cjp() {
-            
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET","ddrop.php?pengajar="+document.getElementById('jdp').value,false);
-                xmlhttp.send(null);
-                //alert(xmlhttp.responseText);
-                document.getElementById('jsi').innerHTML=xmlhttp.responseText;
-                $('select').material_select();
-            }
-          
-            function pilihSesi(){
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET","ddrop.php?bahagian2=" + document.getElementById('jb').value + "&sesi=" + document.getElementById('sesi').value, false);
-                console.log(xmlhttp);
-                xmlhttp.send(null);
-                //subjekBody
-                document.getElementById('jss').innerHTML=xmlhttp.responseText;
-                $('select').material_select();
-                
-            }
-            function pilihkelas() {
-            
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET","ddrop.php?kelas="+document.getElementById('jssd').value,false);
-                xmlhttp.send(null);
-                //alert(xmlhttp.responseText);
-                document.getElementById('jks').innerHTML=xmlhttp.responseText;
-                $('select').material_select();
-            }
-             function pilihari() {
-            
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET","ddrop.php?hari="+document.getElementById('jks').value,false);
-                xmlhttp.send(null);
-                //alert(xmlhttp.responseText);
-                document.getElementById('jh').innerHTML=xmlhttp.responseText;
-                $('select').material_select();
-            }
-            function pilihslot() {
-            
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET","ddrop.php?slot="+document.getElementById('jhd').value,false);
-                xmlhttp.send(null);
-                //alert(xmlhttp.responseText);
-                document.getElementById('jst').innerHTML=xmlhttp.responseText;
 
-            }
-                    
-        </script>
-        
-                        
-  
-   
-  
+
+    <script type="text/javascript">
+        function jbhgn() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "ddrop.php?bahagian=" + document.getElementById('jb').value, false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);
+            console.log('ajax ', xmlhttp);
+            document.getElementById('jp').innerHTML = xmlhttp.responseText;
+            $('select').material_select();
+        }
+
+        function cjp() {
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "ddrop.php?pengajar=" + document.getElementById('jdp').value, false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);
+            document.getElementById('jsi').innerHTML = xmlhttp.responseText;
+            $('select').material_select();
+        }
+
+        function pilihSesi() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "ddrop.php?bahagian2=" + document.getElementById('jb').value + "&sesi=" + document.getElementById('sesi').value, false);
+            console.log(xmlhttp);
+            xmlhttp.send(null);
+            //subjekBody
+            document.getElementById('jss').innerHTML = xmlhttp.responseText;
+            $('select').material_select();
+
+        }
+
+        function pilihkelas() {
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "ddrop.php?kelas=" + document.getElementById('jssd').value, false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);
+            document.getElementById('jks').innerHTML = xmlhttp.responseText;
+            $('select').material_select();
+        }
+
+        function pilihari() {
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "ddrop.php?hari=" + document.getElementById('jks').value, false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);
+            document.getElementById('jh').innerHTML = xmlhttp.responseText;
+            $('select').material_select();
+        }
+
+        function pilihslot() {
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "ddrop.php?slot=" + document.getElementById('jhd').value, false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);
+            document.getElementById('jst').innerHTML = xmlhttp.responseText;
+
+        }
+
+    </script>
+
+
+
+
+
     <!-- Right Panel -->
 
 
@@ -335,8 +340,8 @@
     <script src="../assets/js/lib/data-table/buttons.print.min.js"></script>
     <script src="../assets/js/lib/data-table/buttons.colVis.min.js"></script>
     <script src="../assets/js/lib/data-table/datatables-init.js"></script>
-    
-  
+
+
 </body>
 
 </html>

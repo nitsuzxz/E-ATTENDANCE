@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="../assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="../assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="../assets/scss/style.css">
-    <link rel="stylesheet" href="./buttontoggle.css">
+
     <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
@@ -104,34 +104,7 @@
                                 <strong>Kehadiran</strong>
                             </div>
                             <div class="card-body card-block">
-                   
-                                <div class="form-group">
-                                    <label class="form-control-label">Hari</label>
-                                    <div id="kh">
-                                        <select onchange="khari()" class="form-control" id="khd">
-                                            <option value="">Pilih Hari</option>
-                                            <option value="ISNIN">ISNIN</option>
-                                            <option value="SELASA">SELASA</option>
-                                            <option value="RABU">RABU</option>
-                                            <option value="KHAMIS">KHAMIS</option>
-                                            <option value="JUMAAT">JUMAAT</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label class=" form-control-label">Slot</label>
-                                    <div id="ks">
-                                        <select class="form-control" name="ks" disabled>
-                                            <option value="" disabled selected>Pilih Slot</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group" id="hiddenInput">
-
-                                </div>
-
+                               
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar-check-o">
@@ -242,6 +215,7 @@
                 autoclose: true,
             })
         })
+
     </script>
 
 
