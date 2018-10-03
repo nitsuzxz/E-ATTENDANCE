@@ -1,8 +1,7 @@
 <?php 
  include("../config/db.php");
  include("../assets/side-nav.php");
- include("./dropganti.php");
- include("./submit.php");
+ include("./query_report.php");
 ?>
 
 
@@ -102,25 +101,25 @@
                     <form action="" method="POST" class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Kehadiran</strong>
+                                <strong>Laporan Rasmi</strong>
                             </div>
                             <div class="card-body card-block">
 
                                 <div class="form-group">
-                                    <label class=" form-control-label">Pengajar</label>
-                                    <select id="ganti_pengajar" name="ganti_pengajar" onchange="ganti_hari()" class="form-control" required>
+                                    <label class=" form-control-label">Sesi</label>
+                                    <select id="sel_sesi" name="sel_sesi" onchange="kelas()" class="form-control" required>
 
                                         <option value="">Sila Pilih</option>
                                         <?php
-                                $res = mysqli_query($connection, "select * from pengajar where bahagian='{$_SESSION['bahagian']}' ");
+                                $res = mysqli_query($connection, "select * from sesi  ");
 
                                 while($row=mysqli_fetch_array($res)) {
-                                     $pid= $row['id_pengajar'];
-                                      $namap= $row['nama_pengajar'];
+                                     $idsesi= $row['ids'];
+                                      $sesi= $row['sesi'];
                                 ?>
 
-                                        <option value="<?php echo $pid?>">
-                                            <?php echo  $namap?>
+                                        <option value="<?php echo $idsesi?>">
+                                            <?php echo $sesi?>
                                         </option>
                                         <?php
                                 }
@@ -130,22 +129,15 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class=" form-control-label">Hari</label>
-                                    <div id="sel_gantihari">
-                                        <select class="form-control" name="sel_gantihari" disabled>
-                                            <option value="" disabled selected>Pilih Hari</option>
+                                    <label class=" form-control-label">Kelas</label>
+                                    <div id="sel_kelas">
+                                        <select class="form-control" name="sel_kelas" disabled>
+                                            <option value="" disabled selected>Sila Pilih</option>
                                         </select>
                                     </div>
                                 </div>
                                 
-                                 <div class="form-group">
-                                    <label class=" form-control-label">Slot</label>
-                                    <div id="sel_gantislot">
-                                        <select class="form-control" name="sel_gantislot" disabled>
-                                            <option value="" disabled selected>Pilih Slot</option>
-                                        </select>
-                                    </div>
-                                </div>
+                               
 
 
                                 <div class="input-group">
@@ -153,34 +145,20 @@
                                         <i class="fa fa-calendar-check-o">
                                         </i>
                                     </div>
-                                    <input class="form-control" id="date" value="" name="date" placeholder="MM/DD/YYYY" type="text" />
+                                    <input class="form-control" id="date" value="" name="date" placeholder="Tarikh Mula" type="text" required />
                                 </div>
 
-
-
-
-                                <strong class="card-title">PELAJAR</strong>
-
-                                <table class="table">
-                                    <thead class="thead-dark">
-                                        <tr>
-
-                                            <th scope="col">Nama</th>
-
-                                            <th scope="col"></th>
-                                            <th scope="col"></th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody id="tablepelajar">
-
-                                    </tbody>
-
-                                </table>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar-check-o">
+                                        </i>
+                                    </div>
+                                    <input class="form-control" id="date2" value="" name="date2" placeholder="Tarikh Akhir" type="text" required />
+                                </div>
 
                             </div>
                             <div class="card-footer">
-                                <button class="btn btn-success" type="submit" name="submitkehadiran">Hantar</button>
+                                <button class="btn btn-success"  type="submit" name="muat_turun">Muat Turun</button>
                             </div>
                         </div>
                     </form>
@@ -200,59 +178,32 @@
 
     <script type="text/javascript">
     
-      function ganti_hari() {
+            function kelas() {
 
             var xmlhttp = new XMLHttpRequest();
-            var pengajar = document.getElementById('ganti_pengajar').value;
-            xmlhttp.open("GET", "dropganti.php?pengajar=" + pengajar, false);
+            var sel_sesi1 = document.getElementById('sel_sesi').value;
+            xmlhttp.open("GET", "drop_official.php?sesi=" + sel_sesi1, false);
             xmlhttp.send(null);
             //alert(xmlhttp.responseText);
             console.log('ajax ', xmlhttp.response);
-            document.getElementById('sel_gantihari').innerHTML = xmlhttp.responseText;
+            document.getElementById('sel_kelas').innerHTML = xmlhttp.responseText;
             $('select').material_select();
         }
-        
-            function ganti_slot() {
 
-            var xmlhttp = new XMLHttpRequest();
-            var bahagianh = <?php echo $_SESSION['bahagian'] ?>;
-            var pengajarh = document.getElementById('ganti_pengajar').value; 
-            var hari = document.getElementById('ganti_harid').value;
-            xmlhttp.open("GET", "dropganti.php?pgjr=" + pengajarh+ "&bhgn=" + bahagianh+ "&hari=" + hari, false);
-            xmlhttp.send(null);
-            //alert(xmlhttp.responseText);
-            console.log('ajax ', xmlhttp.response);
-            document.getElementById('sel_gantislot').innerHTML = xmlhttp.responseText;
-            $('select').material_select();
-        }
-        
-            function gpelajar() {
-        
-             var xmlhttp = new XMLHttpRequest();    
-                
-            var bahagianp = <?php echo $_SESSION['bahagian'] ?>;
-            
-            var sel = document.getElementById('ganti_pelajard');
-            var selected = sel.options[sel.selectedIndex];
-            var kelas = selected.getAttribute('kelass');
-
-            var sel = document.getElementById('ganti_pelajard');
-            var selected = sel.options[sel.selectedIndex];
-            var sesi = selected.getAttribute('sesis');
-                
-            var gt = document.getElementById('ganti_harid').value;
-          
-            xmlhttp.open("GET", "dropganti.php?kelasp=" + kelas + "&sesip=" + sesi + "&bahagianp=" + bahagianp + "&gt=" + gt, false);
-            xmlhttp.send(null);
-            //alert(xmlhttp.responseText);
-            console.log('ajax ', xmlhttp.response);
-            document.getElementById('tablepelajar').innerHTML = xmlhttp.responseText;
-
-
-        }
         
         $(document).ready(function() {
             var date_input = $('input[name="date"]'); //our date input has the name "date"
+            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input.datepicker({
+                format: 'yyyy/mm/dd',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            })
+        })
+        
+         $(document).ready(function() {
+            var date_input = $('input[name="date2"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
                 format: 'yyyy/mm/dd',

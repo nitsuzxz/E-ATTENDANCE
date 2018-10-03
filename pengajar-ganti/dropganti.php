@@ -40,7 +40,7 @@ include ("../config/db.php");
                 $res=mysqli_query($connection,$query);
                 
                 
-                echo "<select id='ganti_pelajard' name='ganti_pelajard' onclick='ganti_pelajar()' class='form-control' required>";
+                echo "<select id='ganti_pelajard' name='ganti_pelajard' onclick='gpelajar()' class='form-control' required>";
                 echo "<option value=''>";
                 echo "Pilih Slot";
                 echo "</option>";
@@ -49,7 +49,7 @@ include ("../config/db.php");
                     
                     {   
                     
-                        echo "<option value='$row[idj]' kelas='$row[kelas]' sesi='$row[sesi]  hari='$row[hari]' slot='$row[slot]'>"; 
+                        echo "<option value='$row[idj]' kelass='$row[kelas]' sesis='$row[sesi]'>"; 
                         echo $row["slot"]; 
                         echo "</option>";
                     
@@ -57,22 +57,23 @@ include ("../config/db.php");
         
             }
         }
-if (isset($_GET['kelasp'])&&isset($_GET['sesip'])&&isset($_GET['bahagianp'])&&isset($_GET['slotp'])) {
+
+        if (isset($_GET['kelasp'])&&isset($_GET['sesip'])&&isset($_GET['bahagianp'])&&isset($_GET['gt'])) {
         $kelas_pelajar= $_GET['kelasp'];
         $sesi_pelajar= $_GET['sesip'];
         $bahagian_pelajar= $_GET['bahagianp'];
-        $slot_pelajar= $_GET['slotp'];
+        $slot_pelajar= $_GET['gt'];
     
 
-                $query3= "select * from pelajar where bahagian='$bahagian_pelajar' and kelas='$kelas_pelajar' and sesi='$sesi_pelajar'";
+                $query3= "select * from pelajar where bahagian=$bahagian_pelajar and kelas=$kelas_pelajar and sesi='$sesi_pelajar'";
                 $res3=mysqli_query($connection,$query3);
+
+              if($slot_pelajar!=""){
+                while($row=mysqli_fetch_array($res3))
     
-             
-                        if($slot_pelajar!=""){
-                                while($row=mysqli_fetch_array($res3))
-                                {
-                                
-                                                $pid=$row['id_pelajar'];                         
+                    {   
+                    
+                                $pid=$row['id_pelajar'];                         
                                                 $pnm  = $row['nama_pelajar'];
                                                 
                                                 
@@ -100,10 +101,8 @@ if (isset($_GET['kelasp'])&&isset($_GET['sesip'])&&isset($_GET['bahagianp'])&&is
                                                 echo "</select>";
                                                 echo "</td>";
                                                 echo "</tr>";
-                                }  
-                        
-                        }
                 }
-
-
+              }
+        }
+                  
 ?>

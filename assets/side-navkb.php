@@ -15,9 +15,22 @@
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                    
                     <li class="active">
                         <a href="../kb-Dashboard/index.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
+                    
+                    <h3 class="menu-title">KEHADIRAN</h3>
+                    
+                    <li class="active">
+                        <a href="../kehadiran/kehadiran.php"> <i class="menu-icon fa fa-user"></i>SOMETHING </a>
+                    </li>
+                    
+                    <li class="active">
+                        <a href="../pengajar-ganti/ganti.php"> <i class="menu-icon fa fa-user"></i>PENGAJAR GANTI </a>
+                    </li>
+                    
+                    
                     <h3 class="menu-title">PENGGUNA</h3><!-- /.menu-title -->
                    <li class="active">
                         <a href="../kb-pengajar/pengajar.php"> <i class="menu-icon fa fa-user"></i>PENGAJAR </a>
