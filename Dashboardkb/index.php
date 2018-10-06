@@ -125,9 +125,7 @@
     <script src="../assets/js/plugins.js"></script>
     <script src="../assets/js/main.js"></script>
 
-
-    <script src="../assets/js/dashboard.js"></script>
-    <script src="../assets/js/widgets.js"></script>
+   
     
    
     </div>

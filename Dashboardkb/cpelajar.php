@@ -17,7 +17,7 @@ WHERE `kehadiran` = 'o' GROUP BY `id_p`";
                      $cp=$row['KH'];
                       $np=$row['nama_pelajar'];
                       $dp=$row['id_p'];
-                      if($cp>14){
+                      if($cp>15){
                           echo "<tr>
 	                                   
                                     <td>$np</td>

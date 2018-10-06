@@ -1,18 +1,9 @@
 <?php
-// Include autoloader
 include ("../config/db.php");
 include ("./get.php");
-require_once '../dompdf/autoload.inc.php';
-
-global $connection;
-// Reference the Dompdf namespace
-use Dompdf\Dompdf;
-
-// Instantiate and use the dompdf class
-$dompdf = new Dompdf();
-
-ob_start();
 ?>
+
+<html>
 <style>
 table {
     font-family: arial;
@@ -83,17 +74,5 @@ td, th {
 
 
 
-<?php
 
-$html=ob_get_clean();
-$dompdf->loadHtml($html);
-// (Optional) Setup the paper size and orientation
-$dompdf->setPaper('A4', 'potrait');
-
-
-// Render the HTML as PDF
-$dompdf->render();
-// Output the generated PDF (1 = download and 0 = preview)
-$dompdf->stream("kehadiran",array("Attachment"=>0));
-
-?>
+</html>

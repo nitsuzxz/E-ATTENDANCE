@@ -7,20 +7,21 @@ global $connection;
       $slot=$_GET['sth'];
       $pelajar=$_GET['idp'];
         
-    $query="select p.id_pelajar,p.nama_pelajar,p.no_ndp,b.bahagian,p.ic,p.alamat
+    $query="select p.id_pelajar,p.nama_pelajar,p.no_ndp,b.bahagian,p.ic
     from pelajar as p
     join bahagian as b
-    where id_pelajar=$pelajar";
+    where id_pelajar='$pelajar'";
         
         $sss  = mysqli_query($connection, $query);
                                   
                                   while($row= mysqli_fetch_array($sss)){
+                                      
                                       $id_pelajar       = $row['id_pelajar'];
                                       $nama_pelajar     = $row['nama_pelajar'];
                                       $no_ndp           = $row['no_ndp'];
                                       $bahagian         = $row['bahagian'];
                                       $ic               = $row['ic'];
-                                      $alamat           = $row['alamat'];
+  
         
     }
         
@@ -36,11 +37,13 @@ global $connection;
 $sp=mysqli_query($connection, $qp);
     
     while($row=mysqli_fetch_array($sp)){
+        
         $nama       = $row['nama_pengajar'];
         $jawatan    = $row['jawatan'];
         $bahagian   = $row['bahagian']; 
-    }   
-    }
+    } 
+        
+ }
 
     ?>
     

@@ -1,5 +1,5 @@
 <?php include("../config/db.php") ?>
-<?php include("../assets/side-nav.php") ?>
+<?php include("../assets/side-navkb.php") ?>
 <?php include("./ddrop.php")?>
 <?php include("./insertj.php")?>
   
