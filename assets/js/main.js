@@ -29,6 +29,7 @@ $("#alrt").click(function () {
 
 });
 
+
 function modalDelete(id) {
     $("#exampleModal").modal('toggle');
     console.log('id', id);

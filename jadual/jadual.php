@@ -219,13 +219,14 @@
                                                         <thead>
 
                                                             <tr>
-                                                                <th class="ti-arrows-vertical" scope="col">Bahagian</th>
-                                                                <th class="ti-arrows-vertical" scope="col">Pengajar</th>
-                                                                <th class="ti-arrows-vertical" scope="col">Sesi</th>
-                                                                <th class="ti-arrows-vertical" scope="col">Subjek</th>
-                                                                <th class="ti-arrows-vertical" scope="col">Kelas</th>
-                                                                <th class="ti-arrows-vertical" scope="col">Hari</th>
-                                                                <th class="ti-arrows-vertical" scope="col">Slot</th>
+                                                                <th scope="col">Bahagian</th>
+                                                                <th scope="col">Pengajar</th>
+                                                                <th scope="col">Sesi</th>
+                                                                <th scope="col">Subjek</th>
+                                                                <th scope="col">Kelas</th>
+                                                                <th scope="col">Hari</th>
+                                                                <th scope="col">Slot</th>
+                                                                <th scope="col"></th>
 
 
                                                             </tr>
@@ -320,7 +321,7 @@
 
 
 
-     <?php include("../assets/modal.php") ?>
+    <?php include("../assets/modal.php") ?>
 
     <!-- Right Panel -->
 

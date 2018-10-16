@@ -2,7 +2,9 @@
 
                 global $connection;
                                   
-                                  $query = "SELECT * FROM subjek ";
+                                  $query = "SELECT * FROM subjek as S
+                                  JOIN bahagian as B
+                                  ON S.bahagian=B.id";
                                   $sbr= mysqli_query($connection, $query);
                                   
                                   while($row= mysqli_fetch_array($sbr)){

@@ -15,7 +15,8 @@ if(isset($_POST["submit"]))
        $item3 = mysqli_real_escape_string($connection, $data[2]);
        $item4 = mysqli_real_escape_string($connection, $data[3]);
        $item5 = mysqli_real_escape_string($connection, $data[4]);
-                $query = "INSERT into pengajar(nama_pengajar, email_pengajar, pass_pengajar, bahagian, jawatan) values('$item1','$item2','$item3','$item4','$item5')";
+       
+                $query = "INSERT into pengajar(nama_pengajar, email_pengajar, pass_pengajar, bahagian, jawatan) values('$item1','$item2','pengajar@ilpkl','$item4','3')";
                 mysqli_query($connection, $query);
    }
    fclose($handle);
