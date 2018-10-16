@@ -18,4 +18,10 @@
 
         header("Location: ./jadual.php");
     }
+if(isset($_GET['deljadual'])){
+    
+    $query="DELETE FROM jadual where idj={$_GET['deljadual']} ";
+           $delete_query = mysqli_query($connection, $query);
+            header("Location: ./jadual.php#removejad");
+}
 ?>

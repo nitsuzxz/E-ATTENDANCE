@@ -135,10 +135,23 @@
                                 </div>
                                    <div class="form-group">
                                     <label class=" form-control-label">Sesi</label>
-                                    <div  class="input-group">                                      
-                                        <input name="iss" class="form-control" value="<?php echo (isset($iss)) ? $iss: ''; ?>" required>
-                                    </div>
-                                    <small class="form-text text-muted">Cth. xxxxxxx</small>
+                                    <select name="iss"  class="form-control" required>
+                                
+                                <option value="">Sila Pilih</option>
+                              <?php
+                                $res = mysqli_query($connection, "select * from sesi");
+
+                                while($row=mysqli_fetch_array($res)) {
+                                     $ids= $row['ids'];
+                                      $sesi= $row['sesi'];
+                                ?>
+                                    
+                                     <option value="<?php echo $ids?>" ><?php echo  $sesi?></option>
+                                <?php
+                                }
+
+                              ?>
+                                </select> 
                                 </div>   
                                    
                                 </div>

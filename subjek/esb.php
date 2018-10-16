@@ -40,7 +40,7 @@ if (isset($_GET['edit'])){
                             $query = "DELETE FROM subjek WHERE idsub = {$_GET['delete']}";
                             $delete_query = mysqli_query($connection, $query);
                             
-                            header("Location: ./subjek.php");
+                            header("Location: ./subjek.php#subjek");
                         }
        
     

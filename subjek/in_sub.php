@@ -9,7 +9,7 @@
         
         $sql_query = mysqli_query($connection, "INSERT INTO subjek ( subjek, kod, bahagian,sesi) VALUES ('$isb', '$kd', '$ibgn', '$iss')");
 
-         header("Location: ./subjek.php");
+         header("Location: ./subjek.php#tambahsub");
     }
 
 

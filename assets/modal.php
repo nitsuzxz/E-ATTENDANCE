@@ -80,6 +80,23 @@
     </div>
 </div> 
 <!--  -->
+    <!-- modal success -->
+
+<div id="subjek" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header btn-info">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+                <h4>Berjaya!</h4> 
+                <p>Pengguna berjaya dipadam</p>
+                <button class="btn btn-success" data-dismiss="modal"><span>OK</span></button>
+            </div>
+        </div>
+    </div>
+</div> 
+<!--  -->
 <!-- success Edit Modal -->
 <div id="successEdit" class="modal fade">
     <div class="modal-dialog modal-confirm">
@@ -110,4 +127,32 @@
         </div>
     </div>
 </div>     
+<div id="tambahsub" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header btn-info">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+                <h4>Berjaya!</h4> 
+                <p>Subjek berjaya ditambah</p>
+                <button class="btn btn-success" data-dismiss="modal"><span>OK</span></button>
+            </div>
+        </div>
+    </div>
+</div>  
+    <div id="removejad" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header btn-info">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+                <h4>Berjaya!</h4> 
+                <p>Jadual berjaya di padam</p>
+                <button class="btn btn-success" data-dismiss="modal"><span>OK</span></button>
+            </div>
+        </div>
+    </div>
+</div>   
 </html> 

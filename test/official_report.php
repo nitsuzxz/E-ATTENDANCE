@@ -7,10 +7,7 @@ global $connection;
 // Reference the Dompdf namespace
 use Dompdf\Dompdf;
 
-use Dompdf\FrameDecorator\Table as TableFrameDecorator;
-use Dompdf\FrameDecorator\TableCell as TableCellFrameDecorator;
 
-// Instantiate and use the dompdf class
 $dompdf = new Dompdf();
            
 
@@ -31,7 +28,6 @@ ob_start();
     th {
         width: 3.5cm;
         height: 3cm;
-        padding: 1mm;
         text-align: center;
        font-size: 11;
     }
@@ -40,17 +36,15 @@ ob_start();
 
         width: 0.5cm;
         height: 0.5cm;
-        padding: 1mm;
         text-align: center;
         font-size: 10;
     }
 
     .rotate {
-        -webkit-transform: rotate(-90.0deg);
-        filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=0.083);
-        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)";
+
         transform: rotate(-90.0deg);
-        width: 2cm;
+        font-size: 10;
+      
     }
 
 </style>

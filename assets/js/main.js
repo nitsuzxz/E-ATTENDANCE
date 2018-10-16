@@ -37,13 +37,6 @@ function modalDelete(id) {
     });
 }
 
-function modal_delsubjek(id) {
-    $("#exampleModal").modal('toggle');
-    console.log('id', id);
-    $("#btnYes").click(function () {
-        window.location = "./subjek.php?delete='" + id + "'";
-    });
-}
 
 function modalDeletePelajar(id) {
     $("#exampleModal").modal('toggle');
@@ -52,15 +45,23 @@ function modalDeletePelajar(id) {
         window.location = "./pelajar.php?delete='" + id + "'";
     });
 }
-function delete_subjek(id) {
-    $("#delete_subjek").modal('toggle');
+
+function modal_delsubjek(id) {
+    $("#exampleModal").modal('toggle');
     console.log('id', id);
     $("#btnYes").click(function () {
         window.location = "./subjek.php?delete='" + id + "'";
     });
 }
 
-     
+function mdelsub(id) {
+    $("#exampleModal").modal('toggle');
+    console.log('id', id);
+    $("#btnYes").click(function () {
+        window.location = "./jadual.php?deljadual='" + id + "'";
+    });
+}
+
 function modalEdit(id) {
     $("#editModal").modal('toggle');
 }
@@ -69,6 +70,7 @@ function modalEdit(id) {
 function submitForm() {
     $("#submitEdit").click();
 }
+
 function modalEditsubjek(id) {
     $("#editModal").modal('toggle');
 }

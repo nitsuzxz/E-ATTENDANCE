@@ -1,7 +1,7 @@
-<?php include("../config/db.php") ?>
-<?php include("../assets/side-navkb.php") ?>
-<?php include("./ddrop.php")?>
-<?php include("./insertj.php")?>
+<?php include("../config/db.php") ;
+include("../assets/side-navkb.php") ;
+include("./ddrop.php");
+include("./insertj.php");?>
   
 
 
@@ -217,20 +217,20 @@
                     <thead>
 
                                         <tr>
-                                        <th class="ti-arrows-vertical"  scope="col">Bahagian</th>
                                         <th class="ti-arrows-vertical"  scope="col">Pengajar</th>
                                         <th class="ti-arrows-vertical"  scope="col">Sesi</th>
                                         <th class="ti-arrows-vertical"  scope="col">Subjek</th>
                                         <th class="ti-arrows-vertical"  scope="col">Kelas</th>
                                         <th class="ti-arrows-vertical"  scope="col">Hari</th>
                                         <th class="ti-arrows-vertical"  scope="col">Slot</th>
+                                        <th scope="col"></th>    
                 
                                             
                                         </tr>
                     </thead>
                                  
                                   <tbody >
-                                  <?php include("./viewsub.php") ?>
+                                  <?php include("./view_subjek.php") ?>
                                   </tbody>
                          
 
@@ -249,7 +249,8 @@
         </div>
     </div>
 
-            
+
+  <?php include("../assets/modal.php") ?> 
      
                     
         <script type="text/javascript">
@@ -310,32 +311,21 @@
                 document.getElementById('jst').innerHTML=xmlhttp.responseText;
 
             }
+            function deljadual(id) {
+    $("#exampleModal").modal('toggle');
+    console.log('id', id);
+    $("#btnYes").click(function () {
+        window.location = "./jadual.php?delete='" + id + "'";
+    });
+}
                     
         </script>
         
-                        
-  
-   
-  
-    <!-- Right Panel -->
-
+                                      
 
     <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="../assets/js/popper.min.js"></script>
     <script src="../assets/js/plugins.js"></script>
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/lib/data-table/datatables.min.js"></script>
-    <script src="../assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-    <script src="../assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-    <script src="../assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-    <script src="../assets/js/lib/data-table/jszip.min.js"></script>
-    <script src="../assets/js/lib/data-table/pdfmake.min.js"></script>
-    <script src="../assets/js/lib/data-table/vfs_fonts.js"></script>
-    <script src="../assets/js/lib/data-table/buttons.html5.min.js"></script>
-    <script src="../assets/js/lib/data-table/buttons.print.min.js"></script>
-    <script src="../assets/js/lib/data-table/buttons.colVis.min.js"></script>
-    <script src="../assets/js/lib/data-table/datatables-init.js"></script>
-    
   
 </body>
 

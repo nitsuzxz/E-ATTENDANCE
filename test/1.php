@@ -39,19 +39,14 @@ if (isset($_POST['download'])) {
 
     td {
 
-       
+         width: 0.1cm;
+        height: 1.5cm;
         padding: 1mm;
         text-align: center;
        
     }
 
-    .rotate {
-        -webkit-transform: rotate(-90.0deg);
-        filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=0.083);
-        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)";
-        transform: rotate(-90.0deg);
-    }
-
+      
 </style>
 
 <body>
@@ -81,7 +76,7 @@ if (isset($_POST['download'])) {
                        $slot=$row["slot"];
                        $tarikh=$row["tarikh"];
                     
-                            echo"<td class='rotate' style='font-size:10'>";
+                            echo"<td>";
                             echo $tarikh;
                             echo"</td>";
                    }
@@ -133,7 +128,7 @@ if (isset($_POST['download'])) {
                             echo"</td>";
                        
 
-                                      $kehadiran_query="SELECT kehadiran FROM ke WHERE id_p='$id_pelajar'";
+                                      $kehadiran_query="SELECT kehadiran FROM ke WHERE id_p='$id_pelajar' AND tarikh BETWEEN '$q_mula' AND '$q_akhir' ";
 
                                       $Kehadiran= mysqli_query($connection, $kehadiran_query);   
 
@@ -159,7 +154,7 @@ $dompdf->setPaper('A4', 'landscape');
 // Render the HTML as PDF
 $dompdf->render();
 // Output the generated PDF (1 = download and 0 = preview)
-$dompdf->stream("kehadiran",array("Attachment"=>0));
+$dompdf->stream("kehadiran",array("Attachment"=>1));
 
 header("Location: ./rasmi.php");
   

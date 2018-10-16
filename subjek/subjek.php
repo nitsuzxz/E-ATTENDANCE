@@ -2,6 +2,7 @@
 <?php include("../assets/side-nav.php") ?>
 <?php include("./in_sub.php") ?>
 <?php include("./esb.php") ?>
+     <?php include("../assets/modal.php") ?>
   
 
 
@@ -219,7 +220,7 @@
  
     </div>
             
-             <?php include("../assets/modal.php") ?>
+        
 
 
     <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>

@@ -39,7 +39,7 @@
                             $query = "DELETE FROM pelajar WHERE id_pelajar = {$_GET['delete']}";
                             $delete_query = mysqli_query($connection, $query);
                             
-                            header("Location: ./pelajar.php");
+                            header("Location: ./pelajar.php#success");
                         }                                     
 ?>
 

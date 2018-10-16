@@ -35,6 +35,7 @@ global $connection;
 	                                   <td>$jkelas</td>
                                        <td>$jhari</td>
 	                                   <td>$jslot</td>
+                                       <td><a onclick='mdelsub({$jid})' button type='button' class='btn btn-danger'>DELETE</button></a></td>
                                        </tr>";
                                       }
                    

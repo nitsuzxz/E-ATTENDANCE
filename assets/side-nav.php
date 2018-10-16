@@ -18,6 +18,15 @@
                     <li class="active">
                         <a href="../Dashboard/index.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
+                      <h3 class="menu-title">KEHADIRAN</h3>
+                    
+                    <li class="active">
+                        <a href="../kehadiran/kehadiran.php"> <i class="menu-icon fa fa-user"></i>SOMETHING </a>
+                    </li>
+                    
+                    <li class="active">
+                        <a href="../pengajar-ganti/ganti.php"> <i class="menu-icon fa fa-user"></i>PENGAJAR GANTI </a>
+                    </li>
                     
                     
                     <h3 class="menu-title">PENGGUNA</h3><!-- /.menu-title -->

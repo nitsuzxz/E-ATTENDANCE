@@ -11,14 +11,15 @@ global $connection;
             JOIN subjek AS s           
             ON j.id_sub= s.idsub
             JOIN sesi AS ss
-            on j.sesi=ss.ids";      
+            on j.sesi=ss.ids
+            where s.bahagian='{$_SESSION['bahagian']}'";      
 
         
                 $jadual= mysqli_query($connection, $query);
 
                  while($row= mysqli_fetch_array($jadual)){
-                                      $jid=$row['idj'];
-                                      $jbahagian =$row['bahagian'];
+                     
+                                      $id_jadual=$row['idj'];
                                       $jpengajar  = $row['nama_pengajar'];
                                       $jsesi=$row['sesi'];
                                       $jsubjek = $row['subjek'];
@@ -27,16 +28,18 @@ global $connection;
                                       $jslot=$row['slot'];
                                     
                                       
-                                      echo "<tr>
-	                                   <td>$jbahagian</td>
+                                      echo "<tr> 
+                                      <td>$id_jadual</td>
                                        <td>$jpengajar</td>
-	                                   <td>$jsesi</td>
                                        <td>$jsubjek</td>
+                                       <td>$jsesi</td>
 	                                   <td>$jkelas</td>
                                        <td>$jhari</td>
 	                                   <td>$jslot</td>
+                                       <td><a onclick='deljadual({$id_jadual})' button type='button' class='btn btn-danger'>PADAM</button></a></td>
                                        </tr>";
                                       }
+
                    
 
 ?>
