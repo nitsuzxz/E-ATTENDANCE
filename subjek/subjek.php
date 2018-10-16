@@ -133,14 +133,24 @@
                                     </div>
                                     <small class="form-text text-muted">Cth. xxxxxxx</small>
                                 </div>
-                                   <div class="form-group">
-                                    <label class=" form-control-label">Sesi</label>
-                                    <div  class="input-group">                                      
-                                        <input name="iss" class="form-control" value="<?php echo (isset($iss)) ? $iss: ''; ?>" required>
-                                    </div>
-                                    <small class="form-text text-muted">Cth. xxxxxxx</small>
-                                </div>   
-                                   
+                                   <label class=" form-control-label">Sesi</label>
+                                <select name="iss"  class="form-control" required>
+                                
+                                <option value="">Sila Pilih</option>
+                              <?php
+                                $res = mysqli_query($connection, "select * from sesi");
+
+                                while($row=mysqli_fetch_array($res)) {
+                                     $ids= $row['ids'];
+                                      $sesi= $row['sesi'];
+                                ?>
+                                    
+                                     <option value="<?php echo $ids?>" ><?php echo  $sesi?></option>
+                                <?php
+                                }
+
+                              ?>
+                                </select> 
                                 </div>
                                 
                          <div class="card-footer">
@@ -149,9 +159,9 @@
                         
                             <?php
 			if (isset($_GET['edit'])) {
-				echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >Kemaskini</button> 
+				echo '<button class="btn btn-success" type="button" onclick="modalEditsubjek()"  >Kemaskini</button> 
                 <a href="./subjek.php" button type="button" class="btn btn-danger">Batal</button></a>
-                    <button style="display:none;" type="submit" id="submitEdit" name="ksb"  >Kemaskini</button>
+                <button style="display:none;" type="submit" id="submitEdit" name="ksb"  >kemaskini</button>
                 ';
 			} else {
 				echo '<button type="submit" name="tsjk" class="btn btn-primary btn-sm">
@@ -209,29 +219,14 @@
  
     </div>
             
-        
-                        
-  
-   
-  
-    <!-- Right Panel -->
+             <?php include("../assets/modal.php") ?>
 
 
     <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="../assets/js/popper.min.js"></script>
     <script src="../assets/js/plugins.js"></script>
     <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/lib/data-table/datatables.min.js"></script>
-    <script src="../assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-    <script src="../assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-    <script src="../assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-    <script src="../assets/js/lib/data-table/jszip.min.js"></script>
-    <script src="../assets/js/lib/data-table/pdfmake.min.js"></script>
-    <script src="../assets/js/lib/data-table/vfs_fonts.js"></script>
-    <script src="../assets/js/lib/data-table/buttons.html5.min.js"></script>
-    <script src="../assets/js/lib/data-table/buttons.print.min.js"></script>
-    <script src="../assets/js/lib/data-table/buttons.colVis.min.js"></script>
-    <script src="../assets/js/lib/data-table/datatables-init.js"></script>
+ 
     
   
 </body>

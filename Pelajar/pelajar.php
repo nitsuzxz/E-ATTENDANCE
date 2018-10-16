@@ -142,7 +142,7 @@
                               </select>
                                 
                     <label class=" form-control-label">Sesi</label>
-                            <select name="bahagian"  class=" form-control" required>
+                            <select name="sesi"  class=" form-control" required>
                                 <option value="">Sila Pilih</option>
                               <?php
                                 $res = mysqli_query($connection, "select * from sesi");

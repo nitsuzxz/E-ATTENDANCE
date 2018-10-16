@@ -9,11 +9,11 @@ if (isset($_GET['edit'])){
 
 	if ($count = 1) {
 		while($row= mysqli_fetch_array($sb)){
-        $idsb         = $row['idsub'];    
-		$ibgn         = $row['bahagian'];
-        $isb            = $row['subjek'];
-        $kd              =$row['kod'];
-        $iss              = $row['sesi'];
+        $idsb            = $row['idsub'];    
+		$ibgn            = $row['bahagian'];
+        $isb             = $row['subjek'];
+        $kd              = $row['kod'];
+        $iss             = $row['sesi'];
 		
 		}
 	}
@@ -21,16 +21,27 @@ if (isset($_GET['edit'])){
 
     if(isset($_POST['ksb'])){
         
-        $ibgn      =mysqli_real_escape_string  ($connection,$_POST['bahagian']);
-        $isb      =mysqli_real_escape_string  ($connection,$_POST['subjek']);
-        $kd       =mysqli_real_escape_string  ($connection,$_POST['kod']);
-        $iss   =mysqli_real_escape_string  ($connection,$_POST['sesi']);
+    
+    
+        $ibgn     =mysqli_real_escape_string  ($connection,$_POST['ibg']);
+        $isb      =mysqli_real_escape_string  ($connection,$_POST['isb']);
+        $kd       =mysqli_real_escape_string  ($connection,$_POST['ikd']);
+        $iss      =mysqli_real_escape_string  ($connection,$_POST['iss']);
       
         
-        $mysqli_query  = mysqli_query($connection, "UPDATE subjek SET bahagian='$ibgn', subjek='$isb',kod='$kd',sesi='$iss' WHERE idsub=$idsb");
+        $mysqli_query  = mysqli_query($connection, "UPDATE subjek SET bahagian='$ibgn', subjek='$isb',kod='$kd',sesi='$iss' WHERE idsub='$idsb'");
+        header("Location: ./subjek.php#successsubjek");
         
-         header("Location: ./subjek.php#successEdit");
 }
+
+
+                            if(isset($_GET['delete'])){
+                                
+                            $query = "DELETE FROM subjek WHERE idsub = {$_GET['delete']}";
+                            $delete_query = mysqli_query($connection, $query);
+                            
+                            header("Location: ./subjek.php");
+                        }
        
     
-?>    
+?>

@@ -1,7 +1,7 @@
 <?php 
  include("../config/db.php");
  include("../assets/side-nav.php");
- include("./query_report.php");
+
 ?>
 
 
@@ -98,7 +98,7 @@
         <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
-                    <form action="" method="POST" class="col-lg-12">
+                    <form action="./1.php" method="POST" class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
                                 <strong>Laporan Rasmi</strong>
@@ -127,6 +127,7 @@
                               ?>
                                     </select>
                                 </div>
+                           
 
                                 <div class="form-group">
                                     <label class=" form-control-label">Kelas</label>
@@ -158,7 +159,7 @@
 
                             </div>
                             <div class="card-footer">
-                                <button class="btn btn-success"  type="submit" name="muat_turun">Muat Turun</button>
+                                <button class="btn btn-success" type="submit" name="download">Muat Turun</button>
                             </div>
                         </div>
                     </form>
@@ -189,6 +190,8 @@
             document.getElementById('sel_kelas').innerHTML = xmlhttp.responseText;
             $('select').material_select();
         }
+        
+
 
         
         $(document).ready(function() {

@@ -6,6 +6,7 @@
                                   $sbr= mysqli_query($connection, $query);
                                   
                                   while($row= mysqli_fetch_array($sbr)){
+                                      
                                       $idsb= $row['idsub'];
                                       $sbk= $row['subjek'];
                                       $kd= $row['kod'];
@@ -18,15 +19,10 @@
 	                                   <td>$kd</td>
                                        <td>$bhgn</td>
 	                                   <td>$ss</td>
-	                                   <td><a href='./subjek.php?delete={$idsb}' button type='button' class='btn btn-danger'>Delete</a></td>
-                                       <td><a href='./subjek.php?edit={$idsb}' onClick=\"return confirm('Adakah anda pasti hendak menyunting pengguna ini?');\" button type='button' class='btn btn-warning'>Edit</a></td>
+                                       <td><a onclick='modal_delsubjek({$idsb})' button type='button' class='btn btn-danger'>DELETE</button></a></td>
+                                       <td><a href='./subjek.php?edit={$idsb}' button  type='button' class='btn btn-warning'>EDIT</button></a></td>
                                        </tr>";
                                       }
-                            if(isset($_GET['delete'])){
-                            $query = "DELETE FROM subjek WHERE idsub = {$_GET['delete']}";
-                            $delete_query = mysqli_query($connection, $query);
-                            
-                            header("Location: ./subjek.php");
-                        }       
+       
 
 ?>

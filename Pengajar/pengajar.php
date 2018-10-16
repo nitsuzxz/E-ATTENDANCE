@@ -204,11 +204,6 @@ if (loggin ($_SESSION['email_pengajar']) ===false){
                 </div>
 
   <?php include("../assets/modal.php") ?>
-        
-    
-
-
-<!--  -->
 
     <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="../assets/js/popper.min.js"></script>
