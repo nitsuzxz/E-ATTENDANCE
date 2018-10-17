@@ -25,12 +25,12 @@
         if($email === $admin_uname && $pass === $admin_psw){
             if($us_role == 1) {
              header("Location: ./Dashboard/index.php");   
-            
+           
             }
             else if ($us_role == 2){
-            header("Location: ./kb-pengajar/pengajar.php");
+            header("Location: ./KB_Pengajar/pengajar.php");
             }
-         
+           
             $_SESSION['bahagian']= $bahagian;
             $_SESSION['email_pengajar']= $admin_uname;
             $_SESSION['id_pengajar']=$idp;

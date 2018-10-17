@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2018 at 04:51 PM
+-- Generation Time: Oct 17, 2018 at 07:59 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -68,13 +68,12 @@ CREATE TABLE `jadual` (
 --
 
 INSERT INTO `jadual` (`idj`, `bahagian`, `sesi`, `kelas`, `hari`, `slot`, `id_pen`, `id_sub`) VALUES
-(22, 7, 1, 1, 'ISNIN', 1, 13, 1),
-(23, 7, 1, 1, 'ISNIN', 2, 13, 1),
-(24, 7, 1, 1, 'ISNIN', 3, 13, 1),
-(25, 7, 1, 1, 'ISNIN', 4, 13, 1),
-(26, 7, 1, 1, 'ISNIN', 5, 17, 2),
-(27, 7, 1, 1, 'ISNIN', 6, 17, 2),
-(28, 7, 1, 1, 'ISNIN', 7, 17, 2);
+(1, 7, 1, 1, 'ISNIN', 1, 25, 1),
+(2, 7, 1, 1, 'ISNIN', 2, 25, 1),
+(3, 7, 1, 1, 'ISNIN', 3, 25, 1),
+(4, 7, 1, 1, 'ISNIN', 4, 25, 1),
+(5, 7, 1, 1, 'ISNIN', 5, 25, 1),
+(6, 7, 1, 1, 'ISNIN', 6, 25, 1);
 
 -- --------------------------------------------------------
 
@@ -116,39 +115,44 @@ CREATE TABLE `ke` (
 --
 
 INSERT INTO `ke` (`id_k`, `idj`, `id_p`, `kehadiran`, `tarikh`) VALUES
-(19, 22, 8, '/', '2018-10-01'),
-(20, 22, 9, '/', '2018-10-01'),
-(21, 22, 10, '/', '2018-10-01'),
-(22, 23, 8, '/', '2018-10-01'),
-(23, 23, 9, '/', '2018-10-01'),
-(24, 23, 10, '/', '2018-10-01'),
-(25, 24, 8, '/', '2018-10-01'),
-(26, 24, 9, '/', '2018-10-01'),
-(27, 24, 10, '/', '2018-10-01'),
-(28, 25, 8, '/', '2018-10-01'),
-(29, 25, 9, '/', '2018-10-01'),
-(30, 25, 10, '/', '2018-10-01'),
-(31, 26, 8, 'k', '2018-10-01'),
-(32, 26, 9, 'k', '2018-10-01'),
-(33, 26, 10, 'k', '2018-10-01'),
-(34, 27, 8, 'k', '2018-10-01'),
-(35, 27, 9, 'k', '2018-10-01'),
-(36, 27, 10, 'k', '2018-10-01'),
-(40, 28, 8, 'k', '2018-10-01'),
-(41, 28, 9, 'k', '2018-10-01'),
-(42, 28, 10, 'k', '2018-10-01'),
-(43, 22, 8, '/', '2018-10-08'),
-(44, 22, 9, '/', '2018-10-08'),
-(45, 22, 10, '/', '2018-10-08'),
-(46, 23, 8, '/', '2018-10-08'),
-(47, 23, 9, '/', '2018-10-08'),
-(48, 23, 10, '/', '2018-10-08'),
-(49, 24, 8, '/', '2018-10-08'),
-(50, 24, 9, '/', '2018-10-08'),
-(51, 24, 10, '/', '2018-10-08'),
-(52, 25, 8, '/', '2018-10-08'),
-(53, 25, 9, '/', '2018-10-08'),
-(54, 25, 10, '/', '2018-10-08');
+(1, 1, 2, '/', '2018-10-01'),
+(2, 1, 3, '/', '2018-10-01'),
+(3, 2, 2, '/', '2018-10-01'),
+(4, 2, 3, '/', '2018-10-01'),
+(5, 3, 2, '/', '2018-10-01'),
+(6, 3, 3, '/', '2018-10-01'),
+(7, 4, 2, '/', '2018-10-01'),
+(8, 4, 3, '/', '2018-10-01'),
+(9, 5, 2, '/', '2018-10-01'),
+(10, 5, 3, '/', '2018-10-01'),
+(11, 1, 2, '/', '2018-10-02'),
+(12, 1, 3, '/', '2018-10-02'),
+(13, 2, 2, '/', '2018-10-02'),
+(14, 2, 3, '/', '2018-10-02'),
+(15, 4, 2, '/', '2018-10-02'),
+(16, 4, 3, '/', '2018-10-02'),
+(17, 5, 2, '/', '2018-10-02'),
+(18, 5, 3, '/', '2018-10-02'),
+(19, 1, 2, '/', '2018-10-03'),
+(20, 1, 3, '/', '2018-10-03'),
+(21, 2, 2, '/', '2018-10-03'),
+(22, 2, 3, '/', '2018-10-03'),
+(23, 3, 2, '/', '2018-10-03'),
+(24, 3, 3, '/', '2018-10-03'),
+(25, 4, 2, '/', '2018-10-03'),
+(26, 4, 3, '/', '2018-10-03'),
+(27, 5, 2, '/', '2018-10-03'),
+(28, 5, 3, '/', '2018-10-03'),
+(29, 1, 2, '/', '2018-10-04'),
+(30, 1, 3, '/', '2018-10-04'),
+(31, 2, 2, '/', '2018-10-04'),
+(32, 2, 3, '/', '2018-10-04'),
+(33, 3, 2, '/', '2018-10-04'),
+(34, 3, 3, '/', '2018-10-04'),
+(35, 4, 2, '/', '2018-10-04'),
+(36, 4, 3, '/', '2018-10-04'),
+(37, 5, 2, '/', '2018-10-04'),
+(38, 5, 3, '/', '2018-10-04');
 
 -- --------------------------------------------------------
 
@@ -172,12 +176,8 @@ CREATE TABLE `pelajar` (
 --
 
 INSERT INTO `pelajar` (`id_pelajar`, `nama_pelajar`, `no_ndp`, `jawatan`, `bahagian`, `ic`, `sesi`, `kelas`) VALUES
-(8, 'hasan', '0117001', 4, 7, '1', 1, 1),
-(9, 'husin', '0117002', 4, 7, '2', 1, 1),
-(10, 'aidil', '0117003', 4, 7, '3', 1, 1),
-(11, 'piqa', '0117004', 4, 7, '4', 1, 2),
-(12, 'justin', '0117005', 4, 7, '5', 1, 2),
-(15, 'wewewer', '121212', 4, 7, '155151', 1, 2);
+(2, 'rabani', '98989', 4, 7, '6667', 1, 1),
+(3, 'namabaru', '2030', 4, 7, '2i309', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -199,13 +199,9 @@ CREATE TABLE `pengajar` (
 --
 
 INSERT INTO `pengajar` (`id_pengajar`, `nama_pengajar`, `email_pengajar`, `pass_pengajar`, `jawatan`, `bahagian`) VALUES
-(13, 'Rafidah', 'rafidah@ilpkl.com', 'user123', 2, 7),
-(17, 'Azwadi', 'azwadi@ilpkl.com', 'user123', 1, 7),
-(18, 'Shahir', 'shahir@ilpkl.com', 'user123', 3, 7),
-(19, 'Siti zubaidah', 'siti@ilpkl.com', 'user123', 3, 7),
-(20, 'Junaidi', 'ju@ilpkl.com', 'user123', 3, 7),
-(24, 'ikhmal', 'rdni', '', 2, 7),
-(25, 'skoa', 'JKOSO', '', 3, 7);
+(23, 'ikhmal', 'ikhmal', 'user123', 1, 7),
+(25, 'rafidah', 'rafidah', 'user123', 2, 7),
+(30, 'halu', 'iii', 'user123', 3, 7);
 
 -- --------------------------------------------------------
 
@@ -248,10 +244,7 @@ CREATE TABLE `subjek` (
 --
 
 INSERT INTO `subjek` (`idsub`, `subjek`, `kod`, `bahagian`, `sesi`) VALUES
-(1, 'Final Year Project II', 'KKS8034', 7, 1),
-(2, 'Computer System Security', 'KKS8013', 7, 1),
-(3, 'Database', 'KKS8023', 7, 1),
-(4, 'Troubleshooting', 'KKS8099', 7, 2);
+(1, 'database', '1133', 7, 1);
 
 --
 -- Indexes for dumped tables
@@ -285,7 +278,9 @@ ALTER TABLE `jawatan`
 -- Indexes for table `ke`
 --
 ALTER TABLE `ke`
-  ADD PRIMARY KEY (`id_k`);
+  ADD PRIMARY KEY (`id_k`),
+  ADD KEY `id_p` (`id_p`),
+  ADD KEY `idj` (`idj`);
 
 --
 -- Indexes for table `pelajar`
@@ -334,7 +329,7 @@ ALTER TABLE `bahagian`
 -- AUTO_INCREMENT for table `jadual`
 --
 ALTER TABLE `jadual`
-  MODIFY `idj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `idj` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `jawatan`
@@ -346,19 +341,19 @@ ALTER TABLE `jawatan`
 -- AUTO_INCREMENT for table `ke`
 --
 ALTER TABLE `ke`
-  MODIFY `id_k` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id_k` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `pelajar`
 --
 ALTER TABLE `pelajar`
-  MODIFY `id_pelajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_pelajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pengajar`
 --
 ALTER TABLE `pengajar`
-  MODIFY `id_pengajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_pengajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `sesi`
@@ -370,7 +365,7 @@ ALTER TABLE `sesi`
 -- AUTO_INCREMENT for table `subjek`
 --
 ALTER TABLE `subjek`
-  MODIFY `idsub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idsub` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -381,7 +376,14 @@ ALTER TABLE `subjek`
 --
 ALTER TABLE `jadual`
   ADD CONSTRAINT `jadual_ibfk_2` FOREIGN KEY (`sesi`) REFERENCES `sesi` (`ids`),
-  ADD CONSTRAINT `jadual_ibfk_3` FOREIGN KEY (`bahagian`) REFERENCES `bahagian` (`id`);
+  ADD CONSTRAINT `jadual_ibfk_3` FOREIGN KEY (`bahagian`) REFERENCES `bahagian` (`id`),
+  ADD CONSTRAINT `jadual_ibfk_4` FOREIGN KEY (`id_sub`) REFERENCES `subjek` (`idsub`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `ke`
+--
+ALTER TABLE `ke`
+  ADD CONSTRAINT `ke_ibfk_1` FOREIGN KEY (`id_p`) REFERENCES `pelajar` (`id_pelajar`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `pelajar`

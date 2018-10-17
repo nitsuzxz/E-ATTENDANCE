@@ -1,5 +1,5 @@
 <?php include("../config/db.php") ;
- include("../assets/side-nav.php") ;
+ include("../assets/side-navkb.php");
  include("./add_pelajar.php") ;
  include("./update_pelajar.php") ;
 

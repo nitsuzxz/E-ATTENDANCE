@@ -1,7 +1,7 @@
 <?php
 include("../config/db.php");
 include("../config/function.php");
-include("../assets/side-nav.php");
+include("../assets/side-navkb.php");
 include("./add_user.php");
 include("./update.php");
 include("./uploads.php");

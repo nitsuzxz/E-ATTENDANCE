@@ -23,7 +23,7 @@
                     <h3 class="menu-title">KEHADIRAN</h3>
                     
                     <li class="active">
-                        <a href="../kehadiran/kehadiran.php"> <i class="menu-icon fa fa-user"></i>SOMETHING </a>
+                        <a href="../KB_kehadiran/kehadiran.php"> <i class="menu-icon fa fa-user"></i>SOMETHING </a>
                     </li>
                     
                     <li class="active">
@@ -43,11 +43,11 @@
                     <h3 class="menu-title">SOMETHING</h3>
                     
                     <li class="active">
-                        <a href="../kb-subjek/subjek.php"> <i class="menu-icon fa fa-user"></i>SUBJEK </a>
+                        <a href="../KB_subjek/subjek.php"> <i class="menu-icon fa fa-user"></i>SUBJEK </a>
                     </li>
                     
                     <li class="active">
-                        <a href="../kb-jadual/jadual.php"> <i class="menu-icon fa fa-user"></i>JADUAL </a>
+                        <a href="../KB_jadual/jadual.php"> <i class="menu-icon fa fa-user"></i>JADUAL </a>
                     </li>
                     
                 </ul>

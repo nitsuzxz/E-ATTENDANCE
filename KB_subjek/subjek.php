@@ -1,8 +1,10 @@
-<?php include("../config/db.php");
- include("../assets/side-nav.php");
+<?php 
+ include("../config/db.php");
+ include("../assets/side-navkb.php");
  include("./in_sub.php");
  include("./esb.php");
- include("../assets/modal.php") ?>
+ include("../assets/modal.php")
+?>
 
 
 
