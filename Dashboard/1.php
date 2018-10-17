@@ -71,8 +71,7 @@ if (isset($_POST['download'])) {
                   AND J.sesi='$q_sesi'
                   AND J.kelas='$q_kelas'
                   AND J.bahagian='$q_bahagian'
-                  GROUP BY K.tarikh
-                 ";
+                  GROUP BY K.tarikh";
 
         
         $tarikh_slot= mysqli_query($connection, $query);   

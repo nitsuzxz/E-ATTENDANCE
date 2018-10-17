@@ -16,9 +16,7 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     
-                    <li class="active">
-                        <a href="../kb-Dashboard/index.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
-                    </li>
+                  
                     
                     <h3 class="menu-title">KEHADIRAN</h3>
                     

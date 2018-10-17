@@ -1,6 +1,6 @@
 <?php 
  include("../config/db.php");
- include("../assets/side-navkb.php");
+ include("../assets/side-nav.php");
  include("./dropganti.php");
  include("./submit.php");
 ?>
