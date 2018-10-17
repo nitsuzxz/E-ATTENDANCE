@@ -53,6 +53,42 @@ if (isset($_POST['download'])) {
 </style>
 
 <body>
+    <br>
+     <br>
+    <center><img src="../images/jata.png" style="height=3.5cm; width:3.5cm"></center>
+<center><strong>
+        <h1 style="font-size:20">INSTITUT LATIHAN JABATAN TENAGA MANUSIA (ILJTM)
+            KUALA LUMPUR</h1>
+    </strong></center>
+
+<center><strong>
+        <h2 style="font-size:20">KEMENTERIAN SUMBER MANUSIA</h2>
+    </strong></center>
+    <center><strong>
+        <h2 style="font-size:20">DAFTAR KEHADIRAN PELAJAR (INDIVIDU)</h2>
+    </strong></center>
+<br>
+    <br>
+<br>
+       <?php 
+        $res = mysqli_query($connection, "select * from sesi WHERE ids='$q_sesi'  ");
+
+                                while($row=mysqli_fetch_array($res)) {
+                                      $sesi= $row['sesi'];
+      
+                                }
+    ?>
+<p align="left" style="font-size:12">INSTITUT&nbsp;:INSTITUT LATIHAN PERINDUSTRIAN KUALA LUMPUR</p>
+<p>SESI LATIHAN:<?php echo $sesi ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DARI:<?php echo $q_mula ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HINGGA:<?php echo $q_akhir ?></p>    
+
+<hr>
+    
+    <br><p align="left" style="font-size:12">BAHAGIAN&nbsp;:INSTITUT LATIHAN PERINDUSTRIAN KUALA LUMPUR</p>
+<p align="left" style="font-size:12">KOD KURSUS&nbsp;:INSTITUT LATIHAN PERINDUSTRIAN KUALA LUMPUR</p>
+<p align="left"style="font-size:12">SESI KEMASUKAN&nbsp;:INSTITUT LATIHAN PERINDUSTRIAN KUALA LUMPUR</p>
+
+            <p style="page-break-before: always;"></p>
+    
 
     <table>
 
@@ -159,7 +195,7 @@ $dompdf->setPaper('A4', 'landscape');
 // Render the HTML as PDF
 $dompdf->render();
 // Output the generated PDF (1 = download and 0 = preview)
-$dompdf->stream("kehadiran",array("Attachment"=>1));
+$dompdf->stream(" laporan rasmi",array("Attachment"=>1));
 header("Location: ./index.php");
   
  ?>
