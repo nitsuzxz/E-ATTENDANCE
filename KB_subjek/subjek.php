@@ -1,8 +1,8 @@
-<?php include("../config/db.php") ?>
-<?php include("../assets/side-nav.php") ?>
-<?php include("./in_sub.php") ?>
-<?php include("./esb.php") ?>
-<?php include("../assets/modal.php") ?>
+<?php include("../config/db.php");
+ include("../assets/side-nav.php");
+ include("./in_sub.php");
+ include("./esb.php");
+ include("../assets/modal.php") ?>
 
 
 
@@ -102,9 +102,8 @@
                                     <label class=" form-control-label">Bahagian</label>
                                     <select name="ibg" class="form-control" required>
 
-                                        <option value="">Sila Pilih</option>
                                         <?php
-                                $res = mysqli_query($connection, "select * from bahagian");
+                                $res = mysqli_query($connection, "select * from bahagian where id={$_SESSION['bahagian']}");
 
                                 while($row=mysqli_fetch_array($res)) {
                                      $ids= $row['id'];

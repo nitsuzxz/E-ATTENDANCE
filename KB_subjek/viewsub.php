@@ -6,7 +6,9 @@
                                   JOIN bahagian as B
                                   ON S.bahagian=B.id
                                   JOIN sesi as ses
-                                  ON S.sesi=ses.ids";
+                                  ON S.sesi=ses.ids
+                                  WHERE S.bahagian={$_SESSION['bahagian']}
+                                  ORDER BY S.subjek AND ses.sesi ASC";
                                   $sbr= mysqli_query($connection, $query);
                                   
                                   while($row= mysqli_fetch_array($sbr)){

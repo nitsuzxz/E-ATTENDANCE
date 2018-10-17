@@ -27,16 +27,16 @@
                     </li>
                     
                     <li class="active">
-                        <a href="../pengajar-ganti/ganti.php"> <i class="menu-icon fa fa-user"></i>PENGAJAR GANTI </a>
+                        <a href="../KB_pengajar_ganti/ganti.php"> <i class="menu-icon fa fa-user"></i>PENGAJAR GANTI </a>
                     </li>
                     
                     
                     <h3 class="menu-title">PENGGUNA</h3><!-- /.menu-title -->
                    <li class="active">
-                        <a href="../kb-pengajar/pengajar.php"> <i class="menu-icon fa fa-user"></i>PENGAJAR </a>
+                        <a href="../KB_Pengajar/pengajar.php"> <i class="menu-icon fa fa-user"></i>PENGAJAR </a>
                     </li>
                    <li class="active">
-                        <a href="../kb-pelajar/pelajar.php"> <i class="menu-icon fa fa-user"></i>PELAJAR </a>
+                        <a href="../KB_Pelajar/pelajar.php"> <i class="menu-icon fa fa-user"></i>PELAJAR </a>
                     </li>
                     
                     

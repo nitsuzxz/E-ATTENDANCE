@@ -25,6 +25,7 @@ if (isset($_GET['edit'])){
         
         $nama       =mysqli_real_escape_string  ($connection,$_POST['nama_pengajar']);
         $email      =mysqli_real_escape_string  ($connection,$_POST['email_pengajar']);
+       
         $bahagian   =mysqli_real_escape_string  ($connection,$_POST['bahagian']);
         $jawatan    =mysqli_real_escape_string  ($connection,$_POST['jawatan']);
         
