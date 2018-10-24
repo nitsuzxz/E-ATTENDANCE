@@ -1,9 +1,7 @@
-<?php 
- include("../config/db.php");
- include("../assets/side-nav.php");
+<?php include("../config/db.php") ?>
+<?php include("../assets/side-navkb.php") ?>
 
-?>
-
+<!doctype html>
 
 <html class="no-js" lang="">
 
@@ -21,6 +19,7 @@
     <link rel="stylesheet" href="../assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="../assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="../assets/scss/style.css">
+
     <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
@@ -33,7 +32,11 @@
 
 <body>
 
+    <!-- Right Panel -->
+
     <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
         <header id="header" class="header">
 
             <div class="header-menu">
@@ -69,31 +72,18 @@
                 </div>
             </div>
 
-        </header>
-
-        <!-- /header -->
+        </header><!-- /header -->
+        <!-- Header-->
 
         <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Subjek</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>
-                            <li class="active">Subjek</li>
-                        </ol>
+                        <h1>Dashboard</h1>
                     </div>
                 </div>
             </div>
         </div>
-
-
         <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
@@ -103,6 +93,28 @@
                                 <strong>Laporan Rasmi</strong>
                             </div>
                             <div class="card-body card-block">
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Bahagian</label>
+                                    <select id="jbahagian" name="jbahagian"  class="form-control" required>
+
+                                        <option value="">Sila Pilih</option>
+                                        <?php
+                                 $res = mysqli_query($connection, "select * from bahagian where id='{$_SESSION['bahagian']}' ");
+                                while($row=mysqli_fetch_array($res)) {
+                                     $idb= $row['id'];
+                                      $bhgn= $row['bahagian'];
+                                ?>
+
+                                        <option value="<?php echo $idb?>">
+                                            <?php echo $bhgn?>
+                                        </option>
+                                        <?php
+                                }
+
+                              ?>
+                                    </select>
+                                </div>
 
                                 <div class="form-group">
                                     <label class=" form-control-label">Sesi</label>
@@ -126,7 +138,7 @@
                               ?>
                                     </select>
                                 </div>
-                           
+
 
                                 <div class="form-group">
                                     <label class=" form-control-label">Kelas</label>
@@ -136,8 +148,8 @@
                                         </select>
                                     </div>
                                 </div>
-                                
-                               
+
+
 
 
                                 <div class="input-group">
@@ -165,7 +177,10 @@
                 </div>
             </div>
         </div>
-       <div class="col-lg-12">
+
+
+
+        <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
                     <strong class="card-title">PELAJAR</strong>
@@ -191,24 +206,16 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
     </div>
-    
-
-        <script src="../assets/js/popper.min.js"></script>
-        <script src="../assets/js/plugins.js"></script>
-        <script src="../assets/js/main.js"></script>
+    <!-- Right Panel -->
 
 
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
 
     <script type="text/javascript">
-    
-            function kelas() {
+        function kelas() {
 
             var xmlhttp = new XMLHttpRequest();
             var sel_sesi1 = document.getElementById('sel_sesi').value;
@@ -219,10 +226,10 @@
             document.getElementById('sel_kelas').innerHTML = xmlhttp.responseText;
             $('select').material_select();
         }
-        
 
 
-        
+
+
         $(document).ready(function() {
             var date_input = $('input[name="date"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
@@ -233,8 +240,8 @@
                 autoclose: true,
             })
         })
-        
-         $(document).ready(function() {
+
+        $(document).ready(function() {
             var date_input = $('input[name="date2"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({

@@ -90,9 +90,9 @@ if (isset($_POST['download'])) {
 
 <hr>
     
-    <br><p align="left" style="font-size:12">BAHAGIAN&nbsp;:</p>
-<p align="left" style="font-size:12">KOD KURSUS&nbsp;:</p>
-<p align="left"style="font-size:12">SESI KEMASUKAN&nbsp;:</p>
+    <br><p align="left" style="font-size:12">BAHAGIAN&nbsp;:INSTITUT LATIHAN PERINDUSTRIAN KUALA LUMPUR</p>
+<p align="left" style="font-size:12">KOD KURSUS&nbsp;:INSTITUT LATIHAN PERINDUSTRIAN KUALA LUMPUR</p>
+<p align="left"style="font-size:12">SESI KEMASUKAN&nbsp;:INSTITUT LATIHAN PERINDUSTRIAN KUALA LUMPUR</p>
       ';
 $html .= '<div class="page-break"></div>';
 	while( $start <= $end ) {

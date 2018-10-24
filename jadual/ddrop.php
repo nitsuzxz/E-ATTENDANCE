@@ -136,33 +136,8 @@ if (isset($_GET['slot'])) {
         $st = $_GET['slot'];
 
   
-        if($st== "JUMAAT"){  
-          
-                echo"<div id='jst' class='form-check-inline form-check'>";
-                        echo" <label  class='form-check-label'>";
-                        echo"<input type='checkbox' name='kslot[]' value='1' class='form-check-input' >";
-                            echo"Slot 1";
-                        echo"</label>";
-                        echo"<label  class='form-check-label'>";
-                            echo"<input type='checkbox' name='kslot[]'  value='2' class='form-check-input' >";
-                            echo"Slot 2";
-                        echo"</label>";
-                        echo"<label class='form-check-label'>";
-                            echo" <input type='checkbox' name='kslot[]'  value='3' class='form-check-input' >";
-                            echo"Slot 3";
-                            echo"</label>";
-                         echo" <label  class='form-check-label'>";
-                        echo"<input type='checkbox' name='kslot[]'  value='4' class='form-check-input' >";
-                            echo"Slot 4";
-                        echo"</label>";
-                        echo"<label  class='form-check-label'>";
-                            echo"<input type='checkbox' name='kslot[]'  value='5' class='form-check-input' >";
-                            echo"Slot 5";
-                        echo"</label>";
-             echo" </div> ";
-        
-        }
-    else{
+        if($st!== ""){  
+
                echo"<div id='jst' class='form-check-inline form-check'>";
                         echo" <label  class='form-check-label'>";
                         echo"<input type='checkbox' name='kslot[]'  value='1' class='form-check-input' >";

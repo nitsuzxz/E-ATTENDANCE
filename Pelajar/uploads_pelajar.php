@@ -10,14 +10,14 @@ if(isset($_POST["submit"]))
    $handle = fopen($_FILES['file']['tmp_name'], "r");
    while($data = fgetcsv($handle))
    {
-    $item1 = mysqli_real_escape_string($connection, $data[0]);  
+       $item1 = mysqli_real_escape_string($connection, $data[0]);  
        $item2 = mysqli_real_escape_string($connection, $data[1]);
        $item3 = mysqli_real_escape_string($connection, $data[2]);
+       $item4 = mysqli_real_escape_string($connection, $data[3]);
        $item5 = mysqli_real_escape_string($connection, $data[4]);
        $item6 = mysqli_real_escape_string($connection, $data[5]);
-       $item7 = mysqli_real_escape_string($connection, $data[6]);
-              
-       $query = "INSERT into pelajar(`nama_pelajar`, `no_ndp`, `jawatan`, `bahagian`, `ic`, `sesi`, `kelas`) values('$item1','$item2','4','$item4','$item5','$item6','$item7')";
+       
+       $query = "INSERT into pelajar(`nama_pelajar`, `no_ndp`, `jawatan`, `bahagian`, `ic`, `sesi`, `kelas`) values('$item1','$item2','4','$item3','$item4','$item5','$item6')";
        
        mysqli_query($connection, $query);
    }

@@ -9,8 +9,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -18,10 +17,10 @@
                     <li class="active">
                         <a href="../Dashboard/index.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
-                      <h3 class="menu-title">KEHADIRAN</h3>
+                      <h3 class="menu-title">KEHADIRAN PELAJAR</h3>
                     
                     <li class="active">
-                        <a href="../kehadiran/kehadiran.php"> <i class="menu-icon fa fa-user"></i>SOMETHING </a>
+                        <a href="../kehadiran/kehadiran.php"> <i class="menu-icon fa fa-user"></i>KEHADIRAN </a>
                     </li>
                     
                     <li class="active">
@@ -38,7 +37,7 @@
                     </li>
                     
                     
-                    <h3 class="menu-title">SOMETHING</h3>
+                    <h3 class="menu-title">TAMBAH</h3>
                     
                     <li class="active">
                         <a href="../subjek/subjek.php"> <i class="menu-icon fa fa-user"></i>SUBJEK </a>

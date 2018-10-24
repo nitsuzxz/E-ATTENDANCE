@@ -8,7 +8,8 @@
         $kelas           = $_POST['kelas'];
         $ic              = $_POST['ic'];
         $sesi            = $_POST['sesi'];
-    
+        
+        $validation_pelajar="";
         
         $sql_query = mysqli_query($connection, "INSERT INTO pelajar (nama_pelajar,jawatan, no_ndp, bahagian, ic, kelas,sesi) VALUES 
         ('$nama_pelajar','4','$no_ndp','$bahagian','$ic','$kelas','$sesi')");

@@ -9,7 +9,7 @@
                                   join sesi as s
                                   on p.sesi=s.ids
                                   where p.bahagian={$_SESSION['bahagian']}
-                                  ORDER BY p.nama_pelajar AND p.no_ndp ASC";
+                                  ORDER BY p.nama_pelajar  ASC";
 
                                   $pelajar  = mysqli_query($connection, $query);
                                   

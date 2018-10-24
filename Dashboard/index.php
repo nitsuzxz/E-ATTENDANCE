@@ -90,7 +90,7 @@
                     <form action="./1.php" method="POST" class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Laporan Rasmi</strong>
+                                <strong>Rekod Kehadiran Rasmi</strong>
                             </div>
                             <div class="card-body card-block">
 

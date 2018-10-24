@@ -187,7 +187,7 @@
                             <div class="card-body">
                               
                                   <?php include("./uploads_pelajar.php") ?>
-                                <label>Senarai Pengajar</label>
+                                <label>Senarai Pelajar</label>
                                 <input type="file" name="file" /><br />
                        
                               

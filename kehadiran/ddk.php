@@ -27,6 +27,7 @@ include ("../config/db.php");
         
             }
         }
+
 if (isset($_GET['kelas'])&&isset($_GET['slot'])&&isset($_GET['sesi'])&&isset($_GET['bahagian_1'])) {
         $kelas_pelajar= $_GET['kelas'];
         $sesi_pelajar= $_GET['sesi'];
@@ -38,6 +39,7 @@ if (isset($_GET['kelas'])&&isset($_GET['slot'])&&isset($_GET['sesi'])&&isset($_G
                 $res2=mysqli_query($connection,$query2);
     
                 if (isset($_GET['idj'])) {
+                    
                         $hari= $_GET['hari'];
                         $pgjr= $_GET['ssp']; 
                         $queryidj= "select * from jadual where bahagian=$bahagian_pelajar and id_pen=$pgjr and hari='$hari' and slot='$slot_pelajar'";

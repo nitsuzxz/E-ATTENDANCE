@@ -4,7 +4,8 @@ include("../config/function.php");
 include("../assets/side-nav.php");
 include("./add_user.php");
 include("./update.php");
-include("./uploads.php");
+error_reporting(0);
+
 
 if (loggin ($_SESSION['email_pengajar']) ===false){
      header ('Location: ../index.php');
@@ -46,7 +47,7 @@ if (loggin ($_SESSION['email_pengajar']) ===false){
                     <div class="header-left">
                         <button class="search-trigger"><i class="fa fa-search"></i></button>
                         <div class="form-inline">
-                            <form class="search-form"  >
+                            <form class="search-form">
                                 <input class="form-control mr-sm-2" id="psearch" type="text" placeholder="Search ..." aria-label="Search">
                                 <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                             </form>
@@ -72,10 +73,10 @@ if (loggin ($_SESSION['email_pengajar']) ===false){
             </div>
 
         </header>
-    
+
         <!-- /header -->
 
-    
+
         <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
@@ -96,53 +97,60 @@ if (loggin ($_SESSION['email_pengajar']) ===false){
                 </div>
             </div>
         </div>
-   
-        
-              <form action="" method="post"  class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Tambah Pengajar</h4>
-                            </div>
-                            <div class="card-body">
-                                <label class=" form-control-label">Nama Pengajar</label>
-        <input class="form-control" type="text" placeholder="nama" name="nama_pengajar" value="<?php echo (isset($nama_pengajar)) ? $nama_pengajar : ''; ?>" required>
-        <label class=" form-control-label">Email Pengajar</label>
-        <input class="form-control" type="text" placeholder="email" name="email_pengajar" value="<?php echo (isset($email_pengajar)) ? $email_pengajar : ''; ?>" required>
- 
-             <label class=" form-control-label">Bahagian</label>
-                                <select name="bahagian"  class="form-control" required>
-                                
-                                <option value="">Sila Pilih</option>
-                              <?php
+
+
+        <form action="" method="post" class="col-lg-12">
+         
+            <div class="card">
+                <div class="card-header">
+                    <h4>Tambah Pengajar</h4>
+                </div>
+               
+                <div class="card-body">
+                    
+                                <?php echo $error1 ?>
+                     
+                    <label class=" form-control-label">Nama Pengajar</label>
+                    <input class="form-control" type="text" placeholder="nama" name="nama_pengajar" value="<?php echo (isset($nama_pengajar)) ? $nama_pengajar : ''; ?>" required>
+                    <label class=" form-control-label">Email Pengajar</label>
+                    <input class="form-control" type="text" placeholder="email" name="email_pengajar" value="<?php echo (isset($email_pengajar)) ? $email_pengajar : ''; ?>" required>
+
+                    <label class=" form-control-label">Bahagian</label>
+                    <select name="bahagian" class="form-control" required>
+
+                        <option value="">Sila Pilih</option>
+                        <?php
                                 $res = mysqli_query($connection, "select * from bahagian");
 
                                 while($row=mysqli_fetch_array($res)) {
                                      $ids= $row['id'];
                                       $ns= $row['bahagian'];
                                 ?>
-                                    
-                                     <option value="<?php echo $ids?>"><?php echo  $ns?></option>
-                                <?php
+
+                        <option value="<?php echo $ids?>">
+                            <?php echo  $ns?>
+                        </option>
+                        <?php
                                 }
 
                               ?>
-                                </select>
-        
-        
-        <label class=" form-control-label">Jawatan</label>
-            <select name="jawatan" class="form-control" required>
-							<option  value="">Pilih Jawatan...</option>
-                              <option  value="1"<?php echo (isset($jawatan) && $jawatan == '1') ? ' selected=selected' : ''; ?>>Admin</option> 
-                               <option  value="2"<?php echo (isset($jawatan) && $jawatan == '2') ? ' selected=selected' : ''; ?>>Ketua Bahagian</option> 
-                                <option  value="3"<?php echo (isset($jawatan) && $jawatan == '3') ? ' selected=selected' : ''; ?>>Pengajar</option>                
-            </select>
-        
+                    </select>
 
-   
-                                 
-                            </div>
-         <div class="card-footer">
-                <?php
+
+                    <label class=" form-control-label">Jawatan</label>
+                    <select name="jawatan" class="form-control" required>
+                        <option value="">Pilih Jawatan...</option>
+                        <option value="1" <?php echo (isset($jawatan) && $jawatan=='1' ) ? ' selected=selected' : '' ; ?>>Admin</option>
+                        <option value="2" <?php echo (isset($jawatan) && $jawatan=='2' ) ? ' selected=selected' : '' ; ?>>Ketua Bahagian</option>
+                        <option value="3" <?php echo (isset($jawatan) && $jawatan=='3' ) ? ' selected=selected' : '' ; ?>>Pengajar</option>
+                    </select>
+
+
+
+
+                </div>
+                <div class="card-footer">
+                    <?php
                     if (isset($_GET['edit'])) {
 				        echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >kemaskini</button> <a href="./pengajar.php" button type="button" class="btn btn-danger">Batal</button></a>
                         <button style="display:none;" type="submit" id="submitEdit" name="kpengajar"  >kemaskini</button>
@@ -151,65 +159,65 @@ if (loggin ($_SESSION['email_pengajar']) ===false){
                         echo '<button class="btn btn-success" type="submit" name="tpengajar"  >tambah</button>';
 			             }
 			     ?>
-        </div>
-                        </div>
-            </form>
-                    <div class="col-lg-12">
-                        <div class="card">
-                       
-                            <div class="card-body">
-                              <form method="post" enctype="multipart/form-data">
-                                  <?php include("./uploads.php") ?>
-                                <label>Senarai Pengajar</label>
-                                <input type="file" name="file" /><br />
-                       
-                                </form>
-                                 
-                            </div>
-                             <div class="card-footer">
-              <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />
-                   
-        </div>
-                        </div>
-                    </div>
-           
-
-   <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">PENGAJAR</strong>
-                        </div>
-                        <div class="card-body">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Nama</th>
-                                        <th scope="col">E-mail</th>
-                                        <th scope="col">Jawatan</th>
-                                        <th scope="col">Bahagian</th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-
-                                <tbody id="ptable">
-                                    <?php include("./view_pengajar.php") ?>
-                                </tbody>
-
-                            </table>
-
-                        </div>
-                    </div>
                 </div>
+            </div>
+        </form>
+        
+        <form method="post" enctype="multipart/form-data">
+            <div class="card">
 
-  <?php include("../assets/modal.php") ?>
+                <div class="card-body">
 
-    <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/plugins.js"></script>
-    <script src="../assets/js/main.js"></script>
-</div>
+                   
+                    <label>Senarai Pengajar</label>
+                    <input type="file" name="file" /><br />
+
+
+
+                </div>
+                <div class="card-footer">
+                    <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />
+                </div>
+                 <?php include("./uploads.php") ?>
+            </div>
+        </form>
+
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">PENGAJAR</strong>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Jawatan</th>
+                                <th scope="col">Bahagian</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="ptable">
+                            <?php include("./view_pengajar.php") ?>
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <?php include("../assets/modal.php") ?>
+
+        <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
+        <script src="../assets/js/popper.min.js"></script>
+        <script src="../assets/js/plugins.js"></script>
+        <script src="../assets/js/main.js"></script>
+    </div>
 </body>
 
 </html>

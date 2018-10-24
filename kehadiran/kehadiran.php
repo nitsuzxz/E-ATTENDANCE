@@ -108,7 +108,7 @@
                                 <div class="form-group">
                                     <label class="form-control-label">Hari</label>
                                     <div id="kh">
-                                        <select onchange="khari()" class="form-control" id="khd">
+                                        <select onchange="khari()" class="form-control" id="khd" required>
                                             <option value="">Pilih Hari</option>
                                             <option value="ISNIN">ISNIN</option>
                                             <option value="SELASA">SELASA</option>
