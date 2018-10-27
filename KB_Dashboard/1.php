@@ -90,9 +90,9 @@ if (isset($_POST['download'])) {
 
 <hr>
     
-    <br><p align="left" style="font-size:12">BAHAGIAN&nbsp;:INSTITUT LATIHAN PERINDUSTRIAN KUALA LUMPUR</p>
-<p align="left" style="font-size:12">KOD KURSUS&nbsp;:INSTITUT LATIHAN PERINDUSTRIAN KUALA LUMPUR</p>
-<p align="left"style="font-size:12">SESI KEMASUKAN&nbsp;:INSTITUT LATIHAN PERINDUSTRIAN KUALA LUMPUR</p>
+    <br><p align="left" style="font-size:12">BAHAGIAN&nbsp;:</p>
+<p align="left" style="font-size:12">KOD KURSUS&nbsp;:</p>
+<p align="left"style="font-size:12">SESI KEMASUKAN&nbsp;:</p>
       ';
 $html .= '<div class="page-break"></div>';
 	while( $start <= $end ) {
@@ -129,7 +129,7 @@ $html .= '<div class="page-break"></div>';
 		<table width="775" border="1" cellspacing="0" cellpadding="0" class="resultTable">
 
 			<tr>
-				<th rowspan="2" style="font-size:12">Nama</th>
+				<th rowspan="2" colspan="2" style="font-size:12">Nama</th>
 				<th rowspan="2" style="font-size:12">NDP</th>
 				<td id="header_tarikh" style="font-size:11">Tarikh</td>';
 		$offset = (($curPage - 1) * $dayPerPage) - 1;	
@@ -140,9 +140,10 @@ $html .= '<div class="page-break"></div>';
 			$html .= "</td>";
 			$dayCol += 1;
 		}
-		$html .= '</tr>
+		$html .= "<td colspan='2' style='font-size:10'>JUMLAH SLOT</td>
+        </tr>
 		<tr>
-			<td>SLOT</td>';
+        <td>SLOT</td>";
 		
 		$dayCol = 1;
 		while( $dayCol <= 5 ) {
@@ -155,8 +156,10 @@ $html .= '<div class="page-break"></div>';
 			}
 			$dayCol += 1;
 		} 
-			
-		$html .= '</tr>';
+			      
+		$html .= "  <td  style='font-size:10'>TIDAK HADIR</td>
+              <td  style='font-size:10'>HADIR</td>
+                    </tr>";
 		
 		$q_pelajar ="SELECT  id_pelajar,nama_pelajar,no_ndp FROM pelajar
 					 WHERE sesi='$q_sesi'
@@ -166,13 +169,14 @@ $html .= '<div class="page-break"></div>';
 		
 		$pelajar= mysqli_query($connection, $q_pelajar);   
 		while($row=mysqli_fetch_array($pelajar)){
-
+ $totalHadir=0;
+                $totalXHadir=0;
 			$id_pelajar=$row["id_pelajar"];
 			$nama_pelajar=$row["nama_pelajar"];
 			$no_ndp=$row["no_ndp"];
 			
 			$html .= '<tr>';
-			$html .= '<td style="font-size:10" >';
+			$html .= '<td colspan="2" style="font-size:12" >';
 			$html .= $nama_pelajar;
 			$html .= '</td>';
 			$html .= '<td style="font-size:10" >';
@@ -183,8 +187,10 @@ $html .= '<div class="page-break"></div>';
 			
 			//Kedatangan
 			$dayCol = 1;
+            
 			while( $dayCol <= 5 ) {
 				$totalSlot = 1;
+         
 				$curDate = $dates[$offset + $dayCol];
 				while( $totalSlot <= 7 ) {
 					//get kedatangan on date and slot
@@ -193,21 +199,46 @@ $html .= '<div class="page-break"></div>';
 					if (mysqli_num_rows($Kehadiran) != 0) {
 						while($row=mysqli_fetch_array($Kehadiran)){
 							$attendance = $row["kehadiran"];
+                                     if ($attendance == '/' || $attendance == 'k') {
+                                            $totalHadir += 1;
+                                          
+                                        } 
+                            else  if($attendance == 'o' ) {
+                                            $totalXHadir += 1;
+                                          
+
+                                        }
 							$html .= '<td style="font-size:10">';
 							$html .= $attendance;
 							$html .= '</td>';
 						}
+                        
 					} else {
 						$html .= '<td style="font-size:10">';
 						$html .= '</td>';
 					}
+        
 					$totalSlot += 1;
 				}
 				$dayCol += 1;
+        
 			} 
-			//end kedatangan
+            
+               $html .= '<td style="font-size:10">';
+							$html .= $totalXHadir;
+							$html .= '</td>';
+             $html .= '<td style="font-size:10">';
+							$html .= $totalHadir;
+							$html .= '</td>';
+
+					
+     
+  
 			
-			$html .= "</tr>";
+			//end Kira kehadiran
+			
+			$html .= "
+            </tr>";
             $html .='<p class="footer"; >Disahkan oleh   :</p>';
 		}
 		$html .= "</table>";

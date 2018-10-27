@@ -2,7 +2,7 @@
     global $connection;
 
     if(isset($_POST['submitkehadiran'])){
-        $idj =$_POST['k_sesi'];
+        $idj =$_POST['k_idj'];
         $tarikh =$_POST['date'];
         
          foreach (array_combine($_POST['idpk'],  $_POST['kehadiranpelajar']) as $idp => $kp){

@@ -10,6 +10,7 @@
                             ON P.bahagian=B.id";
                                   
                                   $pengajar= mysqli_query($connection, $query1);
+                                    $datas= array();
                                   
                                   while($row= mysqli_fetch_array($pengajar)){
                                       
@@ -28,6 +29,7 @@
 	                                   <td><a onclick='modalDelete({$id_pengajar})' button type='button' class='btn btn-danger'>DELETE</button></a></td>
                                        <td><a href='./pengajar.php?edit={$id_pengajar}' button  type='button' class='btn btn-warning'>EDIT</button></a></td>
                                        </tr>";
+                                   
                                       }
 
                             

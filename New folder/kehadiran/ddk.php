@@ -10,7 +10,7 @@ include ("../config/db.php");
                 $res=mysqli_query($connection,$query);
                 
                 
-                echo "<select id='k_sesi' name='k_sesi' onclick='kehadiran_kelas()' class='form-control' required>";
+                echo "<select id='k_sesi' name='k_sesi' onchange='change_tarikh()' class='form-control' required>";
                 echo "<option value=''>";
                 echo "Pilih Slot";
                 echo "</option>";
@@ -19,8 +19,8 @@ include ("../config/db.php");
                     
                     {   
                     
-                        echo "<option value='$row[idj]' kelas='$row[kelas]' sesi='$row[sesi]  hari='$row[hari]'>"; 
-                        echo $row["slot"]; 
+                        echo "<option value='$row[idj]' kelas='$row[kelas]' sesi='$row[sesi]'>"; 
+                        echo $row["slot"];
                         echo "</option>";
                     
                     }  
@@ -28,22 +28,26 @@ include ("../config/db.php");
             }
         }
 
-if (isset($_GET['kelas'])&&isset($_GET['slot'])&&isset($_GET['sesi'])&&isset($_GET['bahagian_1'])&&isset($_GET['date'])) {
-        $kelas_pelajar= $_GET['kelas'];
-        $sesi_pelajar= $_GET['sesi'];
-        $bahagian_pelajar= $_GET['bahagian_1'];
-        $slot_pelajar= $_GET['slot'];
-        $date= $_GET['date'];
-                
-                $validation="SELECT * FROM ke WHERE idj='$slot_pelajar' AND tarikh='$date'  ";
-                $res1=mysqli_query($connection,$validation);
-                
+if(isset($_GET['kelas'])&&isset($_GET['sesi'])&&isset($_GET['idj'])&&isset($_GET['bahagian'])&&isset($_GET['tarikh'])){
     
-                if (mysqli_num_rows($res1) == 0) {
-                $query2= "select * from pelajar where bahagian=$bahagian_pelajar and kelas=$kelas_pelajar and sesi='$sesi_pelajar'";
-                $res2=mysqli_query($connection,$query2);
-                                while($row=mysqli_fetch_array($res2))
-                                {
+    $kelasp= $_GET['kelas'];
+    $sesip= $_GET['sesi'];
+    $idj= $_GET['idj'];
+    $bahagianp= $_GET['bahagian'];
+    $tarikh= $_GET['tarikh'];
+
+    
+    
+     echo $kelasp;
+    echo $sesip;
+    echo $idj;
+    echo $bahagianp;
+    echo $tarikh;
+            $query2= "select * from pelajar where bahagian=$bahagianp and kelas=$kelasp and sesi='$sesip'";
+            $res2=mysqli_query($connection,$query2);
+    
+            if($idj!=""){
+                                while($row=mysqli_fetch_array($res2)) {
                                 
                                                 $pid=$row['id_pelajar'];                         
                                                 $pnm  = $row['nama_pelajar'];
@@ -70,12 +74,9 @@ if (isset($_GET['kelas'])&&isset($_GET['slot'])&&isset($_GET['sesi'])&&isset($_G
                                                 echo "</select>";
                                                 echo "</td>";
                                                 echo "</tr>";
-                                }  
-                        
+                                } 
                         }
-                }else{
-                           echo "<td  name='halu' type='text' value=''placeholder='dsd' ></td>";
-               }
+                }
 
-                            
+        
 ?>

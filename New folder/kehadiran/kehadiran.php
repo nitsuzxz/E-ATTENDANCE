@@ -1,7 +1,9 @@
 <?php 
  include("../config/db.php");
  include("../assets/side-nav.php");
- include("./submit.php")
+ include("./ddk.php");
+ include("./submit.php");
+
 ?>
 
 
@@ -78,7 +80,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Subjek</h1>
+                        <h1>Tanda Kehadiran Pelajar</h1>
                     </div>
                 </div>
             </div>
@@ -87,7 +89,7 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="#">Dashboard</a></li>
-                            <li class="active">Subjek</li>
+                            <li class="active">Kehadiran</li>
                         </ol>
                     </div>
                 </div>
@@ -128,20 +130,11 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group" id="hiddenInput">
 
+                                  <div class="form-group">
+                                    <label class=" form-control-label">Tarikh</label>
+                                      <input class="form-control" name='date' id="date" oninput="display_pelajar" placeholder="MM/DD/YYYY" type="text" required/>
                                 </div>
-
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar-check-o">
-                                        </i>
-                                    </div>
-                                    <input class="form-control" onchange="kehadiran_pelajar()" id="date" value="" name="date" placeholder="MM/DD/YYYY" type="text" />
-                                </div>
-
-
-
 
                                 <strong class="card-title">PELAJAR</strong>
 
@@ -172,11 +165,6 @@
             </div>
         </div>
 
-
-
-
-
-
     </div>
 
 
@@ -196,35 +184,34 @@
             document.getElementById('ks').innerHTML = xmlhttp.responseText;
             $('select').material_select();
         }
-
-        function kehadiran_pelajar() {
-
-            var xmlhttp = new XMLHttpRequest();
-            var k_bahagian = <?php echo $_SESSION['bahagian'] ?>;
-            var ssp = <?php echo $_SESSION['id_pengajar'] ?>;
-            var hari = document.getElementById('khd').value;
-
+        
+        function display_pelajar(){
+            var xmlhttp= new XMLHttpRequest();
+            var bahagian = <?php echo $_SESSION['bahagian'] ?>;
+            
             var sel = document.getElementById('k_sesi');
             var selected = sel.options[sel.selectedIndex];
-            var k_kelas = selected.getAttribute('kelas');
+            var kelas = selected.getAttribute('kelas');
             console.log('kelas ', k_kelas);
 
             var sel = document.getElementById('k_sesi');
             var selected = sel.options[sel.selectedIndex];
-            var k_sesi = selected.getAttribute('sesi');
-            var date = document.getElementById('date').value;
-            var dropslot = document.getElementById('k_sesi').value;
+            var sesi = selected.getAttribute('sesi');
+            var idj = document.getElementById('k_sesi').value;
+            var tarikh = document.getElementById('date').value;
+            
             console.log('slot ', dropslot);
-            xmlhttp.open("GET", "ddk.php?kelas=" + k_kelas+ "&date=" + date + "&sesi=" + k_sesi + "&slot=" + dropslot + "&bahagian_1=" + k_bahagian, false);
+            xmlhttp.open("GET", "ddk.php?kelas=" + kelas + "&sesi=" + sesi + "&idj=" + idj + "&bahagian=" + bahagian+ "&tarikh"+ tarikh, false);
             xmlhttp.send(null);
-            //alert(xmlhttp.responseText);
             console.log('ajax ', xmlhttp.response);
             document.getElementById('kpk').innerHTML = xmlhttp.responseText;
-         
 
         }
+        
+        
 
-   
+        
+       
 
         $(document).ready(function() {
             var date_input = $('input[name="date"]'); //our date input has the name "date"

@@ -90,9 +90,9 @@ if (isset($_POST['download'])) {
 
 <hr>
     
-    <br><p align="left" style="font-size:12">BAHAGIAN&nbsp;:INSTITUT LATIHAN PERINDUSTRIAN KUALA LUMPUR</p>
-<p align="left" style="font-size:12">KOD KURSUS&nbsp;:INSTITUT LATIHAN PERINDUSTRIAN KUALA LUMPUR</p>
-<p align="left"style="font-size:12">SESI KEMASUKAN&nbsp;:INSTITUT LATIHAN PERINDUSTRIAN KUALA LUMPUR</p>
+    <br><p align="left" style="font-size:12">BAHAGIAN&nbsp;:</p>
+<p align="left" style="font-size:12">KOD KURSUS&nbsp;:</p>
+<p align="left"style="font-size:12">SESI KEMASUKAN&nbsp;:</p>
       ';
 $html .= '<div class="page-break"></div>';
 	while( $start <= $end ) {
@@ -129,7 +129,7 @@ $html .= '<div class="page-break"></div>';
 		<table width="775" border="1" cellspacing="0" cellpadding="0" class="resultTable">
 
 			<tr>
-				<th rowspan="2" style="font-size:12">Nama</th>
+				<th rowspan="2" colspan="2" style="font-size:12">Nama</th>
 				<th rowspan="2" style="font-size:12">NDP</th>
 				<td id="header_tarikh" style="font-size:11">Tarikh</td>';
 		$offset = (($curPage - 1) * $dayPerPage) - 1;	
@@ -140,9 +140,10 @@ $html .= '<div class="page-break"></div>';
 			$html .= "</td>";
 			$dayCol += 1;
 		}
-		$html .= '</tr>
+		$html .= "<td colspan='2' style='font-size:10'>JUMLAH SLOT</td>
+        </tr>
 		<tr>
-			<td>SLOT</td>';
+        <td>SLOT</td>";
 		
 		$dayCol = 1;
 		while( $dayCol <= 5 ) {
@@ -156,7 +157,9 @@ $html .= '<div class="page-break"></div>';
 			$dayCol += 1;
 		} 
 			
-		$html .= '</tr>';
+		$html .= "  <td  style='font-size:10'>TIDAK HADIR</td>
+              <td  style='font-size:10'>HADIR</td>
+                    </tr>";
 		
 		$q_pelajar ="SELECT  id_pelajar,nama_pelajar,no_ndp FROM pelajar
 					 WHERE sesi='$q_sesi'
@@ -172,7 +175,7 @@ $html .= '<div class="page-break"></div>';
 			$no_ndp=$row["no_ndp"];
 			
 			$html .= '<tr>';
-			$html .= '<td style="font-size:10" >';
+			$html .= '<td colspan="2" style="font-size:12" >';
 			$html .= $nama_pelajar;
 			$html .= '</td>';
 			$html .= '<td style="font-size:10" >';
@@ -206,8 +209,47 @@ $html .= '<div class="page-break"></div>';
 				$dayCol += 1;
 			} 
 			//end kedatangan
+            //Kira kehadiran
+	
+    $count_query="SELECT P.nama_pelajar, COUNT(kehadiran) as KH
+                   FROM ke as K
+                   JOIN pelajar AS P
+                   on P.id_pelajar=K.id_p
+                   WHERE id_p='$id_pelajar' AND K.kehadiran='o' and K.tarikh BETWEEN '2018-10-01' AND '2018-10-05'";
+            
+    $Kira= mysqli_query($connection, $count_query);
+					
+     
+           while($row=mysqli_fetch_array($Kira)){
+			   $cp=$row['KH'];
+               $np=$row['nama_pelajar'];
+               
+               $html .= '<td style="font-size:10">';
+               $html .= $cp; 
+               $html .= '</td>';
+		}
+              $count_query="SELECT P.nama_pelajar, COUNT(kehadiran) as KH
+                   FROM ke as K
+                   JOIN pelajar AS P
+                   on P.id_pelajar=K.id_p
+                   WHERE id_p='$id_pelajar' AND K.kehadiran='/' and K.tarikh BETWEEN '2018-10-01' AND '2018-10-05'";
+            
+    $Kira= mysqli_query($connection, $count_query);
+					
+     
+           while($row=mysqli_fetch_array($Kira)){
+			   $cp=$row['KH'];
+               $np=$row['nama_pelajar'];
+               
+               $html .= '<td style="font-size:10">';
+               $html .= $cp; 
+               $html .= '</td>';
+		}
 			
-			$html .= "</tr>";
+			//end Kira kehadiran
+			
+			$html .= "
+            </tr>";
             $html .='<p class="footer"; >Disahkan oleh   :</p>';
 		}
 		$html .= "</table>";
