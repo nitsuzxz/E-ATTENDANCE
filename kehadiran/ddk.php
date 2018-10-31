@@ -72,7 +72,9 @@ if (isset($_GET['kelas'])&&isset($_GET['slot'])&&isset($_GET['sesi'])&&isset($_G
                                                 echo "</select>";
                                                 echo "</td>";
                                                 echo "</tr>";
-     }                      
+                                 
+     }        
+
   }
                 else{
                       
@@ -87,18 +89,12 @@ if (isset($_GET['kelas'])&&isset($_GET['slot'])&&isset($_GET['sesi'])&&isset($_G
                                                 echo "</input>";
                                                 echo "</td>";
                                                 echo "<td>";
-                                                echo "<select  name='kehadiranpelajar[]'  class='form-control' required>";
-                                                echo "<option value='/'  (isset($kehadiran) && $kehadiran == '/') ? ' selected=selected' : '' >";
-                                                echo "Hadir";
-                                                echo "</option>";
-                                                echo "<option value='o'  (isset($kehadiran) && $kehadiran == 'o') ? ' selected=selected' : '' >";
-                                                echo "Tidak Hadir";
-                                                echo "</option>";
-                                                echo "<option value='k'  (isset($kehadiran) && $kehadiran == 'k') ? ' selected=selected' : '' >";
-                                                echo "Kebenaran";
-                                                echo "</option>";
-                                                echo "</select>";
-                                                echo "</td>";
+                                                echo "<select  name='kehadiranpelajar[]'  class='form-control' required>"; ?>
+                                                 <option  value="/"<?php echo (isset($kehadiran) && $kehadiran == '/') ? ' selected=selected' : ''; ?>>Hadir</option>
+                                                 <option  value="o"<?php echo (isset($kehadiran) && $kehadiran == 'o') ? ' selected=selected' : ''; ?>>Tidak Hadir</option>
+                                                 <option  value="k"<?php echo (isset($kehadiran) && $kehadiran == 'k') ? ' selected=selected' : ''; ?>>kebenaran</option>
+                <?php                         
+                                        
                                                 echo "</tr>";
     }
     
