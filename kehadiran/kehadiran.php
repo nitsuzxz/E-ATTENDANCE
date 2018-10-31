@@ -161,7 +161,9 @@
                                     </tbody>
 
                                 </table>
-
+                            </div>
+                                <div class="card-footer">
+                                <button class="btn btn-success" type="submit" name="submitkehadiran">Hantar</button>
                             </div>
                            
                         </div>
