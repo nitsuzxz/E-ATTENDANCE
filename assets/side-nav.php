@@ -24,7 +24,7 @@
                     </li>
                     
                     <li class="active">
-                        <a href="../pengajar-ganti/ganti.php"> <i class="menu-icon fa fa-user"></i>PENGAJAR GANTI </a>
+                        <a href="../kehadiran-/kehadiran.php"> <i class="menu-icon fa fa-user"></i>PENGAJAR GANTI </a>
                     </li>
                     
                     

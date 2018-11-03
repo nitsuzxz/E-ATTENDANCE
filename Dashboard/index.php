@@ -184,7 +184,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <strong class="card-title">PELAJAR</strong>
+                    <strong class="card-title">PELAJAR MELEBIHI SLOT TIDAK HADIR</strong>
                 </div>
                 <div class="card-body">
                     <table class="table">

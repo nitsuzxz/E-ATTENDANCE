@@ -25,6 +25,7 @@
     <link href="../assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>
+
 <body>
 
     <!-- Right Panel -->
@@ -33,8 +34,6 @@
 
         <!-- Header-->
         <header id="header" class="header">
-
-              <header id="header" class="header">
 
             <div class="header-menu">
 
@@ -45,7 +44,7 @@
                         <button class="search-trigger"><i class="fa fa-search"></i></button>
                         <div class="form-inline">
                             <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" id="psearch" placeholder="Search ..." aria-label="Search">
+                                <input class="form-control mr-sm-2" id="psearch" type="text" placeholder="Search ..." aria-label="Search">
                                 <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                             </form>
                         </div>
@@ -62,7 +61,6 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
                             <a class="nav-link" href="../index.php"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
@@ -71,21 +69,15 @@
 
         </header>
 
-        </header><!-- /header -->
 
-       
-         <div class="breadcrumbs">
+        <div class="breadcrumbs">
             <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>Dashboard</h1>
-                    </div>
-                </div>
+
             </div>
             <div class="col-sm-8">
                 <div class="page-header float-right">
                     <div class="page-title">
-                         <ol class="breadcrumb text-right">
+                        <ol class="breadcrumb text-right">
                             <li><a href="#">Dashboard</a></li>
                             <li><a href="#">Pengguna</a></li>
                             <li class="active">Pelajar</li>
@@ -94,76 +86,81 @@
                 </div>
             </div>
         </div>
-    
-       
-               <form method="post" enctype="multipart/form-data">
-                        <div class="card">
-                         
-                            <div class="card-header">
-                                <h4>Tambah Pelajar</h4>
-                            </div>
-                            <div class="card-body">
-                                
-                                    <label class=" form-control-label">Nama Pelajar</label>
-     <input type="text" class=" form-control" placeholder="Pelajar" name="nama_pelajar" value="<?php echo (isset($nama_pelajar)) ? $nama_pelajar : ''; ?>" required>
-         <label class=" form-control-label">No Daftar Pelajar</label>
-     <input type="text" class=" form-control" placeholder="No.NDP" name="no_ndp" value="<?php echo (isset($no_ndp)) ? $no_ndp : ''; ?>"   required>
-         <label class=" form-control-label">Kad Pengenalan</label>
-     <input type="text" class=" form-control" placeholder="Kad Pengenalan" name="ic" value="<?php echo (isset($ic)) ? $ic : ''; ?>"  required>
-   
 
 
-     
-         <label class=" form-control-label">Bahagian</label>
-            <select name="bahagian"  class=" form-control" required>
-                    <option value="">Sila Pilih</option>
-                              <?php
+      <form action="" method="post" class="col-lg-12">
+         
+            <div class="card">
+
+                <div class="card-header">
+                    <h4>Tambah Pelajar</h4>
+                </div>
+                <div class="card-body">
+
+                    <label class=" form-control-label">Nama Pelajar</label>
+                    <input type="text" class=" form-control" placeholder="Pelajar" name="nama_pelajar" value="<?php echo (isset($nama_pelajar)) ? $nama_pelajar : ''; ?>" required>
+                    <label class=" form-control-label">No Daftar Pelajar</label>
+                    <input type="text" class=" form-control" placeholder="No.NDP" name="no_ndp" value="<?php echo (isset($no_ndp)) ? $no_ndp : ''; ?>" required>
+                    <label class=" form-control-label">Kad Pengenalan</label>
+                    <input type="text" class=" form-control" placeholder="Kad Pengenalan" name="ic" value="<?php echo (isset($ic)) ? $ic : ''; ?>" required>
+
+
+
+
+                    <label class=" form-control-label">Bahagian</label>
+                    <select name="bahagian" class=" form-control" required>
+                        <option value="">Sila Pilih</option>
+                        <?php
                                 $res = mysqli_query($connection, "select * from bahagian");
 
                                 while($row=mysqli_fetch_array($res)) {
                                      $ids= $row['id'];
                                       $ns= $row['bahagian'];
                                 ?>
-                                    
-                                     <option value="<?php echo $ids?>"><?php echo  $ns?></option>
-                                <?php
+
+                        <option value="<?php echo $ids?>">
+                            <?php echo  $ns?>
+                        </option>
+                        <?php
                                 }
 
                               ?>
-              </select>
-                                   
+                    </select>
+
                     <label class=" form-control-label">Kelas</label>
-                            <select name="kelas"  class=" form-control" required>
-								<option  value="">Kelas..</option>
-                                <option  value="1"<?php echo (isset($kelas) && $kelas == '1') ? ' selected=selected' : ''; ?>>Kelas 1 </option>
-                                <option  value="2"<?php echo (isset($kelas) && $kelas == '2') ? ' selected=selected' : ''; ?>>Kelas 2</option> 
-                                <option  value="3"<?php echo (isset($kelas) && $kelas == '3') ? ' selected=selected' : ''; ?>>Kelas 3 </option> 
-                                <option  value="4"<?php echo (isset($kelas) && $kelas == '4') ? ' selected=selected' : ''; ?>>Kelas 4 </option> 
-                              </select>
-                                
+                    <select name="kelas" class=" form-control" required>
+                        <option value="">Kelas..</option>
+                        <option value="1" <?php echo (isset($kelas) && $kelas=='1' ) ? ' selected=selected' : '' ; ?>>Kelas 1 </option>
+                        <option value="2" <?php echo (isset($kelas) && $kelas=='2' ) ? ' selected=selected' : '' ; ?>>Kelas 2</option>
+                        <option value="3" <?php echo (isset($kelas) && $kelas=='3' ) ? ' selected=selected' : '' ; ?>>Kelas 3 </option>
+                        <option value="4" <?php echo (isset($kelas) && $kelas=='4' ) ? ' selected=selected' : '' ; ?>>Kelas 4 </option>
+                    </select>
+
                     <label class=" form-control-label">Sesi</label>
-                            <select name="sesi"  class=" form-control" required>
-                                <option value="">Sila Pilih</option>
-                              <?php
+                    <select name="sesi" class=" form-control" required>
+                        <option value="">Sila Pilih</option>
+                        <?php
                                 $res = mysqli_query($connection, "select * from sesi");
 
                                 while($row=mysqli_fetch_array($res)) {
                                      $sesi= $row['ids'];
                                       $ss= $row['sesi'];
                                 ?>
-                                    
-                                     <option value="<?php echo $sesi?>"><?php echo  $ss?></option>
-                                <?php
+
+                        <option value="<?php echo $sesi?>">
+                            <?php echo  $ss?>
+                        </option>
+                        <?php
                                 }
 
                               ?>
-              </select>
-                          
-                             
-                            </div>
-                            
-                            <div class="card-footer">
-                            	<?php
+                    </select>
+
+
+                </div>
+
+                <div class="card-footer">
+                    <?php
 			if (isset($_GET['edit'])) {
                 
                 echo '<button class="btn btn-success" type="button" onclick="modalEdit()"   >Kemaskini</button> <a href="./pelajar.php" button type="button" class="btn btn-danger">Batal</button></a>
@@ -174,73 +171,75 @@
 				echo '<button class="btn btn-success" type="submit" name="tpelajar"  >Tambah</button>';
 			}
 			?>
-		
-                            
-                            </div>
-                        </div>
-                   </form>
-                    
-                    
-         <form method="post" enctype="multipart/form-data">
-                        <div class="card">
-                       
-                            <div class="card-body">
-                              
-                                  <?php include("./uploads_pelajar.php") ?>
-                                <label>Senarai Pelajar</label>
-                                <input type="file" name="file" /><br />
-                       
-                              
-                                 
-                            </div>
-                             <div class="card-footer">
-                                 <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />
-                             </div>
-                        </div>
-             </form>      
-     
-           
 
-   <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">PELAJAR</strong>
-                        </div>
-                        <div class="card-body">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
 
-                                  <th scope="col">Nama</th>
-                                  <th scope="col">No.NDP</th>
-                                  <th scope="col">Kursus</th>
-                                  <th scope="col">Sesi</th>
-                                   <th scope="col">Kelas</th>        
-                                  <th scope="col">Kad Pengenalan</th>
-                                  <th scope="col"></th>    
-                                  <th scope="col"></th>                
-                                </tr>
-                              </thead>
-                            
-                              <tbody id="ptable">
-                                <?php include("./view_pelajar.php") ?>
-                              </tbody>
-
-                            </table>
-
-                        </div>
-                    </div>
                 </div>
-  
+            </div>
+        </form>
+
+
+        <form action="" method="post" class="col-lg-12">
+         
+            <div class="card">
+
+                <div class="card-body">
+
+                    <?php include("./uploads_pelajar.php") ?>
+                    <label>Senarai Pelajar</label>
+                    <input type="file" name="file" /><br />
+
+
+
+                </div>
+                <div class="card-footer">
+                    <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+
+
+
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">PELAJAR</strong>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+
+                                <th scope="col">Nama</th>
+                                <th scope="col">No.NDP</th>
+                                <th scope="col">Kursus</th>
+                                <th scope="col">Sesi</th>
+                                <th scope="col">Kelas</th>
+                                <th scope="col">Kad Pengenalan</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="ptable">
+                            <?php include("./view_pelajar.php") ?>
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
         <?php include("../assets/modal.php") ?>
-    <!-- Right Panel -->
+        <!-- Right Panel -->
 
 
-    <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/plugins.js"></script>
-    <script src="../assets/js/main.js"></script>
+        <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
+        <script src="../assets/js/popper.min.js"></script>
+        <script src="../assets/js/plugins.js"></script>
+        <script src="../assets/js/main.js"></script>
 
-</div>
+    </div>
 </body>
+
 </html>

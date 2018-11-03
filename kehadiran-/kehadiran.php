@@ -1,6 +1,7 @@
 <?php 
  include("../config/db.php");
  include("../assets/side-nav.php");
+ include("./ddk.php");
  include("./submit.php")
 ?>
 
@@ -101,20 +102,39 @@
                     <form action="" method="POST" class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Tanda Kehadiran</strong>
+                                <strong>Tanda Kehadiran Bagi Pengajar Ganti</strong>
                             </div>
                             <div class="card-body card-block">
-                   
+
                                 <div class="form-group">
-                                    <label class="form-control-label">Hari</label>
-                                    <div id="kh">
-                                        <select onchange="khari()" class="form-control" id="khd" required>
-                                            <option value="">Pilih Hari</option>
-                                            <option value="ISNIN">ISNIN</option>
-                                            <option value="SELASA">SELASA</option>
-                                            <option value="RABU">RABU</option>
-                                            <option value="KHAMIS">KHAMIS</option>
-                                            <option value="JUMAAT">JUMAAT</option>
+                                    <label class=" form-control-label">Pengajar</label>
+                                    <select id="ganti_pengajar" name="ganti_pengajar" onclick="ganti_hari()" class="form-control" required>
+
+                                        <option value="">Sila Pilih</option>
+                                        <?php
+                                $res = mysqli_query($connection, "select * from pengajar where bahagian='{$_SESSION['bahagian']}' ");
+
+                                while($row=mysqli_fetch_array($res)) {
+                                     $pid= $row['id_pengajar'];
+                                      $namap= $row['nama_pengajar'];
+                                ?>
+
+                                        <option value="<?php echo $pid?>">
+                                            <?php echo  $namap?>
+                                        </option>
+                                        <?php
+                                }
+
+                              ?>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class=" form-control-label">Hari</label>
+                                    <div id="sel_gantihari">
+                                        <select class="form-control" name="sel_gantihari" disabled>
+                                            <option value="" disabled selected>Pilih Hari</option>
                                         </select>
                                     </div>
                                 </div>
@@ -122,14 +142,11 @@
 
                                 <div class="form-group">
                                     <label class=" form-control-label">Slot</label>
-                                    <div id="ks">
+                                    <div id="slot">
                                         <select class="form-control" name="ks" disabled>
                                             <option value="" disabled selected>Pilih Slot</option>
                                         </select>
                                     </div>
-                                </div>
-                                <div class="form-group" id="hiddenInput">
-
                                 </div>
 
                                 <div class="input-group">
@@ -137,7 +154,7 @@
                                         <i class="fa fa-calendar-check-o">
                                         </i>
                                     </div>
-                                    <input class="form-control" onchange="kehadiran_pelajar()" id="date" value="" name="date" placeholder="MM/DD/YYYY" type="text" />
+                                    <input class="form-control" onchange="kehadiran()" id="date" value="" name="date" placeholder="MM/DD/YYYY" type="text" />
                                 </div>
 
 
@@ -162,64 +179,68 @@
 
                                 </table>
                             </div>
-                                <div class="card-footer">
+                            <div class="card-footer">
                                 <button class="btn btn-success" type="submit" name="submitkehadiran">Hantar</button>
                             </div>
-                           
+
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-  
+
 
 
     <script type="text/javascript">
-        function khari() {
-
+        function ganti_hari() {
             var xmlhttp = new XMLHttpRequest();
-            var ssb = <?php echo $_SESSION['bahagian'] ?>;
-            var ssp = <?php echo $_SESSION['id_pengajar'] ?>;
-            var hari = document.getElementById('khd').value;
-            xmlhttp.open("GET", "ddk.php?hari=" + hari + "&ssb=" + ssb + "&ssp=" + ssp, false);
+            var pengajar = document.getElementById('ganti_pengajar').value;
+            xmlhttp.open("GET", "ddk.php?pengajar=" + pengajar, false);
             xmlhttp.send(null);
             //alert(xmlhttp.responseText);
             console.log('ajax ', xmlhttp.response);
-            document.getElementById('ks').innerHTML = xmlhttp.responseText;
+            document.getElementById('sel_gantihari').innerHTML = xmlhttp.responseText;
             $('select').material_select();
         }
 
-        function kehadiran_pelajar() {
-
+        function ganti_slot() {
             var xmlhttp = new XMLHttpRequest();
-            var k_bahagian = <?php echo $_SESSION['bahagian'] ?>;
-            var ssp = <?php echo $_SESSION['id_pengajar'] ?>;
-            var hari = document.getElementById('khd').value;
-
-            var sel = document.getElementById('k_sesi');
-            var selected = sel.options[sel.selectedIndex];
-            var k_kelas = selected.getAttribute('kelas');
-            console.log('kelas ', k_kelas);
-
-            var sel = document.getElementById('k_sesi');
-            var selected = sel.options[sel.selectedIndex];
-            var k_sesi = selected.getAttribute('sesi');
-            
-            var date = document.getElementById('date').value;
-            var dropslot = document.getElementById('k_sesi').value;
-            
-            console.log('slot ', dropslot);
-            xmlhttp.open("GET", "ddk.php?kelas=" + k_kelas+ "&date=" + date + "&sesi=" + k_sesi + "&slot=" + dropslot + "&bahagian_1=" + k_bahagian, false);
+            var hari = document.getElementById('hari').value;
+            var pengajar1 = document.getElementById('ganti_pengajar').value;
+            xmlhttp.open("GET", "ddk.php?pengajar1=" + pengajar1 + "&hari=" + hari, false);
             xmlhttp.send(null);
             //alert(xmlhttp.responseText);
             console.log('ajax ', xmlhttp.response);
-            document.getElementById('kpk').innerHTML = xmlhttp.responseText;
-         
-
+            document.getElementById('slot').innerHTML = xmlhttp.responseText;
+            $('select').material_select();
         }
 
-   
+        function kehadiran() {
+          
+            var xmlhttp = new XMLHttpRequest();
+            var id_pgjr = document.getElementById('ganti_pengajar').value;
+            var idj = document.getElementById('k_slot').value;
+            var tarikh = document.getElementById('date').value;
+
+            var sel = document.getElementById('k_slot');
+            var selected = sel.options[sel.selectedIndex];
+            var kelas = selected.getAttribute('kelas');
+            
+            var sel = document.getElementById('k_slot');
+            var selected = sel.options[sel.selectedIndex];
+            var sesi = selected.getAttribute('sesi');
+            
+           
+            var bahagian =  <?php echo $_SESSION['bahagian'] ?>;
+            
+            xmlhttp.open
+            ("GET", "ddk.php?id_pgjr="+id_pgjr+"&idj="+idj+"&tarikh="+tarikh+"&kelas="+kelas+"&bahagian="+bahagian+"&sesi="+sesi,false);
+            xmlhttp.send(null);
+            console.log('ajax ', xmlhttp.response);
+            document.getElementById('kpk').innerHTML = xmlhttp.responseText;
+           
+        }
 
         $(document).ready(function() {
             var date_input = $('input[name="date"]'); //our date input has the name "date"
@@ -231,13 +252,14 @@
                 autoclose: true,
             })
         })
+
     </script>
     <?php include("../assets/modal.php") ?>
 
-        <script src="../assets/js/popper.min.js"></script>
-        <script src="../assets/js/plugins.js"></script>
-        <script src="../assets/js/main.js"></script>
-  
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+
 </body>
 
 </html>

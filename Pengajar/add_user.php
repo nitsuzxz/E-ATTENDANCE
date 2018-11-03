@@ -15,13 +15,14 @@
             
      $sql_query = mysqli_query($connection, "INSERT INTO pengajar (nama_pengajar,email_pengajar,pass_pengajar,jawatan,bahagian) VALUES ('$nama_pengajar','$email_pengajar','user123','$jawatan','$bahagian')");
             
-           header ("./pengajar.php");
+              header("Location: ./pengajar.php#add");  
     } else{
             
         $error1 ="<div class='alert alert-danger'>
     <strong>ALERT!</strong> Pengguna telah wujud!
   </div>";
-                       header ("./pengajar.php");
+             header("Location: ./pengajar.php#telahwujud"); 
+                       
         }
 
     }

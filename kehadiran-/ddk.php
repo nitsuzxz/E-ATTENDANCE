@@ -1,49 +1,78 @@
 <?php
 include ("../config/db.php");
 
-        if (isset($_GET['hari'])&&isset($_GET['ssb'])&&isset($_GET['ssp'])) {
-        $hari= $_GET['hari'];
-        $bahagian= $_GET['ssb'];
-        $pengajar= $_GET['ssp'];
-              
-                $query= "select * from jadual where bahagian=$bahagian and id_pen=$pengajar and hari='$hari'";
+if(isset($_GET['pengajar'])){
+    $pgjr=$_GET['pengajar'];
+    
+            if($pgjr!=""){
+             echo "<select id='hari' name='hari' onchange='ganti_slot()' class='form-control' required>";
+                echo "<option value=''>";
+                echo "Pilih Hari";
+                echo "</option>";
+                echo "<option value='ISNIN' >"; 
+                echo "ISNIN"; 
+                echo "</option>";
+                echo "<option value='SELASA' >"; 
+                echo "SELASA"; 
+                echo "</option>";
+                echo "<option value='RABU' >"; 
+                echo "RABU"; 
+                echo "</option>";       
+                echo "<option value='KHAMIS' >"; 
+                echo "KHAMIS"; 
+                echo "</option>";  
+                echo "<option value='JUMAAT' >"; 
+                echo "JUMAAT"; 
+                echo "</option>";
+                    }  
+}
+
+if (isset($_GET['pengajar1']) && isset ($_GET['hari'])){
+    $pengajar   = $_GET['pengajar1'];
+    $hari       = $_GET['hari'];
+    
+    if($hari!=""){
+        
+        
+                $query= "select * from jadual where  id_pen=$pengajar and hari='$hari'";
                 $res=mysqli_query($connection,$query);
                 
                 
-                echo "<select id='k_sesi' name='k_sesi' onclick='kehadiran_kelas()' class='form-control' required>";
+                echo "<select id='k_slot' name='k_slot'  class='form-control' required>";
                 echo "<option value=''>";
                 echo "Pilih Slot";
                 echo "</option>";
-                if($hari!=""){
-                while($row=mysqli_fetch_array($res))
+                while($row=mysqli_fetch_array($res)){   
                     
-                    {   
-                    
-                        echo "<option value='$row[idj]' kelas='$row[kelas]' sesi='$row[sesi]  hari='$row[hari]'>"; 
+                        echo "<option value='$row[idj]' kelas='$row[kelas]' sesi='$row[sesi]'>"; 
                         echo $row["slot"]; 
                         echo "</option>";
                     
                     }  
-        
-            }
-        }
+    }
+}
 
-if (isset($_GET['kelas'])&&isset($_GET['slot'])&&isset($_GET['sesi'])&&isset($_GET['bahagian_1'])&&isset($_GET['date'])) {
-        $kelas_pelajar= $_GET['kelas'];
-        $sesi_pelajar= $_GET['sesi'];
-        $bahagian_pelajar= $_GET['bahagian_1'];
-        $slot_pelajar= $_GET['slot'];
-        $date= $_GET['date'];
+if(isset($_GET['id_pgjr'])&&isset($_GET['idj'])&&isset($_GET['tarikh'])
+   &&isset($_GET['kelas'])&&isset($_GET['sesi'])&&isset($_GET['bahagian'])) {
+
+    
+     $id_pengajar= $_GET['id_pgjr'];
+     $idj        = $_GET['idj'];
+     $tarikh     = $_GET['tarikh'];
+     $kelas      = $_GET['kelas'];
+     $sesi       = $_GET['sesi'];
+     $bahagian   = $_GET['bahagian'];
+        
                 
                 $validation="SELECT * FROM ke as K 
                 JOIN pelajar as P
                 on K.id_p=P.id_pelajar
-                WHERE idj='$slot_pelajar' AND tarikh='$date'  ";
+                WHERE idj='$idj' AND tarikh='$tarikh'  ";
                 $res1=mysqli_query($connection,$validation);
                 
     
                 if (mysqli_num_rows($res1) == 0) {
-                $query2= "select * from pelajar where bahagian=$bahagian_pelajar and kelas=$kelas_pelajar and sesi='$sesi_pelajar'";
+                $query2= "select * from pelajar where bahagian=$bahagian and kelas=$kelas and sesi='$sesi'";
                 $res2=mysqli_query($connection,$query2);
                                 while($row=mysqli_fetch_array($res2)) {
                                 

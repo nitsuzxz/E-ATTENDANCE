@@ -80,6 +80,35 @@
     </div>
 </div> 
 <!--  -->
+    <div id="berjayaadd" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header btn-info">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+                <h4>Berjaya!</h4> 
+                <p>Pengguna berjaya disimpan</p>
+                <button class="btn btn-success" data-dismiss="modal"><span>OK</span></button>
+            </div>
+        </div>
+    </div>
+</div> 
+ <div id="wujud" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header btn-info">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+                <h4>Tidak Berjaya!</h4> 
+                <p>Pengguna Telah Wujud Didalam Sistem</p>
+                <button class="btn btn-success" data-dismiss="modal"><span>OK</span></button>
+            </div>
+        </div>
+    </div>
+</div> 
+<!--  -->
     <!-- modal success -->
 
 <div id="subjek" class="modal fade">
@@ -90,13 +119,28 @@
             </div>
             <div class="modal-body text-center">
                 <h4>Berjaya!</h4> 
-                <p>Pengguna berjaya dipadam</p>
+                <p>Subjek berjaya dipadam</p>
                 <button class="btn btn-success" data-dismiss="modal"><span>OK</span></button>
             </div>
         </div>
     </div>
 </div> 
 <!--  -->
+    <!-- success kehadiran -->
+<div id="attendance" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header btn-info">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+                <h4>Berjaya!</h4> 
+                <p>Kehadiran pelajar berjaya disimpan</p>
+                <button class="btn btn-success" data-dismiss="modal"><span>OK</span></button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- success Edit Modal -->
 <div id="successEdit" class="modal fade">
     <div class="modal-dialog modal-confirm">

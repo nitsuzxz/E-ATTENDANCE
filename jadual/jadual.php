@@ -70,9 +70,7 @@
         <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>Subjek</h1>
-                    </div>
+
                 </div>
             </div>
             <div class="col-sm-8">
@@ -80,7 +78,7 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="#">Dashboard</a></li>
-                            <li class="active">Subjek</li>
+                            <li class="active">Jadual</li>
                         </ol>
                     </div>
                 </div>
@@ -94,7 +92,7 @@
                     <form action="" method="post" class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Jadual</strong>
+                                <strong>Tambah Jadual Pengajar</strong>
                             </div>
                             <div class="card-body card-block">
 
@@ -208,40 +206,37 @@
                             <div class="content mt-3">
                                 <div class="animated fadeIn">
                                     <div class="row">
-
-                                        <div class="col-md-12">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <strong class="card-title">Jadual</strong>
-                                                </div>
-                                                <div class="card-body">
-                                                    <table id="bootstrap-data-table" class="table table-striped table-bordered">
-                                                        <thead>
-
-                                                            <tr>
-                                                                <th scope="col">Bahagian</th>
-                                                                <th scope="col">Pengajar</th>
-                                                                <th scope="col">Sesi</th>
-                                                                <th scope="col">Subjek</th>
-                                                                <th scope="col">Kelas</th>
-                                                                <th scope="col">Hari</th>
-                                                                <th scope="col">Slot</th>
-                                                                <th scope="col"></th>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <strong class="card-title">Jadual</strong>
+                                            </div>
+                                            <div class="card-body">
+                                                <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Bahagian</th>
+                                                            <th scope="col">Pengajar</th>
+                                                            <th scope="col">Sesi</th>
+                                                            <th scope="col">Subjek</th>
+                                                            <th scope="col">Kelas</th>
+                                                            <th scope="col">Hari</th>
+                                                            <th scope="col">Slot</th>
+                                                            <th scope="col"></th>
 
 
-                                                            </tr>
-                                                        </thead>
+                                                        </tr>
+                                                    </thead>
 
-                                                        <tbody>
-                                                            <?php include("./viewsub.php") ?>
-                                                        </tbody>
+                                                    <tbody>
+                                                        <?php include("./viewsub.php") ?>
+                                                    </tbody>
 
 
-                                                    </table>
+                                                </table>
 
-                                                </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>

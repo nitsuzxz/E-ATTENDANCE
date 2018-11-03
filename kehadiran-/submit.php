@@ -2,7 +2,7 @@
     global $connection;
 
     if(isset($_POST['submitkehadiran'])){
-        $idj =$_POST['k_sesi'];
+        $idj =$_POST['k_slot'];
         $tarikh =$_POST['date'];
         
         

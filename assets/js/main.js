@@ -96,7 +96,27 @@ $(document).ready(function () {
     } else if (hashValue === "successsubjek") {
         $("#successsubjek").modal('toggle');
     }
+    else if (hashValue === "successsubjek") {
+        $("#successsubjek").modal('toggle');
+    }
+    else if (hashValue === "kehadiran") {
+        $("#attendance").modal('toggle');
+    }
 });
+
+$(document).ready(function () {
+    var hashValue = location.hash;
+    hashValue = hashValue.replace(/^#/, '');
+    console.log(hashValue);
+    if (hashValue === "add") {
+        $("#berjayaadd").modal('toggle');
+    } else if (hashValue === "telahwujud") {
+        $("#wujud").modal('toggle');
+    }
+});
+
+
+
 
 $(document).ready(function () {
     $("#psearch").on("keyup", function () {

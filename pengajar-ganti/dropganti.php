@@ -58,7 +58,7 @@ include ("../config/db.php");
             }
         }
 
-        if (isset($_GET['kelasp'])&&isset($_GET['sesip'])&&isset($_GET['bahagianp'])&&isset($_GET['gt'])) {
+ if (isset($_GET['kelasp'])&&isset($_GET['sesip'])&&isset($_GET['bahagianp'])&&isset($_GET['gt'])) {
         $kelas_pelajar= $_GET['kelasp'];
         $sesi_pelajar= $_GET['sesip'];
         $bahagian_pelajar= $_GET['bahagianp'];
@@ -86,6 +86,9 @@ include ("../config/db.php");
                                                 echo "</td>";
                                                 echo "<td>";
                                                 echo "<select  name='kehadiranpelajar[]'  class='form-control' required>";
+                                                echo "<option value=''>";
+                                                echo "Please select";
+                                                echo "</option>";
                                                 echo "<option value='/'>";
                                                 echo "Hadir";
                                                 echo "</option>";

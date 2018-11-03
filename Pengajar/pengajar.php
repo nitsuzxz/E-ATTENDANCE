@@ -65,7 +65,6 @@ if (loggin ($_SESSION['email_pengajar']) ===false){
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
                             <a class="nav-link" href="../index.php"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
@@ -79,11 +78,7 @@ if (loggin ($_SESSION['email_pengajar']) ===false){
 
         <div class="breadcrumbs">
             <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>Dashboard</h1>
-                    </div>
-                </div>
+
             </div>
             <div class="col-sm-8">
                 <div class="page-header float-right">
@@ -100,16 +95,15 @@ if (loggin ($_SESSION['email_pengajar']) ===false){
 
 
         <form action="" method="post" class="col-lg-12">
-         
+
             <div class="card">
                 <div class="card-header">
                     <h4>Tambah Pengajar</h4>
                 </div>
-               
+
                 <div class="card-body">
-                    
-                                <?php echo $error1 ?>
-                     
+
+
                     <label class=" form-control-label">Nama Pengajar</label>
                     <input class="form-control" type="text" placeholder="nama" name="nama_pengajar" value="<?php echo (isset($nama_pengajar)) ? $nama_pengajar : ''; ?>" required>
                     <label class=" form-control-label">Email Pengajar</label>
@@ -162,13 +156,14 @@ if (loggin ($_SESSION['email_pengajar']) ===false){
                 </div>
             </div>
         </form>
-        
-        <form method="post" enctype="multipart/form-data">
+
+        <form action="" method="post" class="col-lg-12">
+
             <div class="card">
 
                 <div class="card-body">
 
-                   
+
                     <label>Senarai Pengajar</label>
                     <input type="file" name="file" /><br />
 
@@ -178,14 +173,14 @@ if (loggin ($_SESSION['email_pengajar']) ===false){
                 <div class="card-footer">
                     <input type="submit" name="submit" value="IMPORT" class="btn btn-primary" />
                 </div>
-                 <?php include("./uploads.php") ?>
+                <?php include("./uploads.php") ?>
             </div>
         </form>
 
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <strong class="card-title">PENGAJAR</strong>
+                    <strong class="card-title">SENARAI PENGAJAR</strong>
                 </div>
                 <div class="card-body">
                     <table class="table">

@@ -79,7 +79,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Subjek</h1>
+                        <h1>KEHADIRAN PELAJAR</h1>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="#">Dashboard</a></li>
-                            <li class="active">Subjek</li>
+                            <li class="active">Pengajar Ganti</li>
                         </ol>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                     <form action="" method="POST" class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Kehadiran</strong>
+                                <strong>Tanda Kehadiran Bagi Pengajar Ganti</strong>
                             </div>
                             <div class="card-body card-block">
 
@@ -227,27 +227,29 @@
         }
         
             function gpelajar() {
-        
-             var xmlhttp = new XMLHttpRequest();    
-                
-            var bahagianp = <?php echo $_SESSION['bahagian'] ?>;
-            
-            var sel = document.getElementById('ganti_pelajard');
-            var selected = sel.options[sel.selectedIndex];
-            var kelas = selected.getAttribute('kelass');
+
+            var xmlhttp = new XMLHttpRequest();
+            var k_bahagian = <?php echo $_SESSION['bahagian'] ?>;
+            var ssp = <?php echo $_SESSION['id_pengajar'] ?>;
+            var hari = document.getElementById('khd').value;
 
             var sel = document.getElementById('ganti_pelajard');
             var selected = sel.options[sel.selectedIndex];
-            var sesi = selected.getAttribute('sesis');
-                
-            var gt = document.getElementById('ganti_harid').value;
-          
-            xmlhttp.open("GET", "dropganti.php?kelasp=" + kelas + "&sesip=" + sesi + "&bahagianp=" + bahagianp + "&gt=" + gt, false);
+            var k_kelas = selected.getAttribute('kelass');
+            console.log('kelas ', k_kelas);
+
+            var sel = document.getElementById('ganti_pelajard');
+            var selected = sel.options[sel.selectedIndex];
+            var k_sesi = selected.getAttribute('sesis');
+            var date = document.getElementById('date').value;
+            var dropslot = document.getElementById('ganti_pelajard').value;
+            console.log('slot ', dropslot);
+            xmlhttp.open("GET", "ddk.php?kelas=" + k_kelas+ "&date=" + date + "&sesi=" + k_sesi + "&slot=" + dropslot + "&bahagian_1=" + k_bahagian, false);
             xmlhttp.send(null);
             //alert(xmlhttp.responseText);
             console.log('ajax ', xmlhttp.response);
-            document.getElementById('tablepelajar').innerHTML = xmlhttp.responseText;
-
+            document.getElementById('kpk').innerHTML = xmlhttp.responseText;
+         
 
         }
         
