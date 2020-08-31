@@ -1,6 +1,5 @@
 <?php
 global $connection;
-
 if(isset($_POST["submit"]))
 {
  if($_FILES['file']['name'])
@@ -14,17 +13,15 @@ if(isset($_POST["submit"]))
        $item1 = mysqli_real_escape_string($connection, $data[0]);  
        $item2 = mysqli_real_escape_string($connection, $data[1]);
        $item3 = mysqli_real_escape_string($connection, $data[2]);
-       $item4 = mysqli_real_escape_string($connection, $data[3]);
-       $item5 = mysqli_real_escape_string($connection, $data[4]);
-       $item6 = mysqli_real_escape_string($connection, $data[5]);
+      
        
-       $query = "INSERT into pelajar(`nama_pelajar`, `no_ndp`, `jawatan`, `bahagian`, `ic`, `sesi`, `kelas`) values('$item1','$item2','4','$item3','$item4','$item5','$item6')";
+       $query = "INSERT INTO pengajar ( `nama_pengajar`, `email_pengajar`, `pass_pengajar`, `jawatan`, `bahagian`) values('$item1','$item2','user123','3','$item3')";
        
        mysqli_query($connection, $query);
    }
    fclose($handle);
    
-       header("Location: ./pelajar.php");
+       header("Location: ./pengajar.php");
   }
  }
 }

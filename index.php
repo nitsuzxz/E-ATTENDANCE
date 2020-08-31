@@ -39,7 +39,6 @@
         <div class="loggin">
             <button type="submit" name="login" id="login">Login</button>
             <label>
-      <span class="psw"><a href="#"> Forgot password?</a></span>
     </label>
         </div>
 

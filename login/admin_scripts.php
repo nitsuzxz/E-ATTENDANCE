@@ -28,7 +28,7 @@
            
             }
             else if ($us_role == 2){
-            header("Location: ./KB_Pengajar/pengajar.php");
+            header("Location: ./KBDashboard/index.php");
             }
            
             $_SESSION['bahagian']= $bahagian;

@@ -18,7 +18,6 @@ if (isset($_POST['download'])) {
     $q_mula     = $_POST['date'];
     $q_akhir    = $_POST['date2'];
     $q_bahagian = $_POST['jbahagian'];
-    
     $step = '+1 day';
 	$output_format = 'Y-m-d';
 	$html = '';

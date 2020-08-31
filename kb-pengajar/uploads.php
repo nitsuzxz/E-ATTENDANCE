@@ -1,6 +1,5 @@
 <?php
 global $connection;
-
 if(isset($_POST["submit"]))
 {
  if($_FILES['file']['name'])
@@ -11,7 +10,7 @@ if(isset($_POST["submit"]))
    $handle = fopen($_FILES['file']['tmp_name'], "r");
    while($data = fgetcsv($handle))
    {
-       $item1 = mysqli_real_escape_string($connection, $data[0]);  
+  $item1 = mysqli_real_escape_string($connection, $data[0]);  
        $item2 = mysqli_real_escape_string($connection, $data[1]);
        $item3 = mysqli_real_escape_string($connection, $data[2]);
        $item4 = mysqli_real_escape_string($connection, $data[3]);
@@ -24,7 +23,7 @@ if(isset($_POST["submit"]))
    }
    fclose($handle);
    
-       header("Location: ./pelajar.php");
+       header("Location: ./pengajar.php");
   }
  }
 }

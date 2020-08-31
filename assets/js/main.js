@@ -84,6 +84,10 @@ $(document).ready(function () {
         $("#success").modal('toggle');
     } else if (hashValue === "successEdit") {
         $("#successEdit").modal('toggle');
+    } else if (hashValue === "adds") {
+        $("#adds").modal('toggle');
+    } else if (hashValue === "exist") {
+        $("#exist").modal('toggle');
     }
 });
 
@@ -104,31 +108,13 @@ $(document).ready(function () {
     }
 });
 
-$(document).ready(function () {
-    var hashValue = location.hash;
-    hashValue = hashValue.replace(/^#/, '');
-    console.log(hashValue);
-    if (hashValue === "add") {
-        $("#berjayaadd").modal('toggle');
-    } else if (hashValue === "telahwujud") {
-        $("#wujud").modal('toggle');
-    }
-});
-
-
-
-
-$(document).ready(function () {
-    $("#psearch").on("keyup", function () {
-        var value = $(this).val().toLowerCase();
-        $("#ptable tr").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+ $(document).ready(function() {
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
         });
-    });
-});
-// $('.user-area> a').click( function(event) {
-// 	event.preventDefault();
-// 	event.stopPropagation();
-// 	$('.user-menu').parent().removeClass('open');
-// 	$('.user-menu').parent().toggleClass('open');
-// });
+
+

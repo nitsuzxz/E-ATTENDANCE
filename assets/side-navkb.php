@@ -17,36 +17,36 @@
                     
                   
                      <li class="active">
-                        <a href="../KB_Dashboard/index.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="../KBDashboard/index.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <h3 class="menu-title">KEHADIRAN PELAJAR</h3>
                     
                     <li class="active">
-                        <a href="../KB_kehadiran/kehadiran.php"> <i class="menu-icon fa fa-user"></i>KEHADIRAN </a>
+                        <a href="../KBkehadiran/kehadiran.php"> <i class="menu-icon fa fa-user"></i>KEHADIRAN </a>
                     </li>
                     
                     <li class="active">
-                        <a href="../KB_pengajar_ganti/ganti.php"> <i class="menu-icon fa fa-user"></i>PENGAJAR GANTI </a>
+                        <a href="../KBkehadiran-/kehadiran.php"> <i class="menu-icon fa fa-user"></i>PENGAJAR GANTI </a>
                     </li>
                     
                     
                     <h3 class="menu-title">PENGGUNA</h3><!-- /.menu-title -->
                    <li class="active">
-                        <a href="../KB_Pengajar/pengajar.php"> <i class="menu-icon fa fa-user"></i>PENGAJAR </a>
+                        <a href="../KBPengajar/pengajar.php"> <i class="menu-icon fa fa-user"></i>PENGAJAR </a>
                     </li>
                    <li class="active">
-                        <a href="../KB_Pelajar/pelajar.php"> <i class="menu-icon fa fa-user"></i>PELAJAR </a>
+                        <a href="../KBPelajar/pelajar.php"> <i class="menu-icon fa fa-user"></i>PELAJAR </a>
                     </li>
                     
                     
                     <h3 class="menu-title">TAMBAH</h3>
                     
                     <li class="active">
-                        <a href="../KB_subjek/subjek.php"> <i class="menu-icon fa fa-user"></i>SUBJEK </a>
+                        <a href="../KBsubjek/subjek.php"> <i class="menu-icon fa fa-user"></i>SUBJEK </a>
                     </li>
                     
                     <li class="active">
-                        <a href="../KB_jadual/jadual.php"> <i class="menu-icon fa fa-user"></i>JADUAL </a>
+                        <a href="../KBjadual/jadual.php"> <i class="menu-icon fa fa-user"></i>JADUAL </a>
                     </li>
                     
                 </ul>

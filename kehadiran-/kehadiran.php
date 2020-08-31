@@ -64,7 +64,6 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
                             <a class="nav-link" href="../index.php"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
@@ -112,7 +111,7 @@
 
                                         <option value="">Sila Pilih</option>
                                         <?php
-                                $res = mysqli_query($connection, "select * from pengajar where bahagian='{$_SESSION['bahagian']}' ");
+                                $res = mysqli_query($connection, "select * from pengajar  ORDER BY nama_pengajar ASC ");
 
                                 while($row=mysqli_fetch_array($res)) {
                                      $pid= $row['id_pengajar'];

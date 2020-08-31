@@ -88,8 +88,8 @@
         </div>
 
 
-      <form action="" method="post" class="col-lg-12">
-         
+        <form action="" method="post" class="col-lg-12">
+
             <div class="card">
 
                 <div class="card-header">
@@ -178,8 +178,9 @@
         </form>
 
 
-        <form action="" method="post" class="col-lg-12">
-         
+                 <form method="post" enctype="multipart/form-data">
+
+
             <div class="card">
 
                 <div class="card-body">
@@ -203,6 +204,8 @@
             <div class="card">
                 <div class="card-header">
                     <strong class="card-title">PELAJAR</strong>
+                    <input id="myInput" type="text" class="form-control col-sm-3" placeholder="Search..">
+
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -220,7 +223,7 @@
                             </tr>
                         </thead>
 
-                        <tbody id="ptable">
+                        <tbody id="myTable">
                             <?php include("./view_pelajar.php") ?>
                         </tbody>
 

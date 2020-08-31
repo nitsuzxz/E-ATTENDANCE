@@ -80,7 +80,7 @@
     </div>
 </div> 
 <!--  -->
-    <div id="berjayaadd" class="modal fade">
+    <div id="adds" class="modal fade">
     <div class="modal-dialog modal-confirm">
         <div class="modal-content">
             <div class="modal-header btn-info">
@@ -94,7 +94,7 @@
         </div>
     </div>
 </div> 
- <div id="wujud" class="modal fade">
+ <div id="exist" class="modal fade">
     <div class="modal-dialog modal-confirm">
         <div class="modal-content">
             <div class="modal-header btn-info">

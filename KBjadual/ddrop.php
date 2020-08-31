@@ -136,7 +136,7 @@ if (isset($_GET['slot'])) {
         $st = $_GET['slot'];
 
   
-        if($st == "JUMAAT"){  
+        if($st== "JUMAAT"){  
 
                         echo"<div id='jst' class='form-check-inline form-check'>";
                         echo" <label  class='form-check-label'>";

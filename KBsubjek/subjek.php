@@ -1,5 +1,5 @@
 <?php include("../config/db.php") ?>
-<?php include("../assets/side-nav.php") ?>
+<?php include("../assets/side-navkb.php") ?>
 <?php include("./in_sub.php") ?>
 <?php include("./esb.php") ?>
 <?php include("../assets/modal.php") ?>

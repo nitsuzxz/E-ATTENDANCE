@@ -7,9 +7,11 @@ global $connection;
       $slot=$_GET['sth'];
       $pelajar=$_GET['idp'];
         
-    $query="select p.id_pelajar,p.nama_pelajar,p.no_ndp,b.bahagian,p.ic
+    $query="select p.id_pelajar,p.nama_pelajar,p.no_ndp,b.bahagian,s.semester,p.ic
     from pelajar as p
     join bahagian as b
+    join sesi as s
+    on p.sesi=s.ids
     where id_pelajar='$pelajar'";
         
         $sss  = mysqli_query($connection, $query);
@@ -21,9 +23,11 @@ global $connection;
                                       $no_ndp           = $row['no_ndp'];
                                       $bahagian         = $row['bahagian'];
                                       $ic               = $row['ic'];
+                                       $sem               = $row['semester'];
   
         
     }
+    $qbahagian="";    
         
         
      $qp =    "SELECT P.id_pengajar,P.nama_pengajar,J.jawatan,B.bahagian

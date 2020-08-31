@@ -1,6 +1,5 @@
 <?php
 global $connection;
-
 if(isset($_POST["submit"]))
 {
  if($_FILES['file']['name'])

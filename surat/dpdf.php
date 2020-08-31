@@ -42,8 +42,12 @@ td, th {
     <hr>
     
     <p align="left" style="font-size:12" >Kepada&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Pengerusi Jawatankuasa Tatatertib Pelajar II</p>
-    <p align="left" style="font-size:12">Tarikh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </p>
-    <p align="left" style="font-size:12">Tuan/Puan&nbsp;&nbsp;&nbsp;&nbsp;: </p>
+    <p align="left" style="font-size:12">Tarikh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:                              <?php
+echo date("d/m/Y") ;
+
+
+?> </p>
+    <p align="left" style="font-size:12">Tuan/Puan </p>
     
     <h2><strong><u style="font-size:12">Aduan Displin Pelajar </u></strong></h2>
     
@@ -53,7 +57,7 @@ td, th {
     <p style="font-size:12">Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<?php echo $nama_pelajar ?> </p>
     <p style="font-size:12">No.K/P &nbsp;&nbsp;&nbsp;&nbsp;:<?php echo $ic ?> </p>
     <p style="font-size:12">Kursus &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<?php echo $bahagian ?></p>
-    <p style="font-size:12">Semester &nbsp;&nbsp;: </p>
+    <p style="font-size:12">Semester &nbsp;&nbsp;:<?php echo $sem ?> </p>
     
     <p style="font-size:12">Telah didapati melakukan kesalahan tatatertib seperti berikut: </p>
     

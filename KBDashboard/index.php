@@ -1,5 +1,5 @@
 <?php include("../config/db.php") ?>
-<?php include("../assets/side-nav.php") ?>
+<?php include("../assets/side-navkb.php") ?>
 
 <!doctype html>
 
@@ -92,11 +92,10 @@
                                 <strong>Rekod Kehadiran Rasmi</strong>
                             </div>
                             <div class="card-body card-block">
-  
-                                
+
                                 <div class="form-group">
                                     <label class=" form-control-label">Bahagian</label>
-                                    <select id="jbahagian" name="jbahagian"  class="form-control" required>
+                                    <select id="jbahagian" name="jbahagian" class="form-control" required>
 
                                         <option value="">Sila Pilih</option>
                                         <?php
@@ -213,7 +212,7 @@
 
     <script src="../assets/js/popper.min.js"></script>
     <script src="../assets/js/plugins.js"></script>
-    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>+
 
     <script type="text/javascript">
         function kelas() {
